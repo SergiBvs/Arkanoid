@@ -142,6 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShipSpeed: 7
+  RightWall: {fileID: 581722166}
+  LeftWall: {fileID: 759404621}
 --- !u!212 &117513252
 SpriteRenderer:
   m_ObjectHideFlags: 0
