@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
-    int x = 0;
-    int y = 0;
+    public int x = 0;
+    public int y = 0;
 
     public float speed;
 
