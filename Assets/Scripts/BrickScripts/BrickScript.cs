@@ -8,6 +8,9 @@ public class BrickScript : MonoBehaviour {
 
     public Brick_Type brickType;
 
+    public Sprite m_BrokenBrick;
+    public Sprite m_UnCorruptedBrick;
+
     private GameObject m_Ball;
     private SpriteRenderer m_BallRenderer;
     private SpriteRenderer m_Brick;
@@ -152,12 +155,36 @@ public class BrickScript : MonoBehaviour {
     public void SteelBehaviour()
     {
         Bounce(m_BallRenderer, m_Brick);
+        
+        m_brickHealth--;
 
+        if(m_brickHealth <= 1)
+        {
+            m_Brick.sprite = m_BrokenBrick;
+        }
+        if (m_brickHealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void DesertBehaviour()
     {
+        int l_DesertBrickSpeed = 4;
+
         Bounce(m_BallRenderer, m_Brick);
+        m_brickHealth--;
+        if (m_brickHealth <= 0)
+        {
+            while(this.transform.position.y <= -5.51f)
+            {
+                this.transform.position += Vector3.down * Time.deltaTime * l_DesertBrickSpeed;
+            }
+        }
+        if(this.transform.position.y <= -5.51f)
+        {
+            Destroy(this.gameObject);
+        }
 
     }
 
