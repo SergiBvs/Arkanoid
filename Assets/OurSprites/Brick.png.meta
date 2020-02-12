@@ -16,6 +16,8 @@ TextureImporter:
     21300022: Brick_Desert
     21300024: Brick_Corrupted
     21300026: Brick_Corruption
+    21300028: Brick_Futuristic
+    21300030: Brick_FuturisticLights
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -355,6 +357,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1b1bd96137ec0014fb00f0d2b850766b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick_Futuristic
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 14
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea20390317c0df44a8827fc1caa81a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick_FuturisticLights
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 14
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7bcfd295415ba945a6afe5b7f9e132a
       vertices: []
       indices: 
       edges: []
