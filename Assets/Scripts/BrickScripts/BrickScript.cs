@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BrickScript : MonoBehaviour {
 
+    public enum Brick_Type { normal, steel, desert, future, dimensional, corrupted}
+
+    public Brick_Type brickType;
+
     private GameObject m_Ball;
     private SpriteRenderer m_BallRenderer;
     private SpriteRenderer m_Brick;
@@ -26,18 +30,21 @@ public class BrickScript : MonoBehaviour {
 	void Update () {
 		if(IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallRenderer))
         {
-            if (!isHitting)
+            if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
             {
                 isHitting = true;
-                m_brickHealth--;
-                if (m_brickHealth <= 0)
+                switch (brickType)
                 {
-                    Destroy(this.gameObject);
+                    case Brick_Type.normal:
+                        NormalBehaviour();
+                        break;
                 }
+
             }
         }
         else
         {
+            //Cuando la bola sale del brick
             isHitting = false;
         }
 	}
@@ -49,6 +56,12 @@ public class BrickScript : MonoBehaviour {
             && l_Ball.bounds.min.y < l_Nave.bounds.max.y
             && l_Ball.bounds.max.x > l_Nave.bounds.min.x
             && l_Ball.bounds.min.x < l_Nave.bounds.max.x;
+
+    }
+
+
+    public void NormalBehaviour()
+    {
 
     }
 }
