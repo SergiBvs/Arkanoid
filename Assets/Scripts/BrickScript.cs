@@ -10,6 +10,8 @@ public class BrickScript : MonoBehaviour {
 
     private Ball ballScript;
 
+    public int m_brickHealth;
+
 	// Use this for initialization
 	void Start () {
         m_Ball = GameObject.FindGameObjectWithTag("Ball");
@@ -23,7 +25,11 @@ public class BrickScript : MonoBehaviour {
 		if(IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallRenderer))
         {
             //if()
-            Destroy(this.gameObject);
+            m_brickHealth--;
+            if (m_brickHealth <= 0)
+            {
+                Destroy(this.gameObject);
+            }
         }
 	}
 
