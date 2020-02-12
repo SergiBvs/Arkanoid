@@ -24,6 +24,7 @@ public class BrickScript : MonoBehaviour {
         m_BallRenderer = m_Ball.GetComponent<SpriteRenderer>();
         m_Brick = this.GetComponent<SpriteRenderer>();
         ballScript = m_Ball.GetComponent<Ball>();
+        print("bhcsabchjsabhcbaj"+m_BallRenderer.bounds.size.x / 2);
 	}
 	
 	// Update is called once per frame
@@ -50,6 +51,18 @@ public class BrickScript : MonoBehaviour {
                     case Brick_Type.corrupted:
                         CorruptedBehaviour();
                         break;
+                    case Brick_Type.dimensional:
+                        DimBehaviour();
+                        break;
+                    case Brick_Type.chest:
+                        ChestBehaviour();
+                        break;
+                    case Brick_Type.mimic:
+                        MimicBehaviour();
+                        break;
+                    case Brick_Type.obsidian:
+                        ObsidianBehaviour();
+                        break;
                 }
 
             }
@@ -61,8 +74,24 @@ public class BrickScript : MonoBehaviour {
         }
 	}
 
-    public void Bounce()
+    public void Bounce(SpriteRenderer b, SpriteRenderer k)
     {
+       
+        if ((b.bounds.max.x < k.bounds.min.x + 0.1f) && (Vector3.Distance(b.gameObject.transform.position, k.gameObject.transform.position - k.bounds.size/2) < b.bounds.size.x) 
+            && (b.transform.position.y > k.bounds.min.y) && (b.transform.position.y < k.bounds.max.y)){
+
+            ballScript.x = -1;
+        }
+        else if ((b.bounds.min.x > k.bounds.max.x - 0.1f) && (Vector3.Distance(b.gameObject.transform.position, k.gameObject.transform.position + k.bounds.size / 2) < b.bounds.size.x)
+            && (b.transform.position.y > k.bounds.min.y) && (b.transform.position.y < k.bounds.max.y))
+        {
+            ballScript.x = 1;
+        }
+        else if ((b.bounds.max.y > k.bounds.min.y) && (b.bounds.min.y < k.bounds.max.y)
+            && (b.transform.position.x > k.bounds.min.x) && (b.transform.position.x < k.bounds.max.x))
+        {
+            ballScript.y = -1;
+        }
 
     }
 
@@ -79,7 +108,7 @@ public class BrickScript : MonoBehaviour {
 
     public void NormalBehaviour()
     {
-        Bounce();
+        Bounce(m_BallRenderer, m_Brick);
         m_brickHealth--;
         if (m_brickHealth <= 0)
         {
@@ -89,11 +118,13 @@ public class BrickScript : MonoBehaviour {
 
     public void SteelBehaviour()
     {
+        Bounce(m_BallRenderer, m_Brick);
 
     }
 
     public void DesertBehaviour()
     {
+        Bounce(m_BallRenderer, m_Brick);
 
     }
 
@@ -104,26 +135,31 @@ public class BrickScript : MonoBehaviour {
 
     public void CorruptedBehaviour()
     {
+        Bounce(m_BallRenderer, m_Brick);
 
     }
 
     public void DimBehaviour()
     {
+        Bounce(m_BallRenderer, m_Brick);
 
     }
 
     public void ChestBehaviour()
     {
+        Bounce(m_BallRenderer, m_Brick);
 
     }
 
     public void MimicBehaviour()
     {
+        Bounce(m_BallRenderer, m_Brick);
 
     }
 
     public void ObsidianBehaviour()
     {
+        Bounce(m_BallRenderer, m_Brick);
 
     }
 

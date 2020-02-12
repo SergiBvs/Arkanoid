@@ -85,7 +85,7 @@ public class Ball : MonoBehaviour {
         float l_Distance = Vector3.Distance(this.GetComponent<SpriteRenderer>().bounds.center, topLeft);
         float l_Distance2 = Vector3.Distance(this.GetComponent<SpriteRenderer>().bounds.center, topRight);
 
-        print(l_Distance + "  " + l_Distance2);
+        
         if (l_Distance < ((m_Nave.transform.localScale.x / 3)))
         {
             print("LEFT");
