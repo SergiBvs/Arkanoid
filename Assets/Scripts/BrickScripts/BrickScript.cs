@@ -76,19 +76,52 @@ public class BrickScript : MonoBehaviour {
 
     public void Bounce(SpriteRenderer b, SpriteRenderer k)
     {
-       
-        if ((b.bounds.max.x < k.bounds.min.x + 0.1f) && (Vector3.Distance(b.gameObject.transform.position, k.gameObject.transform.position - k.bounds.size/2) < b.bounds.size.x) 
+       /*
+        if ((b.bounds.max.x < k.bounds.min.x + 0.8f) && (Vector3.Distance(b.gameObject.transform.position, k.gameObject.transform.position - k.bounds.size/2) < b.bounds.size.x) 
             && (b.transform.position.y > k.bounds.min.y) && (b.transform.position.y < k.bounds.max.y)){
 
             ballScript.x = -1;
         }
-        else if ((b.bounds.min.x > k.bounds.max.x - 0.1f) && (Vector3.Distance(b.gameObject.transform.position, k.gameObject.transform.position + k.bounds.size / 2) < b.bounds.size.x)
+        else if ((b.bounds.min.x > k.bounds.max.x - 0.8f) && (Vector3.Distance(b.gameObject.transform.position, k.gameObject.transform.position + k.bounds.size / 2) < b.bounds.size.x)
             && (b.transform.position.y > k.bounds.min.y) && (b.transform.position.y < k.bounds.max.y))
         {
             ballScript.x = 1;
         }
         else if ((b.bounds.max.y > k.bounds.min.y) && (b.bounds.min.y < k.bounds.max.y)
-            && (b.transform.position.x > k.bounds.min.x) && (b.transform.position.x < k.bounds.max.x))
+            && (b.bounds.min.x < k.bounds.max.x) && (b.bounds.max.x > k.bounds.min.x))
+        {
+            ballScript.y = -1;
+        }
+
+        else if ((b.bounds.min.y < k.bounds.max.y) && (b.bounds.max.y > k.bounds.min.y)
+            && (b.bounds.min.x < k.bounds.max.x) && (b.bounds.max.x > k.bounds.min.x))
+        {
+            ballScript.y = 1;
+        }*/
+
+        //Como ya hemos detectado que esta colisionando no hace falta volverlo a detectar sino mirar en que posicion estaba la pelota cuando lo ha tocado.
+
+        if(b.transform.position.x < k.transform.position.x - k.bounds.size.x / 2)
+        {
+            print("Left");
+            ballScript.x = -1;
+        }
+        else if (b.transform.position.x > k.transform.position.x + k.bounds.size.x / 2)
+        {
+            ballScript.x = 1;
+            print("Right");
+        }
+        else if (b.transform.position.y < k.transform.position.y - k.bounds.size.y / 2)
+        {
+            print("down");
+            ballScript.y = -1;
+        }
+        else if (b.transform.position.y > k.transform.position.x + k.bounds.size.x / 2)
+        {
+            print("Up");
+            ballScript.y = 1;
+        }
+        else
         {
             ballScript.y = -1;
         }
@@ -130,7 +163,7 @@ public class BrickScript : MonoBehaviour {
 
     public void FutureBehaviour()
     {
-
+        Bounce(m_BallRenderer, m_Brick);
     }
 
     public void CorruptedBehaviour()
