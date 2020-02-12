@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour {
 
@@ -17,32 +18,53 @@ public class Ball : MonoBehaviour {
     public SpriteRenderer m_RightWall;
     SpriteRenderer m_sr;
 
+    bool movementStarted = false;
+
     // Use this for initialization
     void Start () {
         m_sr = this.GetComponent<SpriteRenderer>();
-	}
+        this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y/2.5f, 0);
+        movementStarted = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
-        
-        if (IntersectBounds(m_sr, m_NaveRenderer))
+        if (movementStarted)
         {
-            BounceFromShip();
-        }
-        else if(IntersectBounds(m_sr, m_TopWall)){
-            y = -1;
-        }
-        else if(IntersectBounds(m_sr, m_LeftWall))
+            if (IntersectBounds(m_sr, m_NaveRenderer))
+            {
+                BounceFromShip();
+            }
+            else if (IntersectBounds(m_sr, m_TopWall))
+            {
+                y = -1;
+            }
+            else if (IntersectBounds(m_sr, m_LeftWall))
+            {
+                x = 1;
+            }
+            else if (IntersectBounds(m_sr, m_RightWall))
+            {
+                x = -1;
+            }
+            else if (m_sr.bounds.max.y < m_NaveRenderer.bounds.min.y) // Por debajo de la nave
+            {
+                //Cambiar esto para que en vez de resetear la escena resetee la pelota. 
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+
+            transform.position += new Vector3(x, y, 0) * Time.deltaTime * speed;
+        } 
+        else
         {
-            x = 1;
-        }
-        else if(IntersectBounds(m_sr, m_RightWall))
-        {
-            x = -1;
+            this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y / 2.5f, 0);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                movementStarted = true;
+            }
         }
 
-        transform.position += new Vector3(x, y, 0) * Time.deltaTime *speed;
     }
 
 

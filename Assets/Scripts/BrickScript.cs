@@ -12,6 +12,8 @@ public class BrickScript : MonoBehaviour {
 
     public int m_brickHealth;
 
+    private bool isHitting = false;
+
 	// Use this for initialization
 	void Start () {
         m_Ball = GameObject.FindGameObjectWithTag("Ball");
@@ -24,12 +26,19 @@ public class BrickScript : MonoBehaviour {
 	void Update () {
 		if(IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallRenderer))
         {
-            //if()
-            m_brickHealth--;
-            if (m_brickHealth <= 0)
+            if (!isHitting)
             {
-                Destroy(this.gameObject);
+                isHitting = true;
+                m_brickHealth--;
+                if (m_brickHealth <= 0)
+                {
+                    Destroy(this.gameObject);
+                }
             }
+        }
+        else
+        {
+            isHitting = false;
         }
 	}
 
