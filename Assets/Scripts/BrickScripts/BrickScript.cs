@@ -49,6 +49,11 @@ public class BrickScript : MonoBehaviour {
         }
 	}
 
+    public void Bounce()
+    {
+
+    }
+
 
     public bool IntersectBounds(SpriteRenderer l_Ball, SpriteRenderer l_Nave)
     {
@@ -62,7 +67,12 @@ public class BrickScript : MonoBehaviour {
 
     public void NormalBehaviour()
     {
-
+        Bounce();
+        m_brickHealth--;
+        if (m_brickHealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void SteelBehaviour()
@@ -99,4 +109,7 @@ public class BrickScript : MonoBehaviour {
     {
 
     }
+
+
+
 }
