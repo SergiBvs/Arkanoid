@@ -21,6 +21,7 @@ public class BrickScript : MonoBehaviour {
     public float sandSpeed;
 
     private bool isHitting = false;
+    private bool sandFalling = false;
 
 	// Use this for initialization
 	void Start () {
@@ -75,6 +76,11 @@ public class BrickScript : MonoBehaviour {
         {
             //Cuando la bola sale del brick
             isHitting = false;
+        }
+
+        if(sandFalling == true)
+        {
+            
         }
 	}
 
@@ -174,6 +180,11 @@ public class BrickScript : MonoBehaviour {
         Bounce(m_BallRenderer, m_Brick);
         m_brickHealth--;
        
+        if(m_brickHealth <= 0)
+        {
+            sandFalling = true;
+        }
+
         if(this.transform.position.y <= -5.51f)
         {
             Destroy(this.gameObject);
