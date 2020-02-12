@@ -9,6 +9,13 @@ TextureImporter:
     21300008: Brick_4
     21300010: Brick_5
     21300012: Brick_SteelHurt
+    21300014: Brick_0
+    21300016: Brick_GhostInvincible
+    21300018: Brick_GhostWeak
+    21300020: Brick_Variant1
+    21300022: Brick_Desert
+    21300024: Brick_Corrupted
+    21300026: Brick_Corruption
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -117,7 +124,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3
-        y: 22
+        y: 54
         width: 13
         height: 6
       alignment: 0
@@ -137,7 +144,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 17
-        y: 22
+        y: 54
         width: 12
         height: 7
       alignment: 0
@@ -157,7 +164,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 17
-        y: 14
+        y: 46
         width: 12
         height: 7
       alignment: 0
@@ -177,7 +184,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3
-        y: 14
+        y: 46
         width: 13
         height: 6
       alignment: 0
@@ -197,7 +204,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3
-        y: 20
+        y: 52
         width: 2
         height: 2
       alignment: 0
@@ -237,7 +244,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3
-        y: 6
+        y: 38
         width: 13
         height: 6
       alignment: 0
@@ -248,6 +255,106 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 5175647c07671724da340232a453a62b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 52
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99632d1c23094b34885879e445824908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick_Variant1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 30
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d25ba1d8e672ae45aedf8b14b740c1e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick_Desert
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 30
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6acef2edc67a7f349a1aeddbe0d7b290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick_Corrupted
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 22
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b5d07ed90ca1da49a288f6e90e66833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick_Corruption
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 21
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b1bd96137ec0014fb00f0d2b850766b
       vertices: []
       indices: 
       edges: []
