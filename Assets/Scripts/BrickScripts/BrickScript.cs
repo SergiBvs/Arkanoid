@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BrickScript : MonoBehaviour {
 
-    public enum Brick_Type { normal, steel, desert, future, dimensional, corrupted, chest, mimic}
+    public enum Brick_Type { normal, steel, desert, future, dimensional, corrupted, chest, mimic, obsidian}
 
     public Brick_Type brickType;
 
@@ -37,6 +37,18 @@ public class BrickScript : MonoBehaviour {
                 {
                     case Brick_Type.normal:
                         NormalBehaviour();
+                        break;
+                    case Brick_Type.steel:
+                        SteelBehaviour();
+                        break;
+                    case Brick_Type.desert:
+                        DesertBehaviour();
+                        break;
+                    case Brick_Type.future:
+                        FutureBehaviour();
+                        break;
+                    case Brick_Type.corrupted:
+                        CorruptedBehaviour();
                         break;
                 }
 
@@ -110,6 +122,9 @@ public class BrickScript : MonoBehaviour {
 
     }
 
+    public void ObsidianBehaviour()
+    {
 
+    }
 
 }

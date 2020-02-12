@@ -19,6 +19,7 @@ TextureImporter:
     21300028: Brick_Futuristic
     21300030: Brick_FuturisticLights
     21300032: Brick_DimensionalFailure
+    21300034: Brick_Obsidian
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -418,6 +419,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3f1bf9d446e3b4d439fb3b0300dec1eb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick_Obsidian
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 38
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5994f45ce296a3f4595635031c67e0a7
       vertices: []
       indices: 
       edges: []

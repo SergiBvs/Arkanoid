@@ -1946,7 +1946,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Desert Bricks: Al darle cae. Si toca la nave pasa algo.'
+  m_Text: 'Desert Bricks: Al darle cae. Mientras cae sigue siendo rebotador. Si toca
+    la nave pasa algo.'
 --- !u!222 &586124984
 CanvasRenderer:
   m_ObjectHideFlags: 0
