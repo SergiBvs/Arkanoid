@@ -176,10 +176,7 @@ public class BrickScript : MonoBehaviour {
         m_brickHealth--;
         if (m_brickHealth <= 0)
         {
-            while(this.transform.position.y <= -5.51f)
-            {
-                this.transform.position += Vector3.down * Time.deltaTime * l_DesertBrickSpeed;
-            }
+            this.transform.position += Vector3.down * Time.deltaTime * l_DesertBrickSpeed;
         }
         if(this.transform.position.y <= -5.51f)
         {
