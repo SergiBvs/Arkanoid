@@ -18,6 +18,7 @@ public class BrickScript : MonoBehaviour {
     private Ball ballScript;
 
     public int m_brickHealth;
+    public float sandSpeed;
 
     private bool isHitting = false;
 
@@ -170,14 +171,9 @@ public class BrickScript : MonoBehaviour {
 
     public void DesertBehaviour()
     {
-        int l_DesertBrickSpeed = 4;
-
         Bounce(m_BallRenderer, m_Brick);
         m_brickHealth--;
-        if (m_brickHealth <= 0)
-        {
-            this.transform.position += Vector3.down * Time.deltaTime * l_DesertBrickSpeed;
-        }
+       
         if(this.transform.position.y <= -5.51f)
         {
             Destroy(this.gameObject);
