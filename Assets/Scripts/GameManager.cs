@@ -1,16 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public Text m_textScore;
+    [HideInInspector] public int m_score;
+
+    void Start () {
 		
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
-		
-	}
+
+       
+
+    }
+
+    public void SumarPuntos(int punts)
+    {
+        m_score += punts;
+        m_textScore.text = "Score:" + m_score;
+    }
 }

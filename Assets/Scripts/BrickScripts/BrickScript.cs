@@ -28,6 +28,7 @@ public class BrickScript : MonoBehaviour {
     private GameObject m_Ball;
     private SpriteRenderer m_BallRenderer;
     private SpriteRenderer m_Brick;
+    private GameManager m_GameManager;
     public bool m_IsCorrupted = false;
 
     private Ball ballScript;
@@ -42,6 +43,8 @@ public class BrickScript : MonoBehaviour {
         m_BallRenderer = m_Ball.GetComponent<SpriteRenderer>();
         m_Brick = this.GetComponent<SpriteRenderer>();
         ballScript = m_Ball.GetComponent<Ball>();
+        m_GameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        
 	}
 	
 	// Update is called once per frame
@@ -175,6 +178,7 @@ public class BrickScript : MonoBehaviour {
         HealthCheck();
         if (m_brickHealth <= 0)
         {
+            m_GameManager.SumarPuntos(10);
             Destroy(this.gameObject);
         }
     }
@@ -190,6 +194,7 @@ public class BrickScript : MonoBehaviour {
         }
         else if (m_brickHealth <= 0)
         {
+            m_GameManager.SumarPuntos(10);
             Destroy(this.gameObject);
         }
     }
@@ -206,6 +211,7 @@ public class BrickScript : MonoBehaviour {
 
         if(this.transform.position.y <= -5.51f)
         {
+            m_GameManager.SumarPuntos(10);
             Destroy(this.gameObject);
         }
 
@@ -222,6 +228,7 @@ public class BrickScript : MonoBehaviour {
             {
                 //bricks[i] = GameObject.FindGameObjectWithTag("Brick");
             }
+            m_GameManager.SumarPuntos(10);
             Destroy(this.gameObject);
         }
         Bounce(m_BallRenderer, m_Brick);
@@ -246,6 +253,7 @@ public class BrickScript : MonoBehaviour {
         }
         else if (m_brickHealth <= 0)
         {
+            m_GameManager.SumarPuntos(10);
             Destroy(this.gameObject);
         }
     }
