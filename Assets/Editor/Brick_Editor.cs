@@ -11,7 +11,7 @@ public class Brick_Editor : Editor {
 	public SerializedProperty
 		brickType_Prop,
 		steelBroken_Prop,
-		chestPwrup_Prop,
+		chestPwrUp_Prop,
 		mimicPwrUp_Prop,
 		sandSpeed_Prop;
 
@@ -19,9 +19,9 @@ public class Brick_Editor : Editor {
 	{
 		brickType_Prop = serializedObject.FindProperty("brickType");
 		sandSpeed_Prop = serializedObject.FindProperty("sandSpeed");
+		chestPwrUp_Prop = serializedObject.FindProperty("ChestPowerUps");
+		mimicPwrUp_Prop = serializedObject.FindProperty("MimicPowerUps");
 		steelBroken_Prop = serializedObject.FindProperty("m_BrokenBrick");
-		steelBroken_Prop = serializedObject.FindProperty("ChestPowerUps");
-		steelBroken_Prop = serializedObject.FindProperty("MimicPowerUps");
 	}
 
 	public override void OnInspectorGUI()
@@ -56,7 +56,7 @@ public class Brick_Editor : Editor {
 				break;
 
 			case BrickScript.Brick_Type.chest:
-				EditorGUILayout.PropertyField(chestPwrup_Prop);
+				EditorGUILayout.PropertyField(chestPwrUp_Prop);
 				break;
 			
 			case BrickScript.Brick_Type.mimic:
