@@ -88,7 +88,7 @@ MonoBehaviour:
   ChestPowerUps: {fileID: 0}
   MimicPowerUps: {fileID: 0}
   m_brickHealth: 1
-  sandSpeed: 0
+  sandSpeed: 2
 --- !u!212 &212039644339969634
 SpriteRenderer:
   m_ObjectHideFlags: 1
