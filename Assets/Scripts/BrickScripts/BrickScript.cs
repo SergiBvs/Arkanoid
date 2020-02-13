@@ -148,7 +148,6 @@ public class BrickScript : MonoBehaviour {
             && l_Ball.bounds.min.y < l_Nave.bounds.max.y
             && l_Ball.bounds.max.x > l_Nave.bounds.min.x
             && l_Ball.bounds.min.x < l_Nave.bounds.max.x;
-
     }
 
 
@@ -203,7 +202,6 @@ public class BrickScript : MonoBehaviour {
     public void CorruptedBehaviour()
     {
         Bounce(m_BallRenderer, m_Brick);
-
     }
 
     public void DimBehaviour()
@@ -225,19 +223,16 @@ public class BrickScript : MonoBehaviour {
     public void ChestBehaviour()
     {
         Bounce(m_BallRenderer, m_Brick);
-
     }
 
     public void MimicBehaviour()
-    {
+    { 
         Bounce(m_BallRenderer, m_Brick);
-
     }
 
     public void ObsidianBehaviour()
     {
         Bounce(m_BallRenderer, m_Brick);
-
     }
 
 }
