@@ -11,6 +11,9 @@ public class BrickScript : MonoBehaviour {
     public Sprite m_BrokenBrick;
     public Sprite m_UnCorruptedBrick;
 
+    public GameObject ChestPowerUps;
+    public GameObject MimicPowerUps;
+
     private GameObject m_Ball;
     private SpriteRenderer m_BallRenderer;
     private SpriteRenderer m_Brick;
@@ -80,7 +83,7 @@ public class BrickScript : MonoBehaviour {
 
         if(sandFalling == true)
         {
-            
+            this.transform.position += Vector3.down * Time.deltaTime * sandSpeed;
         }
 	}
 
@@ -206,6 +209,16 @@ public class BrickScript : MonoBehaviour {
     public void DimBehaviour()
     {
         Bounce(m_BallRenderer, m_Brick);
+        m_brickHealth--;
+
+        if (m_brickHealth <= 1)
+        {
+            m_Brick.sprite = m_UnCorruptedBrick;
+        }
+        if (m_brickHealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
 
     }
 
