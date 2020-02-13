@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
     public Text m_textScore;
     [HideInInspector] public int m_score;
 
+    public bool isOut = true;
+
     void Start () {
 		
 	}

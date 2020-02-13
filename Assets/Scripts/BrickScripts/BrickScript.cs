@@ -26,6 +26,7 @@ public class BrickScript : MonoBehaviour {
 
     //----For Dimensional Brick----//
     public GameObject m_connectedPortal;
+    bool isOut = true;
 
     //----For Future Brick----/
     private GameObject[] bricks;
@@ -38,6 +39,7 @@ public class BrickScript : MonoBehaviour {
     public bool m_IsCorrupted = false;
 
     private Ball ballScript;
+
 
     public int m_brickHealth;
 
@@ -230,11 +232,6 @@ public class BrickScript : MonoBehaviour {
         
         if (m_brickHealth <= 0)
         {
-            for(int i = 0; i < 50; i++)
-            {
-                bricks[i] = GameObject.FindGameObjectWithTag("Brick");
-            }
-
             m_GameManager.SumarPuntos(10);
             Destroy(this.gameObject);
         }
@@ -266,13 +263,21 @@ public class BrickScript : MonoBehaviour {
 
     public void DimBehaviour()
     {
-        Bounce(m_BallRenderer, m_Brick);
-        ballScript.gameObject.transform.position = m_connectedPortal.transform.position;
+        //Bounce(m_BallRenderer, m_Brick);
+        if (m_GameManager.isOut)
+        {
+            m_GameManager.isOut = false;
+           
+            m_Ball.transform.position = m_connectedPortal.transform.position;
+            StartCoroutine(DimensionalCooldown());
+        }
     }
 
     public void ChestBehaviour()
     {
         Bounce(m_BallRenderer, m_Brick);
+        Instantiate(ChestPowerUps, this.transform.position, Quaternion.identity);
+        Destroy(this.)
     }
 
     public void MimicBehaviour()
@@ -283,6 +288,12 @@ public class BrickScript : MonoBehaviour {
     public void ObsidianBehaviour()
     {
         Bounce(m_BallRenderer, m_Brick);
+    }
+
+    IEnumerator DimensionalCooldown()
+    {
+        yield return new WaitForSeconds(0.3f);
+        m_GameManager.isOut = true;
     }
 
 }
