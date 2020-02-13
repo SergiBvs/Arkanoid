@@ -151,6 +151,7 @@ public class BrickScript : MonoBehaviour {
         if (this.m_IsCorrupted)
         {
             m_CorruptionObject.SetActive(false);
+            m_IsCorrupted = false;
         }
         else
         {
@@ -213,6 +214,16 @@ public class BrickScript : MonoBehaviour {
     public void FutureBehaviour()
     {
         HealthCheck();
+        if(m_brickHealth <= 0)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Brick"));
+            GameObject[] bricks;
+            for(int i = 0; i < 100; i++)
+            {
+                //bricks[i] = GameObject.FindGameObjectWithTag("Brick");
+            }
+            Destroy(this.gameObject);
+        }
         Bounce(m_BallRenderer, m_Brick);
     }
 
@@ -225,11 +236,12 @@ public class BrickScript : MonoBehaviour {
         {
             m_CorruptionObject.SetActive(false);
 
-            int rand = Random.Range(0, m_NearbyBricks.Length -1);
-            for (int i = 0; i < rand; i++)
+            int rand = Random.Range(0, m_NearbyBricks.Length);
+            for (int i = 0; i <= rand; i++)
             {
-                m_NearbyBricks[i].GetComponent<BrickScript>().m_CorruptionObject.SetActive(true);
-                m_NearbyBricks[i].GetComponent<BrickScript>().m_IsCorrupted = true;
+                int rand2 = Random.Range(0, m_NearbyBricks.Length);
+                m_NearbyBricks[rand2].GetComponent<BrickScript>().m_CorruptionObject.SetActive(true);
+                m_NearbyBricks[rand2].GetComponent<BrickScript>().m_IsCorrupted = true;
             }
         }
         else if (m_brickHealth <= 0)
