@@ -11,7 +11,7 @@ public class BrickScript : MonoBehaviour {
     public Sprite m_BrokenBrick;
 
     //----For CorruptedBrick----//
-    public Sprite m_UnCorruptedBrick;
+    public GameObject m_CorruptionObject;
 
     //----For Chest Brick----//
     public GameObject ChestPowerUps;
@@ -178,7 +178,7 @@ public class BrickScript : MonoBehaviour {
         {
             m_Brick.sprite = m_BrokenBrick;
         }
-        if (m_brickHealth <= 0)
+        else if (m_brickHealth <= 0)
         {
             Destroy(this.gameObject);
         }
@@ -218,7 +218,7 @@ public class BrickScript : MonoBehaviour {
 
         if (m_brickHealth <= 1)
         {
-            m_Brick.sprite = m_UnCorruptedBrick;
+            m_CorruptionObject.SetActive(false);
         }
         if (m_brickHealth <= 0)
         {
