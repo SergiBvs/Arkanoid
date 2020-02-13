@@ -411,6 +411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 88423681}
   - component: {fileID: 88423680}
+  - component: {fileID: 88423682}
   m_Layer: 0
   m_Name: Brick_Futuristic (3)
   m_TagString: Untagged
@@ -479,6 +480,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &88423682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 88423679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5777e20895e8e944a908ce4f1e6632cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brickType: 3
+  m_BrokenBrick: {fileID: 0}
+  m_CorruptionObject: {fileID: 0}
+  m_NearbyBricks: []
+  ChestPowerUps: {fileID: 0}
+  MimicPowerUps: {fileID: 0}
+  sandSpeed: 0
+  m_brickHealth: 0
 --- !u!1 &117513250
 GameObject:
   m_ObjectHideFlags: 0
@@ -2544,6 +2564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 814226888}
   - component: {fileID: 814226887}
+  - component: {fileID: 814226889}
   m_Layer: 0
   m_Name: Brick_Futuristic (4)
   m_TagString: Untagged
@@ -2612,6 +2633,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &814226889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 814226886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5777e20895e8e944a908ce4f1e6632cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brickType: 3
+  m_BrokenBrick: {fileID: 0}
+  m_CorruptionObject: {fileID: 0}
+  m_NearbyBricks: []
+  ChestPowerUps: {fileID: 0}
+  MimicPowerUps: {fileID: 0}
+  sandSpeed: 0
+  m_brickHealth: 0
 --- !u!1001 &817465113
 Prefab:
   m_ObjectHideFlags: 0
@@ -3230,6 +3270,11 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.6981132
       objectReference: {fileID: 0}
+    - target: {fileID: 212129276881246962, guid: 581fa2348aa2c1449bfd20969b451eed,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 581fa2348aa2c1449bfd20969b451eed, type: 2}
   m_IsPrefabAsset: 0
@@ -3827,7 +3872,7 @@ Prefab:
     - target: {fileID: 114682437272174362, guid: dbea2238f0aa60b4b8e15c9287cda0e4,
         type: 2}
       propertyPath: sandSpeed
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbea2238f0aa60b4b8e15c9287cda0e4, type: 2}
@@ -3999,6 +4044,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1268434708}
   - component: {fileID: 1268434707}
+  - component: {fileID: 1268434709}
   m_Layer: 0
   m_Name: Brick_Futuristic (1)
   m_TagString: Untagged
@@ -4067,6 +4113,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1268434709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1268434706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5777e20895e8e944a908ce4f1e6632cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brickType: 3
+  m_BrokenBrick: {fileID: 0}
+  m_CorruptionObject: {fileID: 0}
+  m_NearbyBricks: []
+  ChestPowerUps: {fileID: 0}
+  MimicPowerUps: {fileID: 0}
+  sandSpeed: 0
+  m_brickHealth: 0
 --- !u!1 &1279680962
 GameObject:
   m_ObjectHideFlags: 0
@@ -6781,6 +6846,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1939079697}
   - component: {fileID: 1939079696}
+  - component: {fileID: 1939079698}
   m_Layer: 0
   m_Name: Brick_Futuristic (2)
   m_TagString: Untagged
@@ -6849,6 +6915,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1939079698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1939079695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5777e20895e8e944a908ce4f1e6632cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brickType: 3
+  m_BrokenBrick: {fileID: 0}
+  m_CorruptionObject: {fileID: 0}
+  m_NearbyBricks: []
+  ChestPowerUps: {fileID: 0}
+  MimicPowerUps: {fileID: 0}
+  sandSpeed: 0
+  m_brickHealth: 0
 --- !u!1 &1943290607
 GameObject:
   m_ObjectHideFlags: 0

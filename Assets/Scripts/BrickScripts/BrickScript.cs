@@ -171,7 +171,7 @@ public class BrickScript : MonoBehaviour {
         Bounce(m_BallRenderer, m_Brick);
 
         m_brickHealth--;
-        if(m_brickHealth <= 1)
+        if(m_brickHealth == 1)
         {
             m_Brick.sprite = m_BrokenBrick;
         }

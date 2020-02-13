@@ -84,11 +84,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brickType: 5
   m_BrokenBrick: {fileID: 0}
-  m_UnCorruptedBrick: {fileID: 0}
+  m_CorruptionObject: {fileID: 1674911910484406}
+  m_NearbyBricks: []
   ChestPowerUps: {fileID: 0}
   MimicPowerUps: {fileID: 0}
-  m_brickHealth: 2
   sandSpeed: 0
+  m_brickHealth: 2
 --- !u!212 &212129276881246962
 SpriteRenderer:
   m_ObjectHideFlags: 1
