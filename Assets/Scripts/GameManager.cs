@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour {
     {
         m_lifes--;
         m_textLifes.text = "Lifes:" + m_lifes;
+        
 
         if (m_lifes <= 0)
         {
