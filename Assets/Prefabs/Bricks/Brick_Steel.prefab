@@ -113,12 +113,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brickType: 1
-  m_BrokenBrick: {fileID: 0}
+  m_BrokenBrick: {fileID: 21300012, guid: 3131537117ccec8458ab64b4bf163f3c, type: 3}
   m_UnCorruptedBrick: {fileID: 0}
   ChestPowerUps: {fileID: 0}
   MimicPowerUps: {fileID: 0}
-  m_brickHealth: 2
   sandSpeed: 0
+  m_brickHealth: 2
 --- !u!212 &212103749232648048
 SpriteRenderer:
   m_ObjectHideFlags: 1

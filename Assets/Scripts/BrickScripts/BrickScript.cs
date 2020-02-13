@@ -5,15 +5,25 @@ using UnityEngine;
 public class BrickScript : MonoBehaviour {
 
     public enum Brick_Type { normal, steel, desert, future, dimensional, corrupted, chest, mimic, obsidian}
-
     public Brick_Type brickType;
 
+    //----For Steel Brick----//
     public Sprite m_BrokenBrick;
+
+    //----For CorruptedBrick----//
     public Sprite m_UnCorruptedBrick;
 
+    //----For Chest Brick----//
     public GameObject ChestPowerUps;
+
+    //----For Mimic Brick----//
     public GameObject MimicPowerUps;
 
+    //----For Desert Brick----//
+    private bool sandFalling = false;
+    public float sandSpeed;
+
+    //----For All Bricks----//
     private GameObject m_Ball;
     private SpriteRenderer m_BallRenderer;
     private SpriteRenderer m_Brick;
@@ -21,10 +31,8 @@ public class BrickScript : MonoBehaviour {
     private Ball ballScript;
 
     public int m_brickHealth;
-    public float sandSpeed;
 
     private bool isHitting = false;
-    private bool sandFalling = false;
 
 	// Use this for initialization
 	void Start () {
@@ -32,7 +40,6 @@ public class BrickScript : MonoBehaviour {
         m_BallRenderer = m_Ball.GetComponent<SpriteRenderer>();
         m_Brick = this.GetComponent<SpriteRenderer>();
         ballScript = m_Ball.GetComponent<Ball>();
-        print("bhcsabchjsabhcbaj"+m_BallRenderer.bounds.size.x / 2);
 	}
 	
 	// Update is called once per frame
@@ -154,6 +161,7 @@ public class BrickScript : MonoBehaviour {
     public void NormalBehaviour()
     {
         Bounce(m_BallRenderer, m_Brick);
+
         m_brickHealth--;
         if (m_brickHealth <= 0)
         {
@@ -164,9 +172,8 @@ public class BrickScript : MonoBehaviour {
     public void SteelBehaviour()
     {
         Bounce(m_BallRenderer, m_Brick);
-        
-        m_brickHealth--;
 
+        m_brickHealth--;
         if(m_brickHealth <= 1)
         {
             m_Brick.sprite = m_BrokenBrick;
