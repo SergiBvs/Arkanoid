@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4968769458183762}
   - component: {fileID: 212129276881246962}
+  - component: {fileID: 114977758539085164}
   m_Layer: 0
   m_Name: Brick_Corruption
   m_TagString: Untagged
@@ -39,7 +40,7 @@ GameObject:
   - component: {fileID: 114709299941909042}
   m_Layer: 0
   m_Name: Brick_Corrupted
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,7 +90,25 @@ MonoBehaviour:
   ChestPowerUps: {fileID: 0}
   MimicPowerUps: {fileID: 0}
   sandSpeed: 0
+  m_connectedPortal: {fileID: 0}
+  m_IsCorrupted: 0
   m_brickHealth: 1
+--- !u!114 &114977758539085164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1674911910484406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b016ff5a05cbabc4796cc620a670e884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Colors:
+  - {x: 255, y: 0, z: 0}
+  - {x: 0, y: 255, z: 0}
+  - {x: 0, y: 0, z: 255}
+  - {x: 155, y: 155, z: 55}
 --- !u!212 &212129276881246962
 SpriteRenderer:
   m_ObjectHideFlags: 1
