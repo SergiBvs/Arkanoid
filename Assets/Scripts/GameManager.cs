@@ -13,8 +13,11 @@ public class GameManager : MonoBehaviour {
     
     public bool isOut = true;
 
-    void Start () {
-		
+    void Start ()
+    {
+        m_textScore.text = "Score:" + m_score;
+        m_lifes = 3;
+        m_textLifes.text = "Lifes:" + m_lifes;
 	}
 	
 	
@@ -30,9 +33,10 @@ public class GameManager : MonoBehaviour {
         m_textScore.text = "Score:" + m_score;
     }
 
-    public void RestarVidas(int vidas)
+    public void RestarVidas()
     {
         m_lifes--;
+        m_textLifes.text = "Lifes:" + m_lifes;
 
         if (m_lifes <= 0)
         {

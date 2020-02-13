@@ -18,10 +18,14 @@ public class Ball : MonoBehaviour {
     public SpriteRenderer m_RightWall;
     SpriteRenderer m_sr;
 
+    private GameManager m_GameManager;
+
     bool movementStarted = false;
 
     // Use this for initialization
     void Start () {
+
+        m_GameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         m_sr = this.GetComponent<SpriteRenderer>();
         this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y/2.5f, 0);
         movementStarted = false;
@@ -50,8 +54,9 @@ public class Ball : MonoBehaviour {
             }
             else if (m_sr.bounds.max.y < m_NaveRenderer.bounds.min.y) // Por debajo de la nave
             {
-                //Cambiar esto para que en vez de resetear la escena resetee la pelota. 
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y / 2.5f, 0);
+                movementStarted = false;
+                m_GameManager.RestarVidas();
             }
 
             transform.position += new Vector3(x, y, 0) * Time.deltaTime * speed;
