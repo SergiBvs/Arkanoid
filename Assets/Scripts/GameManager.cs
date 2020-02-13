@@ -25,4 +25,6 @@ public class GameManager : MonoBehaviour {
         m_score += punts;
         m_textScore.text = "Score:" + m_score;
     }
+
+   
 }
