@@ -26,7 +26,6 @@ public class BrickScript : MonoBehaviour {
 
     //----For Dimensional Brick----//
     public GameObject m_connectedPortal;
-    bool isOut = true;
 
     //----For Future Brick----/
     private GameObject[] bricks;
