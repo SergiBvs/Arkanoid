@@ -24,6 +24,12 @@ public class BrickScript : MonoBehaviour {
     private bool sandFalling = false;
     public float sandSpeed;
 
+    //----For Dimensional Brick----//
+    public GameObject m_connectedPortal;
+
+    //----For Future Brick----/
+    private GameObject[] bricks;
+
     //----For All Bricks----//
     private GameObject m_Ball;
     private SpriteRenderer m_BallRenderer;
@@ -219,19 +225,19 @@ public class BrickScript : MonoBehaviour {
 
     public void FutureBehaviour()
     {
+        Bounce(m_BallRenderer, m_Brick);
         HealthCheck();
-        if(m_brickHealth <= 0)
+        
+        if (m_brickHealth <= 0)
         {
-            Destroy(GameObject.FindGameObjectWithTag("Brick"));
-            GameObject[] bricks;
-            for(int i = 0; i < 100; i++)
+            for(int i = 0; i < 50; i++)
             {
-                //bricks[i] = GameObject.FindGameObjectWithTag("Brick");
+                bricks[i] = GameObject.FindGameObjectWithTag("Brick");
             }
+
             m_GameManager.SumarPuntos(10);
             Destroy(this.gameObject);
         }
-        Bounce(m_BallRenderer, m_Brick);
     }
 
     public void CorruptedBehaviour()
@@ -261,6 +267,7 @@ public class BrickScript : MonoBehaviour {
     public void DimBehaviour()
     {
         Bounce(m_BallRenderer, m_Brick);
+        ballScript.gameObject.transform.position = m_connectedPortal.transform.position;
     }
 
     public void ChestBehaviour()

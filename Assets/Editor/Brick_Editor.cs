@@ -8,14 +8,15 @@ using UnityEditor;
 
 public class Brick_Editor : Editor {
 
-	public SerializedProperty
-		brickType_Prop,
-		steelBroken_Prop,
-		chestPwrUp_Prop,
-		mimicPwrUp_Prop,
+    public SerializedProperty
+        brickType_Prop,
+        steelBroken_Prop,
+        chestPwrUp_Prop,
+        mimicPwrUp_Prop,
         corruption_Prop,
         brickHealth_Prop,
         nearbyBricks_Prop,
+        connectedPortal_Prop,
 		sandSpeed_Prop;
 
 	void OnEnable()
@@ -28,6 +29,7 @@ public class Brick_Editor : Editor {
         corruption_Prop = serializedObject.FindProperty("m_CorruptionObject");
         brickHealth_Prop = serializedObject.FindProperty("m_brickHealth");
         nearbyBricks_Prop = serializedObject.FindProperty("m_NearbyBricks");
+        connectedPortal_Prop = serializedObject.FindProperty(" m_connectedPortal");
 	}
 
 	public override void OnInspectorGUI()
@@ -71,6 +73,10 @@ public class Brick_Editor : Editor {
 
             case BrickScript.Brick_Type.corrupted:
                 EditorGUILayout.PropertyField(nearbyBricks_Prop);
+                break;
+
+            case BrickScript.Brick_Type.dimensional:
+                EditorGUILayout.PropertyField(connectedPortal_Prop);
                 break;
 
 
