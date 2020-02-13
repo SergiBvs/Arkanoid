@@ -82,7 +82,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5777e20895e8e944a908ce4f1e6632cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brickType: 2
+  m_BrokenBrick: {fileID: 0}
+  m_UnCorruptedBrick: {fileID: 0}
+  ChestPowerUps: {fileID: 0}
+  MimicPowerUps: {fileID: 0}
   m_brickHealth: 1
+  sandSpeed: 0
 --- !u!212 &212039644339969634
 SpriteRenderer:
   m_ObjectHideFlags: 1

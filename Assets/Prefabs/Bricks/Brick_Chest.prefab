@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4468249947091492}
   - component: {fileID: 212673823023647490}
+  - component: {fileID: 114718215528750742}
   m_Layer: 0
   m_Name: Brick_Chest
   m_TagString: Untagged
@@ -40,6 +41,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114718215528750742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644149181994324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5777e20895e8e944a908ce4f1e6632cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brickType: 0
+  m_BrokenBrick: {fileID: 0}
+  m_UnCorruptedBrick: {fileID: 0}
+  ChestPowerUps: {fileID: 0}
+  MimicPowerUps: {fileID: 0}
+  m_brickHealth: 0
+  sandSpeed: 0
 --- !u!212 &212673823023647490
 SpriteRenderer:
   m_ObjectHideFlags: 1

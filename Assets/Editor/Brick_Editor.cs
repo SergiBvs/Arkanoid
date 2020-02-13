@@ -11,13 +11,17 @@ public class Brick_Editor : Editor {
 	public SerializedProperty
 		brickType_Prop,
 		steelBroken_Prop,
+		chestPwrup_Prop,
+		mimicPwrUp_Prop,
 		sandSpeed_Prop;
 
 	void OnEnable()
 	{
 		brickType_Prop = serializedObject.FindProperty("brickType");
-		//sandSpeed_Prop = serializedObject.FindProperty("sandSpeed");
+		sandSpeed_Prop = serializedObject.FindProperty("sandSpeed");
 		steelBroken_Prop = serializedObject.FindProperty("m_BrokenBrick");
+		steelBroken_Prop = serializedObject.FindProperty("ChestPowerUps");
+		steelBroken_Prop = serializedObject.FindProperty("MimicPowerUps");
 	}
 
 	public override void OnInspectorGUI()
@@ -44,7 +48,19 @@ public class Brick_Editor : Editor {
 				break;
 
 			case BrickScript.Brick_Type.desert:
-				//EditorGUILayout.PropertyField(sandSpeed_Prop);
+				EditorGUILayout.PropertyField(sandSpeed_Prop);
+				break;
+
+			case BrickScript.Brick_Type.future:
+				EditorGUILayout.LabelField("Future Brick doesn't need any parameters for now.");
+				break;
+
+			case BrickScript.Brick_Type.chest:
+				EditorGUILayout.PropertyField(chestPwrup_Prop);
+				break;
+			
+			case BrickScript.Brick_Type.mimic:
+				EditorGUILayout.PropertyField(mimicPwrUp_Prop);
 				break;
 		}
 

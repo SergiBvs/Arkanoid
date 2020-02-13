@@ -3819,6 +3819,16 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.9058824
       objectReference: {fileID: 0}
+    - target: {fileID: 114682437272174362, guid: dbea2238f0aa60b4b8e15c9287cda0e4,
+        type: 2}
+      propertyPath: brickType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114682437272174362, guid: dbea2238f0aa60b4b8e15c9287cda0e4,
+        type: 2}
+      propertyPath: sandSpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbea2238f0aa60b4b8e15c9287cda0e4, type: 2}
   m_IsPrefabAsset: 0
