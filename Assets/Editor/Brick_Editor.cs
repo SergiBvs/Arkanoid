@@ -16,8 +16,8 @@ public class Brick_Editor : Editor {
 	void OnEnable()
 	{
 		brickType_Prop = serializedObject.FindProperty("brickType");
-		sandSpeed_Prop = serializedObject.FindProperty("sandSpeed");
-		steelBroken_Prop = serializedObject.FindProperty("steelBrokenSprite");
+		//sandSpeed_Prop = serializedObject.FindProperty("sandSpeed");
+		steelBroken_Prop = serializedObject.FindProperty("m_BrokenBrick");
 	}
 
 	public override void OnInspectorGUI()
@@ -44,7 +44,7 @@ public class Brick_Editor : Editor {
 				break;
 
 			case BrickScript.Brick_Type.desert:
-				EditorGUILayout.PropertyField(sandSpeed_Prop);
+				//EditorGUILayout.PropertyField(sandSpeed_Prop);
 				break;
 		}
 
