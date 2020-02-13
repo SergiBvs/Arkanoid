@@ -277,12 +277,14 @@ public class BrickScript : MonoBehaviour {
     {
         Bounce(m_BallRenderer, m_Brick);
         Instantiate(ChestPowerUps, this.transform.position, Quaternion.identity);
-        Destroy(this.)
+        Destroy(this.gameObject);
     }
 
     public void MimicBehaviour()
     { 
         Bounce(m_BallRenderer, m_Brick);
+        Instantiate(ChestPowerUps, this.transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 
     public void ObsidianBehaviour()
