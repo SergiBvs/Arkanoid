@@ -28,6 +28,7 @@ public class BrickScript : MonoBehaviour {
     private GameObject m_Ball;
     private SpriteRenderer m_BallRenderer;
     private SpriteRenderer m_Brick;
+    public bool m_IsCorrupted = false;
 
     private Ball ballScript;
 
@@ -145,6 +146,17 @@ public class BrickScript : MonoBehaviour {
 
     }
 
+    public void HealthCheck()
+    {
+        if (this.m_IsCorrupted)
+        {
+            m_CorruptionObject.SetActive(false);
+        }
+        else
+        {
+            this.m_brickHealth--;
+        }
+    }
 
     public bool IntersectBounds(SpriteRenderer l_Ball, SpriteRenderer l_Nave)
     {
@@ -159,7 +171,7 @@ public class BrickScript : MonoBehaviour {
     {
         Bounce(m_BallRenderer, m_Brick);
 
-        m_brickHealth--;
+        HealthCheck();
         if (m_brickHealth <= 0)
         {
             Destroy(this.gameObject);
@@ -170,7 +182,7 @@ public class BrickScript : MonoBehaviour {
     {
         Bounce(m_BallRenderer, m_Brick);
 
-        m_brickHealth--;
+        HealthCheck();
         if(m_brickHealth == 1)
         {
             m_Brick.sprite = m_BrokenBrick;
@@ -184,8 +196,8 @@ public class BrickScript : MonoBehaviour {
     public void DesertBehaviour()
     {
         Bounce(m_BallRenderer, m_Brick);
-        m_brickHealth--;
-       
+
+        HealthCheck();       
         if(m_brickHealth <= 0)
         {
             sandFalling = true;
@@ -200,19 +212,27 @@ public class BrickScript : MonoBehaviour {
 
     public void FutureBehaviour()
     {
+        HealthCheck();
         Bounce(m_BallRenderer, m_Brick);
     }
 
     public void CorruptedBehaviour()
     {
         Bounce(m_BallRenderer, m_Brick);
-        m_brickHealth--;
 
-        if (m_brickHealth <= 1)
+        m_brickHealth--;
+        if (m_brickHealth == 1)
         {
             m_CorruptionObject.SetActive(false);
+
+            int rand = Random.Range(0, m_NearbyBricks.Length -1);
+            for (int i = 0; i < rand; i++)
+            {
+                m_NearbyBricks[i].GetComponent<BrickScript>().m_CorruptionObject.SetActive(true);
+                m_NearbyBricks[i].GetComponent<BrickScript>().m_IsCorrupted = true;
+            }
         }
-        if (m_brickHealth <= 0)
+        else if (m_brickHealth <= 0)
         {
             Destroy(this.gameObject);
         }
