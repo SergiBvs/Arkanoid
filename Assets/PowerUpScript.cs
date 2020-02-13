@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PowerUpScript : MonoBehaviour {
 
+    public enum PowerUpType { DoubleSize, SlowBall, SteelBall, GlueShip, MultiplyBall}
+
+
     public float speed = 5f;
 
 	// Use this for initialization

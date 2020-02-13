@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour {
 
-    public int x = 0;
-    public int y = 0;
+    [HideInInspector]public int x = 0;
+    [HideInInspector]public int y = 0;
 
     public float speed;
 
@@ -16,11 +16,11 @@ public class Ball : MonoBehaviour {
     public SpriteRenderer m_TopWall;
     public SpriteRenderer m_LeftWall;
     public SpriteRenderer m_RightWall;
-    SpriteRenderer m_sr;
+    private SpriteRenderer m_sr;
 
     private GameManager m_GameManager;
 
-    bool movementStarted = false;
+    [HideInInspector] public bool movementStarted = false;
 
     // Use this for initialization
     void Start () {
@@ -93,19 +93,16 @@ public class Ball : MonoBehaviour {
         
         if (l_Distance < ((m_Nave.transform.localScale.x / 3)))
         {
-            print("LEFT");
             x = -1;
             y = 1;
         }
         else if (l_Distance2 < (m_Nave.transform.localScale.x / 3))
         {
-            print("RIGHT");
             x = 1;
             y = 1;
         }
         else
         {
-            print("CENTER");
             x = 0;
             y = 1;
         }
