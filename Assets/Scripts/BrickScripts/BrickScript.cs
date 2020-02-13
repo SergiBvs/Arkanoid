@@ -232,6 +232,7 @@ public class BrickScript : MonoBehaviour {
         
         if (m_brickHealth <= 0)
         {
+            //UNA PORONGA
             m_GameManager.SumarPuntos(10);
             Destroy(this.gameObject);
         }
@@ -283,7 +284,7 @@ public class BrickScript : MonoBehaviour {
     public void MimicBehaviour()
     { 
         Bounce(m_BallRenderer, m_Brick);
-        Instantiate(ChestPowerUps, this.transform.position, Quaternion.identity);
+        Instantiate(MimicPowerUps, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 
