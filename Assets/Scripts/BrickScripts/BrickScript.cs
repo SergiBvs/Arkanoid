@@ -12,6 +12,7 @@ public class BrickScript : MonoBehaviour {
 
     //----For CorruptedBrick----//
     public GameObject m_CorruptionObject;
+    public GameObject[] m_NearbyBricks;
 
     //----For Chest Brick----//
     public GameObject ChestPowerUps;
@@ -123,22 +124,18 @@ public class BrickScript : MonoBehaviour {
 
         if(b.transform.position.x < k.transform.position.x - k.bounds.size.x / 2)
         {
-            print("Left");
             ballScript.x = -1;
         }
         else if (b.transform.position.x > k.transform.position.x + k.bounds.size.x / 2)
         {
             ballScript.x = 1;
-            print("Right");
         }
         else if (b.transform.position.y < k.transform.position.y - k.bounds.size.y / 2)
         {
-            print("down");
             ballScript.y = -1;
         }
         else if (b.transform.position.y > k.transform.position.x + k.bounds.size.x / 2)
         {
-            print("Up");
             ballScript.y = 1;
         }
         else
@@ -209,11 +206,6 @@ public class BrickScript : MonoBehaviour {
     public void CorruptedBehaviour()
     {
         Bounce(m_BallRenderer, m_Brick);
-    }
-
-    public void DimBehaviour()
-    {
-        Bounce(m_BallRenderer, m_Brick);
         m_brickHealth--;
 
         if (m_brickHealth <= 1)
@@ -224,7 +216,11 @@ public class BrickScript : MonoBehaviour {
         {
             Destroy(this.gameObject);
         }
+    }
 
+    public void DimBehaviour()
+    {
+        Bounce(m_BallRenderer, m_Brick);
     }
 
     public void ChestBehaviour()

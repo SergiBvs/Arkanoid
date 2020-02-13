@@ -13,6 +13,9 @@ public class Brick_Editor : Editor {
 		steelBroken_Prop,
 		chestPwrUp_Prop,
 		mimicPwrUp_Prop,
+        corruption_Prop,
+        brickHealth_Prop,
+        nearbyBricks_Prop,
 		sandSpeed_Prop;
 
 	void OnEnable()
@@ -22,6 +25,9 @@ public class Brick_Editor : Editor {
 		chestPwrUp_Prop = serializedObject.FindProperty("ChestPowerUps");
 		mimicPwrUp_Prop = serializedObject.FindProperty("MimicPowerUps");
 		steelBroken_Prop = serializedObject.FindProperty("m_BrokenBrick");
+        corruption_Prop = serializedObject.FindProperty("m_CorruptionObject");
+        brickHealth_Prop = serializedObject.FindProperty("m_brickHealth");
+        nearbyBricks_Prop = serializedObject.FindProperty("m_NearbyBricks");
 	}
 
 	public override void OnInspectorGUI()
@@ -62,8 +68,17 @@ public class Brick_Editor : Editor {
 			case BrickScript.Brick_Type.mimic:
 				EditorGUILayout.PropertyField(mimicPwrUp_Prop);
 				break;
-		}
 
-		serializedObject.ApplyModifiedProperties();
+            case BrickScript.Brick_Type.corrupted:
+                EditorGUILayout.PropertyField(nearbyBricks_Prop);
+                break;
+
+
+        }
+        EditorGUILayout.PropertyField(brickHealth_Prop);
+        EditorGUILayout.PropertyField(corruption_Prop);
+
+
+        serializedObject.ApplyModifiedProperties();
 	}
 }
