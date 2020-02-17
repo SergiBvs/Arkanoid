@@ -7836,6 +7836,11 @@ Prefab:
       propertyPath: m_Name
       value: BrickNormal (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 114731313970948360, guid: 6363e6a5af8b6c342a6dfd5c7600ecff,
+        type: 2}
+      propertyPath: brickType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6363e6a5af8b6c342a6dfd5c7600ecff, type: 2}
   m_IsPrefabAsset: 0
