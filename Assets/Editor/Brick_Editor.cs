@@ -17,6 +17,7 @@ public class Brick_Editor : Editor {
         brickHealth_Prop,
         nearbyBricks_Prop,
         connectedPortal_Prop,
+		sprites_Prop,
 		sandSpeed_Prop;
 
 	void OnEnable()
@@ -30,6 +31,7 @@ public class Brick_Editor : Editor {
         brickHealth_Prop = serializedObject.FindProperty("m_brickHealth");
         nearbyBricks_Prop = serializedObject.FindProperty("m_NearbyBricks");
         connectedPortal_Prop = serializedObject.FindProperty("m_connectedPortal");
+		sprites_Prop = serializedObject.FindProperty("sprites");
 	}
 
 	public override void OnInspectorGUI()
@@ -60,7 +62,7 @@ public class Brick_Editor : Editor {
 				break;
 
 			case BrickScript.Brick_Type.future:
-				EditorGUILayout.LabelField("Future Brick doesn't need any parameters for now.");
+				EditorGUILayout.PropertyField(sprites_Prop);
 				break;
 
 			case BrickScript.Brick_Type.chest:

@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5777e20895e8e944a908ce4f1e6632cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brickType: 7
+  brickType: 4
   m_BrokenBrick: {fileID: 0}
   m_CorruptionObject: {fileID: 1386602400037644}
   m_NearbyBricks: []
@@ -107,6 +107,7 @@ MonoBehaviour:
   MimicPowerUps: {fileID: 0}
   sandSpeed: 0
   m_connectedPortal: {fileID: 0}
+  sprites: []
   m_IsCorrupted: 0
   m_brickHealth: 1
 --- !u!212 &212168144628383362

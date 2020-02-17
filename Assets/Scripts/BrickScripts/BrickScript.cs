@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BrickScript : MonoBehaviour {
 
-    public enum Brick_Type { normal, steel, desert, future, dimensional, corrupted, chest, mimic, obsidian}
+    public enum Brick_Type { normal, steel, desert,   chest, mimic, future, dimensional, corrupted, obsidian }
     public Brick_Type brickType;
 
     //----For Steel Brick----//
@@ -28,7 +28,8 @@ public class BrickScript : MonoBehaviour {
     public GameObject m_connectedPortal;
 
     //----For Future Brick----/
-    private GameObject[] bricks;
+    public Sprite[] sprites; // IMPORTANTE SEGUIR ORDEN: NORMAL, HIERRO, ARENA, COFRE, MIMICO.
+   
 
     //----For All Bricks----//
     private GameObject m_Ball;
@@ -55,6 +56,10 @@ public class BrickScript : MonoBehaviour {
         ballScript = m_Ball.GetComponent<Ball>();
         m_GameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         
+        if(this.brickType == Brick_Type.future)
+        {
+            StartCoroutine(FutureBrickUpdater());
+        }
 	}
 	
 	// Update is called once per frame
@@ -217,6 +222,15 @@ public class BrickScript : MonoBehaviour {
             m_GameManager.SumarPuntos(10);
             Destroy(this.gameObject);
         }
+    }
+
+    public IEnumerator FutureBrickUpdater()
+    {
+        yield return new WaitForSeconds(7);
+        int rand = Random.Range(0, 5);
+        this.brickType = (Brick_Type)rand;
+        this.GetComponent<SpriteRenderer>().sprite = sprites[rand];
+        StartCoroutine(FutureBrickUpdater());
     }
 
     public void CorruptedBehaviour()

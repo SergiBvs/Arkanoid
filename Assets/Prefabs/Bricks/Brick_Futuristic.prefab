@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 4128428795720474}
   - component: {fileID: 212522507119232538}
   - component: {fileID: 114024682886503218}
+  - component: {fileID: 95035438502517506}
   m_Layer: 0
   m_Name: Brick_Futuristic
   m_TagString: Brick
@@ -84,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1950789143347114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.76, y: -2.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4586255245668910}
@@ -132,6 +133,24 @@ Transform:
   m_Father: {fileID: 4128428795720474}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95035438502517506
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1950789143347114}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3068399b08ca72b49897f0b58798716d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114024682886503218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5777e20895e8e944a908ce4f1e6632cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brickType: 3
+  brickType: 5
   m_BrokenBrick: {fileID: 0}
   m_CorruptionObject: {fileID: 1695711269579862}
   m_NearbyBricks: []
@@ -151,6 +170,12 @@ MonoBehaviour:
   MimicPowerUps: {fileID: 0}
   sandSpeed: 0
   m_connectedPortal: {fileID: 0}
+  sprites:
+  - {fileID: 21300000, guid: 3131537117ccec8458ab64b4bf163f3c, type: 3}
+  - {fileID: 21300006, guid: 3131537117ccec8458ab64b4bf163f3c, type: 3}
+  - {fileID: 21300022, guid: 3131537117ccec8458ab64b4bf163f3c, type: 3}
+  - {fileID: 21300002, guid: 3131537117ccec8458ab64b4bf163f3c, type: 3}
+  - {fileID: 21300004, guid: 3131537117ccec8458ab64b4bf163f3c, type: 3}
   m_IsCorrupted: 0
   m_brickHealth: 1
 --- !u!114 &114803438001939326
