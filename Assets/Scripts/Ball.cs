@@ -24,6 +24,7 @@ public class Ball : MonoBehaviour {
 
     //POWERUPS
     private bool glueBall = false;
+    private bool steelActivator = false;
     public bool steelBall = false;
 
     // Use this for initialization
@@ -43,10 +44,17 @@ public class Ball : MonoBehaviour {
             if (IntersectBounds(m_sr, m_NaveRenderer))
             {
                 if(!glueBall) BounceFromShip();
-                else
+                else if (glueBall)
                 {
                     glueBall = false;
                     movementStarted = false;
+                }
+
+                if (steelActivator)
+                {
+                    steelBall = true;
+                    steelActivator = false;
+                    StartCoroutine(SteelBallTime());
                 }
             }
             else if (IntersectBounds(m_sr, m_TopWall))
@@ -143,7 +151,13 @@ public class Ball : MonoBehaviour {
 
     public void SteelBall()
     {
-        steelBall = true;
+        steelActivator = true;
+    }
+
+    public IEnumerator SteelBallTime()
+    {
+        yield return new WaitForSeconds(2);
+        steelBall = false;
     }
 
 }
