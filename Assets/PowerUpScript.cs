@@ -43,6 +43,8 @@ public class PowerUpScript : MonoBehaviour {
                     Destroy(this.gameObject);
                     break;
                 case PowerUpType.SteelBall:
+                    m_Ball.GetComponent<Ball>().SteelBall();
+                    Destroy(this.gameObject);
                     break;
             }
         }

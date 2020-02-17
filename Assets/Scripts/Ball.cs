@@ -21,7 +21,10 @@ public class Ball : MonoBehaviour {
     private GameManager m_GameManager;
 
     [HideInInspector] public bool movementStarted = false;
+
+    //POWERUPS
     private bool glueBall = false;
+    public bool steelBall = false;
 
     // Use this for initialization
     void Start () {
@@ -48,18 +51,22 @@ public class Ball : MonoBehaviour {
             }
             else if (IntersectBounds(m_sr, m_TopWall))
             {
+                if (steelBall) steelBall = false;
                 y = -1;
             }
             else if (IntersectBounds(m_sr, m_LeftWall))
             {
+                if (steelBall) steelBall = false;
                 x = 1;
             }
             else if (IntersectBounds(m_sr, m_RightWall))
             {
+                if (steelBall) steelBall = false;
                 x = -1;
             }
             else if (m_sr.bounds.max.y < m_NaveRenderer.bounds.min.y) // Por debajo de la nave
             {
+                if (steelBall) steelBall = false;
                 this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y / 2.5f, 0);
                 movementStarted = false;
                 m_GameManager.RestarVidas();
@@ -132,6 +139,11 @@ public class Ball : MonoBehaviour {
     {
         yield return new WaitForSeconds(7);
         speed += 3;
+    }
+
+    public void SteelBall()
+    {
+        steelBall = true;
     }
 
 }
