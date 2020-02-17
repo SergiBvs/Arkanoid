@@ -114,9 +114,24 @@ public class Ball : MonoBehaviour {
         }
     }
 
+
+    //POWERUP
     public void GlueBall()
     {
         glueBall = true;
+    }
+
+    //POWERUP
+    public void SlowBall()
+    {
+        speed -= 3;
+        StartCoroutine(SlowBallTime());
+    }
+
+    public IEnumerator SlowBallTime()
+    {
+        yield return new WaitForSeconds(7);
+        speed += 3;
     }
 
 }

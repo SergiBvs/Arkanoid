@@ -39,6 +39,8 @@ public class PowerUpScript : MonoBehaviour {
                 case PowerUpType.MultiplyBall:
                     break;
                 case PowerUpType.SlowBall:
+                    m_Ball.GetComponent<Ball>().SlowBall();
+                    Destroy(this.gameObject);
                     break;
                 case PowerUpType.SteelBall:
                     break;
