@@ -53,6 +53,7 @@ public class Ball : MonoBehaviour {
 
         if (movementStarted)
         {
+            speed += 0.0001f;
             if (IntersectBounds(m_sr, m_NaveRenderer))
             {
                 if(!glueBall) BounceFromShip();
