@@ -37,6 +37,8 @@ public class PowerUpScript : MonoBehaviour {
                     Destroy(this.gameObject);
                     break;
                 case PowerUpType.MultiplyBall:
+                    m_Ball.GetComponent<Ball>().TripleBall();
+                    Destroy(this.gameObject);
                     break;
                 case PowerUpType.SlowBall:
                     m_Ball.GetComponent<Ball>().SlowBall();

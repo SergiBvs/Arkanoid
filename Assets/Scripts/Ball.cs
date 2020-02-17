@@ -5,35 +5,47 @@ using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour {
 
-    [HideInInspector]public int x = 0;
-    [HideInInspector]public int y = 0;
+    public int x = 0;
+    public int y = 0;
 
     public float speed;
 
-    public SpriteRenderer m_NaveRenderer;
-    public GameObject m_Nave;
+    private SpriteRenderer m_NaveRenderer;
+    private GameObject m_Nave;
 
-    public SpriteRenderer m_TopWall;
-    public SpriteRenderer m_LeftWall;
-    public SpriteRenderer m_RightWall;
+    private SpriteRenderer m_TopWall;
+    private SpriteRenderer m_LeftWall;
+    private SpriteRenderer m_RightWall;
     private SpriteRenderer m_sr;
 
     private GameManager m_GameManager;
 
-    [HideInInspector] public bool movementStarted = false;
+    public bool movementStarted = false;
 
     //POWERUPS
     private bool glueBall = false;
     private bool steelActivator = false;
     public bool steelBall = false;
+    public GameObject[] ballClones; //Up Right Left
+    private bool tripleActivator=false;
+    public bool tripleBall = false;
+    public bool isThisAClone;
 
     // Use this for initialization
     void Start () {
 
         m_GameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         m_sr = this.GetComponent<SpriteRenderer>();
-        this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y/2.5f, 0);
-        movementStarted = false;
+
+        m_TopWall = GameObject.FindGameObjectWithTag("TopWall").GetComponent<SpriteRenderer>();
+        m_LeftWall = GameObject.FindGameObjectWithTag("LeftWall").GetComponent<SpriteRenderer>();
+        m_RightWall = GameObject.FindGameObjectWithTag("RightWall").GetComponent<SpriteRenderer>();
+
+        m_Nave = GameObject.FindGameObjectWithTag("Player");
+        m_NaveRenderer = m_Nave.GetComponent<SpriteRenderer>();
+
+
+       // this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y / 2.5f, 0);
     }
 	
 	// Update is called once per frame
@@ -116,16 +128,34 @@ public class Ball : MonoBehaviour {
         {
             x = -1;
             y = 1;
+            if (tripleActivator)
+            {
+                Instantiate(ballClones[0], new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0), Quaternion.identity);
+                Instantiate(ballClones[1], new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0), Quaternion.identity);
+                tripleActivator = false;
+            }
         }
         else if (l_Distance2 < (m_Nave.transform.localScale.x / 3))
         {
             x = 1;
             y = 1;
+            if (tripleActivator)
+            {
+                Instantiate(ballClones[1], new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0), Quaternion.identity);
+                Instantiate(ballClones[0], new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0), Quaternion.identity);
+                tripleActivator = false;
+            }
         }
         else
         {
             x = 0;
             y = 1;
+            if (tripleActivator)
+            {
+                Instantiate(ballClones[1], new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0), Quaternion.identity);
+                Instantiate(ballClones[2], new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0), Quaternion.identity);
+                tripleActivator = false;
+            }
         }
     }
 
@@ -152,6 +182,11 @@ public class Ball : MonoBehaviour {
     public void SteelBall()
     {
         steelActivator = true;
+    }
+
+    public void TripleBall()
+    {
+        if(!isThisAClone) tripleActivator = true;
     }
 
     public IEnumerator SteelBallTime()
