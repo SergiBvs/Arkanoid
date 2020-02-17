@@ -21,6 +21,7 @@ public class Ball : MonoBehaviour {
     private GameManager m_GameManager;
 
     [HideInInspector] public bool movementStarted = false;
+    private bool glueBall = false;
 
     // Use this for initialization
     void Start () {
@@ -38,7 +39,12 @@ public class Ball : MonoBehaviour {
         {
             if (IntersectBounds(m_sr, m_NaveRenderer))
             {
-                BounceFromShip();
+                if(!glueBall) BounceFromShip();
+                else
+                {
+                    glueBall = false;
+                    movementStarted = false;
+                }
             }
             else if (IntersectBounds(m_sr, m_TopWall))
             {
@@ -106,6 +112,11 @@ public class Ball : MonoBehaviour {
             x = 0;
             y = 1;
         }
+    }
+
+    public void GlueBall()
+    {
+        glueBall = true;
     }
 
 }
