@@ -346,6 +346,7 @@ MonoBehaviour:
   ShipSpeed: 7
   RightWall: {fileID: 581722166}
   LeftWall: {fileID: 759404621}
+  InvertedControls: 0
 --- !u!212 &117513252
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1155,7 +1156,7 @@ GameObject:
   - component: {fileID: 382810885}
   m_Layer: 5
   m_Name: Lifes
-  m_TagString: Untagged
+  m_TagString: Lifes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1807,7 +1808,7 @@ GameObject:
   - component: {fileID: 581722168}
   m_Layer: 0
   m_Name: border_right
-  m_TagString: Untagged
+  m_TagString: RightWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2358,7 +2359,7 @@ GameObject:
   - component: {fileID: 759404623}
   m_Layer: 0
   m_Name: border_left
-  m_TagString: Untagged
+  m_TagString: LeftWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2499,7 +2500,7 @@ GameObject:
   - component: {fileID: 830092598}
   m_Layer: 0
   m_Name: border_top
-  m_TagString: Untagged
+  m_TagString: TopWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3741,8 +3742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce5c4d5324c8ac4d9b093880b548b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_textScore: {fileID: 0}
-  m_textLifes: {fileID: 0}
   m_score: 0
   m_lifes: 0
   isOut: 1
@@ -5009,7 +5008,7 @@ GameObject:
   - component: {fileID: 1703524333}
   m_Layer: 5
   m_Name: Score
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

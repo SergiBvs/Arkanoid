@@ -49,6 +49,11 @@ public class GameManager : MonoBehaviour {
 
     }
 
+    public void HealthUp()
+    {
+        m_lifes += 1;
+    }
+
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

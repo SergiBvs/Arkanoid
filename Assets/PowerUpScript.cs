@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PowerUpScript : MonoBehaviour {
 
-    public enum PowerUpType { DoubleSize, SlowBall, SteelBall, GlueShip, MultiplyBall, InvertControls}
+    public enum PowerUpType { DoubleSize, SlowBall, SteelBall, GlueShip, MultiplyBall, InvertControls, HealthUp }
 
     public PowerUpType powerupType;
 
     private GameObject m_ship;
     private GameObject m_Ball;
+    private GameObject m_GameManager;
     public float m_speed = 2f;
 
     public Sprite[] sprites;
@@ -20,6 +21,7 @@ public class PowerUpScript : MonoBehaviour {
 	void Start () {
         m_ship = GameObject.FindGameObjectWithTag("Player");
         m_Ball = GameObject.FindGameObjectWithTag("Ball");
+        m_GameManager = GameObject.FindGameObjectWithTag("GameController");
 
         int rand = Random.Range(0, 6);
         this.powerupType = (PowerUpType)rand;
@@ -58,7 +60,11 @@ public class PowerUpScript : MonoBehaviour {
                     m_ship.GetComponent<Ship>().InvertControls();
                     Destroy(this.gameObject);
                     break;
-                
+                case PowerUpType.HealthUp:
+                    m_GameManager.GetComponent<GameManager>().HealthUp();
+                    Destroy(this.gameObject);
+                    break;
+
             }
         }
 	}
