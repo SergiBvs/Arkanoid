@@ -11,6 +11,7 @@ TagManager:
   - RightWall
   - Score
   - Lifes
+  - Telon
   layers:
   - Default
   - TransparentFX

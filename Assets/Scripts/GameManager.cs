@@ -44,10 +44,13 @@ public class GameManager : MonoBehaviour {
 
         if (m_lifes <= 0)
         {
+            GameObject.FindGameObjectWithTag("Telon").GetComponent<Animator>().SetTrigger("Transition");
             RestartGame();
         }
 
     }
+
+    //public 
 
     public void HealthUp()
     {
