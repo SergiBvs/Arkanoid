@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BrickScript : MonoBehaviour {
 
-    public enum Brick_Type { normal, steel, desert,   chest, mimic, future, dimensional, corrupted, obsidian }
+    public enum Brick_Type { normal, steel, desert,   chest, future, dimensional, corrupted, obsidian }
     public Brick_Type brickType;
 
     //----For Steel Brick----//
@@ -91,9 +91,6 @@ public class BrickScript : MonoBehaviour {
                         break;
                     case Brick_Type.chest:
                         ChestBehaviour();
-                        break;
-                    case Brick_Type.mimic:
-                        MimicBehaviour();
                         break;
                     case Brick_Type.obsidian:
                         ObsidianBehaviour();
@@ -226,7 +223,7 @@ public class BrickScript : MonoBehaviour {
     public IEnumerator FutureBrickUpdater()
     {
         yield return new WaitForSeconds(7);
-        int rand = Random.Range(0, 5);
+        int rand = Random.Range(0, 4);
         this.brickType = (Brick_Type)rand;
         this.GetComponent<SpriteRenderer>().sprite = sprites[rand];
         StartCoroutine(FutureBrickUpdater());
@@ -275,13 +272,6 @@ public class BrickScript : MonoBehaviour {
     {
         Bounce(m_BallRenderer, m_Brick);
         Instantiate(ChestPowerUps, this.transform.position, Quaternion.identity);
-        Destroy(this.gameObject);
-    }
-
-    public void MimicBehaviour()
-    { 
-        Bounce(m_BallRenderer, m_Brick);
-        Instantiate(MimicPowerUps, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 
