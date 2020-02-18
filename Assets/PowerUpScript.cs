@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpScript : MonoBehaviour {
 
-    public enum PowerUpType { DoubleSize, SlowBall, SteelBall, GlueShip, MultiplyBall}
+    public enum PowerUpType { DoubleSize, SlowBall, SteelBall, GlueShip, MultiplyBall, InvertControls}
 
     public PowerUpType powerupType;
 
@@ -48,6 +48,11 @@ public class PowerUpScript : MonoBehaviour {
                     m_Ball.GetComponent<Ball>().SteelBall();
                     Destroy(this.gameObject);
                     break;
+                case PowerUpType.InvertControls:
+                    m_ship.GetComponent<Ship>().InvertControls();
+                    Destroy(this.gameObject);
+                    break;
+                
             }
         }
 	}

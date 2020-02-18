@@ -201,5 +201,4 @@ public class Ball : MonoBehaviour {
         yield return new WaitForSeconds(2);
         steelBall = false;
     }
-
 }

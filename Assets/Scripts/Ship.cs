@@ -8,6 +8,8 @@ public class Ship : MonoBehaviour {
     public GameObject RightWall;
     public GameObject LeftWall;
 
+    public bool InvertedControls = false;
+
     private float m_OriginalSizeX;
 	void Start ()
     {
@@ -17,13 +19,27 @@ public class Ship : MonoBehaviour {
 	
 	void Update ()
     {
-        if ((Input.GetAxisRaw("Horizontal") > 0) && (IntersectBoundsRight(GetComponent<SpriteRenderer>(), RightWall.GetComponent<SpriteRenderer>()) == false))//move right
+        if(!InvertedControls)
         {
-            this.transform.position += Vector3.right * Time.deltaTime * ShipSpeed;
+            if ((Input.GetAxisRaw("Horizontal") > 0) && (IntersectBoundsRight(GetComponent<SpriteRenderer>(), RightWall.GetComponent<SpriteRenderer>()) == false))//move right
+            {
+                this.transform.position += Vector3.right * Time.deltaTime * ShipSpeed;
+            }
+            if((Input.GetAxisRaw("Horizontal")<0) && (IntersectBoundsLeft(GetComponent<SpriteRenderer>(), LeftWall.GetComponent<SpriteRenderer>()) == false))// move left
+            {
+                this.transform.position += Vector3.left * Time.deltaTime * ShipSpeed;
+            }
         }
-        if((Input.GetAxisRaw("Horizontal")<0) && (IntersectBoundsLeft(GetComponent<SpriteRenderer>(), LeftWall.GetComponent<SpriteRenderer>()) == false))// move left
+        else if(InvertedControls)
         {
-            this.transform.position += Vector3.left * Time.deltaTime * ShipSpeed;
+            if ((Input.GetAxisRaw("Horizontal") < 0) && (IntersectBoundsRight(GetComponent<SpriteRenderer>(), RightWall.GetComponent<SpriteRenderer>()) == false))//move right
+            {
+                this.transform.position += Vector3.right * Time.deltaTime * ShipSpeed;
+            }
+            if ((Input.GetAxisRaw("Horizontal") > 0) && (IntersectBoundsLeft(GetComponent<SpriteRenderer>(), LeftWall.GetComponent<SpriteRenderer>()) == false))// move left
+            {
+                this.transform.position += Vector3.left * Time.deltaTime * ShipSpeed;
+            }
         }
 	}
 
@@ -48,4 +64,17 @@ public class Ship : MonoBehaviour {
         yield return new WaitForSeconds(5);
         this.transform.localScale -= new Vector3(m_OriginalSizeX * 0.5f, 0, 0);
     }
+
+    public void InvertControls()
+    {
+        InvertedControls = true;
+        StartCoroutine(InvertControlsTime());
+    }
+
+    public IEnumerator InvertControlsTime()
+    {
+        yield return new WaitForSeconds(4);
+        InvertedControls = false;
+    }
+
 }
