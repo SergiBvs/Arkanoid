@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1703969133366192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.78742, y: 0.24882361, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4968769458183762}
@@ -86,17 +86,14 @@ MonoBehaviour:
   brickType: 6
   m_BrokenBrick: {fileID: 0}
   m_CorruptionObject: {fileID: 1674911910484406}
-  m_NearbyBricks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  m_NearbyBricks: []
   ChestPowerUps: {fileID: 0}
   MimicPowerUps: {fileID: 0}
   sandSpeed: 0
   m_connectedPortal: {fileID: 0}
   sprites: []
   m_IsCorrupted: 0
-  m_brickHealth: 2
+  m_brickHealth: 1
 --- !u!114 &114977758539085164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,7 +144,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300026, guid: 3131537117ccec8458ab64b4bf163f3c, type: 3}
   m_Color: {r: 0.21751513, g: 0.9811321, b: 0.71525574, a: 1}
   m_FlipX: 0
@@ -195,7 +192,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300024, guid: 3131537117ccec8458ab64b4bf163f3c, type: 3}
-  m_Color: {r: 1, g: 0.1625, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.47450984, b: 0.37254903, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
