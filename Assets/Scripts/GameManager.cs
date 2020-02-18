@@ -51,7 +51,10 @@ public class GameManager : MonoBehaviour {
 
     public void HealthUp()
     {
-        m_lifes += 1;
+        if(m_lifes<3)
+        {
+            m_lifes += 1;
+        }
     }
 
     public void RestartGame()

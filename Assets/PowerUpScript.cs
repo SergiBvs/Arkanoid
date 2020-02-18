@@ -23,7 +23,7 @@ public class PowerUpScript : MonoBehaviour {
         m_Ball = GameObject.FindGameObjectWithTag("Ball");
         m_GameManager = GameObject.FindGameObjectWithTag("GameController");
 
-        int rand = Random.Range(0, 6);
+        int rand = Random.Range(0, 7);
         this.powerupType = (PowerUpType)rand;
         this.GetComponent<SpriteRenderer>().sprite = sprites[rand];
     }
