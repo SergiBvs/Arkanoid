@@ -39,10 +39,12 @@ public class PowerUpScript : MonoBehaviour {
                 case PowerUpType.DoubleSize:
                     m_ship.GetComponent<Ship>().DoubleSize();
                     Destroy(this.gameObject);
+                    print("Double Size");
                     break;
                 case PowerUpType.GlueShip:
                     m_Ball.GetComponent<Ball>().GlueBall();
                     Destroy(this.gameObject);
+                    print("GlueShip");
                     break;
                 case PowerUpType.MultiplyBall:
                     m_Ball.GetComponent<Ball>().TripleBall();
@@ -51,18 +53,22 @@ public class PowerUpScript : MonoBehaviour {
                 case PowerUpType.SlowBall:
                     m_Ball.GetComponent<Ball>().SlowBall();
                     Destroy(this.gameObject);
+                    print("SlowBall");
                     break;
                 case PowerUpType.SteelBall:
                     m_Ball.GetComponent<Ball>().SteelBall();
                     Destroy(this.gameObject);
+                    print("SteelBall");
                     break;
                 case PowerUpType.InvertControls:
                     m_ship.GetComponent<Ship>().InvertControls();
                     Destroy(this.gameObject);
+                    print("InvertControls");
                     break;
                 case PowerUpType.HealthUp:
                     m_GameManager.GetComponent<GameManager>().HealthUp();
                     Destroy(this.gameObject);
+                    print("HealthUp");
                     break;
 
             }
