@@ -226,6 +226,10 @@ public class BrickScript : MonoBehaviour {
         int rand = Random.Range(0, 4);
         this.brickType = (Brick_Type)rand;
         this.GetComponent<SpriteRenderer>().sprite = sprites[rand];
+
+        if (this.brickType == Brick_Type.steel) m_brickHealth = 2;
+        else m_brickHealth = 1;
+
         StartCoroutine(FutureBrickUpdater());
     }
 
