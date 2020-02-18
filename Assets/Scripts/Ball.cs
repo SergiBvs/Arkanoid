@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour {
 
@@ -88,9 +87,16 @@ public class Ball : MonoBehaviour {
             else if (m_sr.bounds.max.y < m_NaveRenderer.bounds.min.y) // Por debajo de la nave
             {
                 if (steelBall) steelBall = false;
-                this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y / 2.5f, 0);
-                movementStarted = false;
-                m_GameManager.RestarVidas();
+                if (!isThisAClone)
+                {
+                    this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y / 2.5f, 0);
+                    movementStarted = false;
+                    m_GameManager.RestarVidas();
+                }
+                else
+                {
+                    Destroy(this.gameObject);
+                }
             }
 
             transform.position += new Vector3(x, y, 0) * Time.deltaTime * speed;
