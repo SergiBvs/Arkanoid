@@ -9,6 +9,8 @@ TagManager:
   - TopWall
   - LeftWall
   - RightWall
+  - Score
+  - Lifes
   layers:
   - Default
   - TransparentFX
