@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 117513251}
   m_Layer: 0
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3307,6 +3307,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce5c4d5324c8ac4d9b093880b548b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_textScore: {fileID: 0}
+  m_textLifes: {fileID: 0}
+  m_score: 0
+  m_lifes: 0
+  isOut: 1
 --- !u!4 &1215317661
 Transform:
   m_ObjectHideFlags: 0
@@ -3654,11 +3659,11 @@ MonoBehaviour:
   x: 0
   y: 0
   speed: 5
-  m_NaveRenderer: {fileID: 117513252}
-  m_Nave: {fileID: 117513250}
-  m_TopWall: {fileID: 830092598}
-  m_LeftWall: {fileID: 759404623}
-  m_RightWall: {fileID: 581722168}
+  movementStarted: 0
+  steelBall: 0
+  ballClones: []
+  tripleBall: 0
+  isThisAClone: 0
 --- !u!1001 &1311827586
 Prefab:
   m_ObjectHideFlags: 0
