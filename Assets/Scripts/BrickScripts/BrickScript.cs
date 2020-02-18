@@ -245,8 +245,11 @@ public class BrickScript : MonoBehaviour {
             for (int i = 0; i <= rand; i++)
             {
                 int rand2 = Random.Range(0, m_NearbyBricks.Length);
-                m_NearbyBricks[rand2].GetComponent<BrickScript>().m_CorruptionObject.SetActive(true);
-                m_NearbyBricks[rand2].GetComponent<BrickScript>().m_IsCorrupted = true;
+                if (m_NearbyBricks[rand2] != null)
+                {
+                    m_NearbyBricks[rand2].GetComponent<BrickScript>().m_CorruptionObject.SetActive(true);
+                    m_NearbyBricks[rand2].GetComponent<BrickScript>().m_IsCorrupted = true;
+                }
             }
         }
         else if (m_brickHealth <= 0)
