@@ -64,6 +64,8 @@ public class Brick_Editor : Editor {
 			case BrickScript.Brick_Type.future:
 				EditorGUILayout.PropertyField(sprites_Prop);
                 EditorGUILayout.PropertyField(chestPwrUp_Prop);
+                EditorGUILayout.PropertyField(steelBroken_Prop);
+                EditorGUILayout.PropertyField(sandSpeed_Prop);
                 break;
 
 			case BrickScript.Brick_Type.chest:

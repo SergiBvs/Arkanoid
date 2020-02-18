@@ -163,13 +163,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brickType: 4
-  m_BrokenBrick: {fileID: 0}
+  m_BrokenBrick: {fileID: 21300012, guid: 3131537117ccec8458ab64b4bf163f3c, type: 3}
   m_CorruptionObject: {fileID: 1695711269579862}
   m_NearbyBricks: []
   ChestPowerUps: {fileID: 1376049332703324, guid: ab8e2df7385078646a144dba3d8199ec,
     type: 2}
   MimicPowerUps: {fileID: 0}
-  sandSpeed: 0
+  sandSpeed: 2
   m_connectedPortal: {fileID: 0}
   sprites:
   - {fileID: 21300000, guid: 3131537117ccec8458ab64b4bf163f3c, type: 3}
