@@ -69,10 +69,6 @@ public class Brick_Editor : Editor {
 			case BrickScript.Brick_Type.chest:
 				EditorGUILayout.PropertyField(chestPwrUp_Prop);
 				break;
-			
-			case BrickScript.Brick_Type.mimic:
-				EditorGUILayout.PropertyField(mimicPwrUp_Prop);
-				break;
 
             case BrickScript.Brick_Type.corrupted:
                 EditorGUILayout.PropertyField(nearbyBricks_Prop);
