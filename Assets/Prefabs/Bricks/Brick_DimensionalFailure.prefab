@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5777e20895e8e944a908ce4f1e6632cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brickType: 6
+  brickType: 5
   m_BrokenBrick: {fileID: 0}
   m_CorruptionObject: {fileID: 0}
   m_NearbyBricks: []
