@@ -218,7 +218,6 @@ public class BrickScript : MonoBehaviour {
         
         if (m_brickHealth <= 0)
         {
-            //UNA PORONGA
             m_GameManager.SumarPuntos(10);
             Destroy(this.gameObject);
         }

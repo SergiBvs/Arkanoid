@@ -12,13 +12,19 @@ public class PowerUpScript : MonoBehaviour {
     private GameObject m_Ball;
     public float m_speed = 2f;
 
+    public Sprite[] sprites;
+
    
 
 	// Use this for initialization
 	void Start () {
         m_ship = GameObject.FindGameObjectWithTag("Player");
         m_Ball = GameObject.FindGameObjectWithTag("Ball");
-	}
+
+        int rand = Random.Range(0, 6);
+        this.powerupType = (PowerUpType)rand;
+        this.GetComponent<SpriteRenderer>().sprite = sprites[rand];
+    }
 	
 	// Update is called once per frame
 	void Update () {
