@@ -5,8 +5,8 @@ using UnityEngine;
 public class Ship : MonoBehaviour {
 
     public int ShipSpeed;
-    public GameObject RightWall;
-    public GameObject LeftWall;
+    GameObject RightWall;
+    GameObject LeftWall;
 
     public bool InvertedControls = false;
 
@@ -14,6 +14,8 @@ public class Ship : MonoBehaviour {
 	void Start ()
     {
         m_OriginalSizeX = this.transform.localScale.x;
+        RightWall = GameObject.FindGameObjectWithTag("RightWall");
+        LeftWall = GameObject.FindGameObjectWithTag("LeftWall");
 	}
 	
 	

@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour {
         if(m_lifes<3)
         {
             m_lifes += 1;
+            m_textLifes.text = "Lifes:" + m_lifes;
         }
     }
 
