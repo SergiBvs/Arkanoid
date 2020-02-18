@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-    public Text m_textScore;
-    public Text m_textLifes;
+    Text m_textScore;
+    Text m_textLifes;
     [HideInInspector] public int m_score;
     [HideInInspector] public int m_lifes;
     
@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour {
 
     void Start ()
     {
+        m_textScore = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
+        m_textLifes = GameObject.FindGameObjectWithTag("Lifes").GetComponent<Text>();
+
         m_textScore.text = "Score:" + m_score;
         m_lifes = 3;
         m_textLifes.text = "Lifes:" + m_lifes;
