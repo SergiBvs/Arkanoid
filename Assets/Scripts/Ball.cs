@@ -89,7 +89,7 @@ public class Ball : MonoBehaviour {
                 if (steelBall) steelBall = false;
                 if (!isThisAClone)
                 {
-                    this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y / 2.5f, 0);
+                    this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y / 2f, 0);
                     movementStarted = false;
                     m_GameManager.RestarVidas();
                 }
@@ -103,7 +103,7 @@ public class Ball : MonoBehaviour {
         } 
         else
         {
-            this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y / 2.5f, 0);
+            this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y / 2f, 0);
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 movementStarted = true;
