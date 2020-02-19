@@ -18,6 +18,9 @@ public class Brick_Editor : Editor {
         nearbyBricks_Prop,
         connectedPortal_Prop,
 		sprites_Prop,
+        ballCloneUp_Prop,
+        ballCloneRight_Prop,
+        ballCloneLeft_Prop,
 		sandSpeed_Prop;
 
 	void OnEnable()
@@ -32,6 +35,9 @@ public class Brick_Editor : Editor {
         nearbyBricks_Prop = serializedObject.FindProperty("m_NearbyBricks");
         connectedPortal_Prop = serializedObject.FindProperty("m_connectedPortal");
 		sprites_Prop = serializedObject.FindProperty("sprites");
+		ballCloneUp_Prop = serializedObject.FindProperty("m_BallCloneUp");
+		ballCloneRight_Prop = serializedObject.FindProperty("m_BallCloneRight");
+		ballCloneLeft_Prop = serializedObject.FindProperty("m_BallCloneLeft");
 	}
 
 	public override void OnInspectorGUI()
@@ -43,9 +49,11 @@ public class Brick_Editor : Editor {
 
 		EditorGUILayout.Space();
 		EditorGUILayout.LabelField("Needed Parameters:", EditorStyles.boldLabel);
+        EditorGUILayout.PropertyField(ballCloneLeft_Prop);
+        EditorGUILayout.PropertyField(ballCloneRight_Prop);
+        EditorGUILayout.PropertyField(ballCloneUp_Prop);
 
-
-		BrickScript.Brick_Type bT = (BrickScript.Brick_Type)brickType_Prop.enumValueIndex;
+        BrickScript.Brick_Type bT = (BrickScript.Brick_Type)brickType_Prop.enumValueIndex;
 
 		switch (bT)
 		{
@@ -84,6 +92,7 @@ public class Brick_Editor : Editor {
         }
         EditorGUILayout.PropertyField(brickHealth_Prop);
         EditorGUILayout.PropertyField(corruption_Prop);
+        
 
 
         serializedObject.ApplyModifiedProperties();

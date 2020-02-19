@@ -30,6 +30,8 @@ public class Ball : MonoBehaviour {
     public bool tripleBall = false;
     public bool isThisAClone;
 
+    public bool HasClones = false;
+
     // Use this for initialization
     void Start () {
 

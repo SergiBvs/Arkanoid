@@ -33,6 +33,9 @@ public class BrickScript : MonoBehaviour {
 
     //----For All Bricks----//
     private GameObject m_Ball;
+    public GameObject m_BallCloneLeft;
+    public GameObject m_BallCloneRight;
+    public GameObject m_BallCloneUp;
     private SpriteRenderer m_BallRenderer;
     private SpriteRenderer m_Brick;
     private GameManager m_GameManager;
@@ -99,6 +102,111 @@ public class BrickScript : MonoBehaviour {
 
             }
         }
+        else if (IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneUp.GetComponent<SpriteRenderer>()))
+        {
+            if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
+            {
+                isHitting = true;
+                switch (brickType)
+                {
+                    case Brick_Type.normal:
+                        NormalBehaviour();
+                        break;
+                    case Brick_Type.steel:
+                        SteelBehaviour();
+                        break;
+                    case Brick_Type.desert:
+                        DesertBehaviour();
+                        break;
+                    case Brick_Type.future:
+                        FutureBehaviour();
+                        break;
+                    case Brick_Type.corrupted:
+                        CorruptedBehaviour();
+                        break;
+                    case Brick_Type.dimensional:
+                        DimBehaviour();
+                        break;
+                    case Brick_Type.chest:
+                        ChestBehaviour();
+                        break;
+                    case Brick_Type.obsidian:
+                        ObsidianBehaviour();
+                        break;
+                }
+
+            }
+        }
+        else if (IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneLeft.GetComponent<SpriteRenderer>()))
+        {
+            if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
+            {
+                isHitting = true;
+                switch (brickType)
+                {
+                    case Brick_Type.normal:
+                        NormalBehaviour();
+                        break;
+                    case Brick_Type.steel:
+                        SteelBehaviour();
+                        break;
+                    case Brick_Type.desert:
+                        DesertBehaviour();
+                        break;
+                    case Brick_Type.future:
+                        FutureBehaviour();
+                        break;
+                    case Brick_Type.corrupted:
+                        CorruptedBehaviour();
+                        break;
+                    case Brick_Type.dimensional:
+                        DimBehaviour();
+                        break;
+                    case Brick_Type.chest:
+                        ChestBehaviour();
+                        break;
+                    case Brick_Type.obsidian:
+                        ObsidianBehaviour();
+                        break;
+                }
+
+            }
+        }
+        else if (IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneRight.GetComponent<SpriteRenderer>()))
+        {
+            if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
+            {
+                isHitting = true;
+                switch (brickType)
+                {
+                    case Brick_Type.normal:
+                        NormalBehaviour();
+                        break;
+                    case Brick_Type.steel:
+                        SteelBehaviour();
+                        break;
+                    case Brick_Type.desert:
+                        DesertBehaviour();
+                        break;
+                    case Brick_Type.future:
+                        FutureBehaviour();
+                        break;
+                    case Brick_Type.corrupted:
+                        CorruptedBehaviour();
+                        break;
+                    case Brick_Type.dimensional:
+                        DimBehaviour();
+                        break;
+                    case Brick_Type.chest:
+                        ChestBehaviour();
+                        break;
+                    case Brick_Type.obsidian:
+                        ObsidianBehaviour();
+                        break;
+                }
+
+            }
+        }
         else
         {
             //Cuando la bola sale del brick
@@ -111,7 +219,7 @@ public class BrickScript : MonoBehaviour {
         }
 	}
 
-    public void Bounce(SpriteRenderer b, SpriteRenderer k)
+    public void Bounce(SpriteRenderer b, SpriteRenderer k, SpriteRenderer bCloneLeft, SpriteRenderer bCloneRight, SpriteRenderer bCloneUp)
     {
         //Como ya hemos detectado que esta colisionando no hace falta volverlo a detectar sino mirar en que posicion estaba la pelota cuando lo ha tocado.
         if (!ballScript.steelBall)
@@ -138,8 +246,72 @@ public class BrickScript : MonoBehaviour {
             }
         }
 
-    }
+        if ((bCloneLeft.transform.position.x < k.transform.position.x - k.bounds.size.x / 2))
+        {
+            bCloneLeft.GetComponent<Ball>().x = -1;
+        }
+        else if (bCloneLeft.transform.position.x > k.transform.position.x + k.bounds.size.x / 2)
+        {
+            bCloneLeft.GetComponent<Ball>().x = 1;
+        }
+        else if (bCloneLeft.transform.position.y < k.transform.position.y - k.bounds.size.y / 2)
+        {
+            bCloneLeft.GetComponent<Ball>().y = -1;
+        }
+        else if (bCloneLeft.transform.position.y > k.transform.position.x + k.bounds.size.x / 2)
+        {
+            bCloneLeft.GetComponent<Ball>().y = 1;
+        }
+        else
+        {
+            bCloneLeft.GetComponent<Ball>().y = -1;
+        }
 
+
+        if ((bCloneRight.transform.position.x < k.transform.position.x - k.bounds.size.x / 2))
+        {
+            bCloneRight.GetComponent<Ball>().x = -1;
+        }
+        else if (bCloneRight.transform.position.x > k.transform.position.x + k.bounds.size.x / 2)
+        {
+            bCloneRight.GetComponent<Ball>().x = 1;
+        }
+        else if (bCloneRight.transform.position.y < k.transform.position.y - k.bounds.size.y / 2)
+        {
+            bCloneRight.GetComponent<Ball>().y = -1;
+        }
+        else if (bCloneRight.transform.position.y > k.transform.position.x + k.bounds.size.x / 2)
+        {
+            bCloneRight.GetComponent<Ball>().y = 1;
+        }
+        else
+        {
+            bCloneRight.GetComponent<Ball>().y = -1;
+        }
+
+        if ((bCloneUp.transform.position.x < k.transform.position.x - k.bounds.size.x / 2))
+        {
+            bCloneUp.GetComponent<Ball>().x = -1;
+        }
+        else if (bCloneUp.transform.position.x > k.transform.position.x + k.bounds.size.x / 2)
+        {
+            bCloneUp.GetComponent<Ball>().x = 1;
+        }
+        else if (bCloneUp.transform.position.y < k.transform.position.y - k.bounds.size.y / 2)
+        {
+            bCloneUp.GetComponent<Ball>().y = -1;
+        }
+        else if (bCloneUp.transform.position.y > k.transform.position.x + k.bounds.size.x / 2)
+        {
+            bCloneUp.GetComponent<Ball>().y = 1;
+        }
+        else
+        {
+            bCloneUp.GetComponent<Ball>().y = -1;
+        }
+
+    }
+    
     public void HealthCheck()
     {
         if (this.m_IsCorrupted)
@@ -164,7 +336,8 @@ public class BrickScript : MonoBehaviour {
 
     public void NormalBehaviour()
     {
-        Bounce(m_BallRenderer, m_Brick);
+        Bounce(m_BallRenderer, m_Brick, m_BallCloneLeft.GetComponent<SpriteRenderer>(), m_BallCloneRight.GetComponent<SpriteRenderer>(), m_BallCloneUp.GetComponent<SpriteRenderer>());
+
 
         HealthCheck();
         if (m_brickHealth <= 0)
@@ -176,7 +349,7 @@ public class BrickScript : MonoBehaviour {
 
     public void SteelBehaviour()
     {
-        Bounce(m_BallRenderer, m_Brick);
+        Bounce(m_BallRenderer, m_Brick, m_BallCloneLeft.GetComponent<SpriteRenderer>(), m_BallCloneRight.GetComponent<SpriteRenderer>(), m_BallCloneUp.GetComponent<SpriteRenderer>());
 
         HealthCheck();
         if(m_brickHealth == 1)
@@ -192,7 +365,7 @@ public class BrickScript : MonoBehaviour {
 
     public void DesertBehaviour()
     {
-        Bounce(m_BallRenderer, m_Brick);
+        Bounce(m_BallRenderer, m_Brick, m_BallCloneLeft.GetComponent<SpriteRenderer>(), m_BallCloneRight.GetComponent<SpriteRenderer>(), m_BallCloneUp.GetComponent<SpriteRenderer>());
 
         HealthCheck();       
         if(m_brickHealth <= 0)
@@ -210,7 +383,7 @@ public class BrickScript : MonoBehaviour {
 
     public void FutureBehaviour()
     {
-        Bounce(m_BallRenderer, m_Brick);
+        Bounce(m_BallRenderer, m_Brick, m_BallCloneLeft.GetComponent<SpriteRenderer>(), m_BallCloneRight.GetComponent<SpriteRenderer>(), m_BallCloneUp.GetComponent<SpriteRenderer>());
         HealthCheck();
         
         if (m_brickHealth <= 0)
@@ -235,7 +408,7 @@ public class BrickScript : MonoBehaviour {
 
     public void CorruptedBehaviour()
     {
-        Bounce(m_BallRenderer, m_Brick);
+        Bounce(m_BallRenderer, m_Brick, m_BallCloneLeft.GetComponent<SpriteRenderer>(), m_BallCloneRight.GetComponent<SpriteRenderer>(), m_BallCloneUp.GetComponent<SpriteRenderer>());
 
         m_brickHealth--;
         if (m_brickHealth == 1)
@@ -274,14 +447,14 @@ public class BrickScript : MonoBehaviour {
 
     public void ChestBehaviour()
     {
-        Bounce(m_BallRenderer, m_Brick);
+        Bounce(m_BallRenderer, m_Brick, m_BallCloneLeft.GetComponent<SpriteRenderer>(), m_BallCloneRight.GetComponent<SpriteRenderer>(), m_BallCloneUp.GetComponent<SpriteRenderer>());
         Instantiate(ChestPowerUps, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 
     public void ObsidianBehaviour()
     {
-        Bounce(m_BallRenderer, m_Brick);
+        Bounce(m_BallRenderer, m_Brick, m_BallCloneLeft.GetComponent<SpriteRenderer>(), m_BallCloneRight.GetComponent<SpriteRenderer>(), m_BallCloneUp.GetComponent<SpriteRenderer>());
     }
 
     IEnumerator DimensionalCooldown()
