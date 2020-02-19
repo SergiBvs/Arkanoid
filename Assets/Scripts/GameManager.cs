@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     GameObject m_NextLevelPanel;
     [HideInInspector] static public int m_score;
     [HideInInspector] static public int m_lifes = 3;
+    public int m_CurrentScore;
 
     public int BrickNumber;
     int CurrentBrickNumber = 0;
@@ -76,11 +77,19 @@ public class GameManager : MonoBehaviour {
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        m_lifes = 3;
     }
 
     public void NextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        GameObject.FindGameObjectWithTag("Telon").GetComponent<Animator>().SetTrigger("Transition");
+        StartCoroutine(TelonWait());
+    }
+
+    public IEnumerator TelonWait()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }
