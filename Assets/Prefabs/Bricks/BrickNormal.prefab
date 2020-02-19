@@ -107,6 +107,13 @@ MonoBehaviour:
   MimicPowerUps: {fileID: 0}
   sandSpeed: 0
   m_connectedPortal: {fileID: 0}
+  sprites: []
+  m_BallCloneLeft: {fileID: 1928178652806702, guid: 3dcd8389f04f39348a6cf5d6d4e0e3ca,
+    type: 2}
+  m_BallCloneRight: {fileID: 1928178652806702, guid: f8875791db1c90743a924c2b68cde5f5,
+    type: 2}
+  m_BallCloneUp: {fileID: 1928178652806702, guid: 9b810be0be60b144f8216ce191c6f9e9,
+    type: 2}
   m_IsCorrupted: 0
   m_brickHealth: 1
 --- !u!212 &212127552512827376
