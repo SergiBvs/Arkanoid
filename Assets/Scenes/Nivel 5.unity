@@ -844,6 +844,20 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 114986438544965976, guid: 71260ea8314908e4eb080c25985b38f4,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1215317660}
+    - target: {fileID: 114986438544965976, guid: 71260ea8314908e4eb080c25985b38f4,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659222425052424, guid: 71260ea8314908e4eb080c25985b38f4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71260ea8314908e4eb080c25985b38f4, type: 2}
   m_IsPrefabAsset: 0
@@ -2482,7 +2496,7 @@ GameObject:
   - component: {fileID: 581722168}
   m_Layer: 0
   m_Name: border_right
-  m_TagString: Untagged
+  m_TagString: RightWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3127,7 +3141,7 @@ GameObject:
   - component: {fileID: 759404623}
   m_Layer: 0
   m_Name: border_left
-  m_TagString: Untagged
+  m_TagString: LeftWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3353,7 +3367,7 @@ GameObject:
   - component: {fileID: 830092598}
   m_Layer: 0
   m_Name: border_top
-  m_TagString: Untagged
+  m_TagString: TopWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

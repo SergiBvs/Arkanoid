@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-    Text m_textScore;
-    Text m_textLifes;
+    static Text m_textScore;
+    static Text m_textLifes;
     [HideInInspector] public int m_score;
     [HideInInspector] public int m_lifes;
     
@@ -64,6 +64,11 @@ public class GameManager : MonoBehaviour {
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 
 }

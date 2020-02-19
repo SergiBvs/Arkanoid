@@ -780,11 +780,6 @@ Prefab:
     m_Modifications:
     - target: {fileID: 224255644056290556, guid: 71260ea8314908e4eb080c25985b38f4,
         type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224255644056290556, guid: 71260ea8314908e4eb080c25985b38f4,
-        type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -873,13 +868,24 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114986438544965976, guid: 71260ea8314908e4eb080c25985b38f4,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1215317660}
     - target: {fileID: 223333148962386944, guid: 71260ea8314908e4eb080c25985b38f4,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 1659222425052424, guid: 71260ea8314908e4eb080c25985b38f4, type: 2}
-      propertyPath: m_IsActive
+    - target: {fileID: 114041422368900190, guid: 71260ea8314908e4eb080c25985b38f4,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041422368900190, guid: 71260ea8314908e4eb080c25985b38f4,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
