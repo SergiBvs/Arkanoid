@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     Text m_textScore;
     Text m_textLifes;
     GameObject m_NextLevelPanel;
+    GameObject m_GameOverPanel;
     [HideInInspector] static public int m_score;
     [HideInInspector] static public int m_lifes = 3;
     public int m_CurrentScore;
@@ -27,6 +28,8 @@ public class GameManager : MonoBehaviour {
         
         m_textLifes.text = "Lifes:" + m_lifes;
         m_NextLevelPanel = GameObject.FindGameObjectWithTag("NextLevelPanel");
+        m_GameOverPanel = GameObject.FindGameObjectWithTag("GameOverPanel");
+        m_GameOverPanel.SetActive(false);
         m_NextLevelPanel.SetActive(false);
 	}
 	
@@ -58,7 +61,8 @@ public class GameManager : MonoBehaviour {
         if (m_lifes <= 0)
         {
             GameObject.FindGameObjectWithTag("Telon").GetComponent<Animator>().SetTrigger("Transition");
-            RestartGame();
+            StartCoroutine(TelonWaitGameOver());
+            
         }
 
     }
@@ -76,14 +80,22 @@ public class GameManager : MonoBehaviour {
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         m_lifes = 3;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+    }
+
+    public IEnumerator TelonWaitGameOver()
+    {
+        yield return new WaitForSeconds(1.6f);
+        m_GameOverPanel.SetActive(true);
     }
 
     public void NextLevel()
     {
         GameObject.FindGameObjectWithTag("Telon").GetComponent<Animator>().SetTrigger("Transition");
         StartCoroutine(TelonWait());
+
     }
 
     public IEnumerator TelonWait()
@@ -91,5 +103,7 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+
 
 }

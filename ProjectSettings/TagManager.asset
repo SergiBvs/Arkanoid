@@ -13,6 +13,7 @@ TagManager:
   - Lifes
   - Telon
   - NextLevelPanel
+  - GameOverPanel
   layers:
   - Default
   - TransparentFX
