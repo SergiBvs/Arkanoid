@@ -2750,8 +2750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce5c4d5324c8ac4d9b093880b548b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_score: 0
-  m_lifes: 0
+  BrickNumber: 38
   isOut: 1
 --- !u!4 &1215317661
 Transform:

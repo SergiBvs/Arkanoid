@@ -6,11 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-    static Text m_textScore;
-    static Text m_textLifes;
-    [HideInInspector] public int m_score;
-    [HideInInspector] public int m_lifes;
-    
+    Text m_textScore;
+    Text m_textLifes;
+    GameObject m_NextLevelPanel;
+    [HideInInspector] static public int m_score;
+    [HideInInspector] static public int m_lifes = 3;
+
+    public int BrickNumber;
+    int CurrentBrickNumber = 0;
+
     public bool isOut = true;
 
     void Start ()
@@ -19,8 +23,10 @@ public class GameManager : MonoBehaviour {
         m_textLifes = GameObject.FindGameObjectWithTag("Lifes").GetComponent<Text>();
 
         m_textScore.text = "Score:" + m_score;
-        m_lifes = 3;
+        
         m_textLifes.text = "Lifes:" + m_lifes;
+        m_NextLevelPanel = GameObject.FindGameObjectWithTag("NextLevelPanel");
+        m_NextLevelPanel.SetActive(false);
 	}
 	
 	
@@ -34,6 +40,12 @@ public class GameManager : MonoBehaviour {
     {
         m_score += punts;
         m_textScore.text = "Score:" + m_score;
+        CurrentBrickNumber++;
+
+        if(CurrentBrickNumber >= BrickNumber)
+        {
+            m_NextLevelPanel.SetActive(true);
+        }
     }
 
     public void RestarVidas()

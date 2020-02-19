@@ -12,6 +12,7 @@ TagManager:
   - Score
   - Lifes
   - Telon
+  - NextLevelPanel
   layers:
   - Default
   - TransparentFX
