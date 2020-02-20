@@ -2863,7 +2863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CurrentScore: 0
-  BrickNumber: 2
+  BrickNumber: 62
   isOut: 1
 --- !u!4 &1215317661
 Transform:
@@ -3565,6 +3565,11 @@ Prefab:
     - target: {fileID: 4000859259450050, guid: fbdc56c33436b514b9fa4426a99fecc3, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114765929347977402, guid: fbdc56c33436b514b9fa4426a99fecc3,
+        type: 2}
+      propertyPath: tripleBall
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbdc56c33436b514b9fa4426a99fecc3, type: 2}

@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour {
 
     public bool isOut = true;
 
+    bool RestartGamePanel = false;
+    bool NextLevelPanel = false;
+
     void Start ()
     {
         m_textScore = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
@@ -34,10 +37,23 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	
-	void Update () {
+	void Update ()
+    {
+        if(RestartGamePanel == true)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                RestartGame();
+            }
+        }
 
-       
-
+        if(NextLevelPanel == true)
+        {
+            if(Input.GetKeyDown(KeyCode.N))
+            {
+                NextLevel();
+            }
+        }
     }
 
     public void SumarPuntos(int punts)
@@ -50,6 +66,7 @@ public class GameManager : MonoBehaviour {
         if(CurrentBrickNumber >= BrickNumber)
         {
             m_NextLevelPanel.SetActive(true);
+            NextLevelPanel = true;
         }
     }
 
@@ -63,6 +80,8 @@ public class GameManager : MonoBehaviour {
         {
             GameObject.FindGameObjectWithTag("Telon").GetComponent<Animator>().SetTrigger("Transition");
             StartCoroutine(TelonWaitGameOver());
+
+            
         }
 
     }
@@ -89,6 +108,7 @@ public class GameManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(1.6f);
         m_GameOverPanel.SetActive(true);
+        RestartGamePanel = true;
     }
 
     public void NextLevel()
