@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour {
 
-    public int ShipSpeed;
+    public float ShipSpeed;
     GameObject RightWall;
     GameObject LeftWall;
 
@@ -25,22 +25,34 @@ public class Ship : MonoBehaviour {
         {
             if ((Input.GetAxisRaw("Horizontal") > 0) && (IntersectBoundsRight(GetComponent<SpriteRenderer>(), RightWall.GetComponent<SpriteRenderer>()) == false))//move right
             {
+                if (ShipSpeed < 5) ShipSpeed += 0.1f;
                 this.transform.position += Vector3.right * Time.deltaTime * ShipSpeed;
             }
-            if((Input.GetAxisRaw("Horizontal")<0) && (IntersectBoundsLeft(GetComponent<SpriteRenderer>(), LeftWall.GetComponent<SpriteRenderer>()) == false))// move left
+            else if((Input.GetAxisRaw("Horizontal")<0) && (IntersectBoundsLeft(GetComponent<SpriteRenderer>(), LeftWall.GetComponent<SpriteRenderer>()) == false))// move left
             {
+                if (ShipSpeed < 5) ShipSpeed += 0.1f;
                 this.transform.position += Vector3.left * Time.deltaTime * ShipSpeed;
+            }
+            else
+            {
+                if (ShipSpeed > 0) ShipSpeed -= 0.1f;
             }
         }
         else if(InvertedControls)
         {
             if ((Input.GetAxisRaw("Horizontal") < 0) && (IntersectBoundsRight(GetComponent<SpriteRenderer>(), RightWall.GetComponent<SpriteRenderer>()) == false))//move right
             {
+                if (ShipSpeed < 5) ShipSpeed += 0.1f;
                 this.transform.position += Vector3.right * Time.deltaTime * ShipSpeed;
             }
-            if ((Input.GetAxisRaw("Horizontal") > 0) && (IntersectBoundsLeft(GetComponent<SpriteRenderer>(), LeftWall.GetComponent<SpriteRenderer>()) == false))// move left
+            else if ((Input.GetAxisRaw("Horizontal") > 0) && (IntersectBoundsLeft(GetComponent<SpriteRenderer>(), LeftWall.GetComponent<SpriteRenderer>()) == false))// move left
             {
+                if (ShipSpeed < 5) ShipSpeed += 0.1f;
                 this.transform.position += Vector3.left * Time.deltaTime * ShipSpeed;
+            }
+            else
+            {
+                if (ShipSpeed > 0) ShipSpeed -= 0.1f;
             }
         }
 	}

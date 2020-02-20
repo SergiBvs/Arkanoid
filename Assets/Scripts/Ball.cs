@@ -57,12 +57,16 @@ public class Ball : MonoBehaviour {
             speed += 0.0001f;
             if (IntersectBounds(m_sr, m_NaveRenderer))
             {
-                if(!glueBall) BounceFromShip();
-                else if (glueBall)
+                if (!(m_sr.bounds.max.y < m_NaveRenderer.bounds.max.y - 0.1f))
                 {
-                    glueBall = false;
-                    movementStarted = false;
+                    if (!glueBall) BounceFromShip();
+                    else if (glueBall)
+                    {
+                        glueBall = false;
+                        movementStarted = false;
+                    }
                 }
+                
 
                 if (steelActivator)
                 {
@@ -91,7 +95,7 @@ public class Ball : MonoBehaviour {
                 if (steelBall) steelBall = false;
                 if (!isThisAClone)
                 {
-                    this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y / 3f, 0);
+                    this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_NaveRenderer.bounds.size.y / 1.5f, 0);
                     movementStarted = false;
                     m_GameManager.RestarVidas();
                 }
@@ -105,7 +109,7 @@ public class Ball : MonoBehaviour {
         } 
         else
         {
-            this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y / 3f, 0);
+            this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_NaveRenderer.bounds.size.y / 1.5f, 0);
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 movementStarted = true;
@@ -133,7 +137,7 @@ public class Ball : MonoBehaviour {
         float l_Distance2 = Vector3.Distance(this.GetComponent<SpriteRenderer>().bounds.center, topRight);
 
         
-        if (l_Distance < ((m_Nave.transform.localScale.x / 3)))
+        if (l_Distance < ((m_Nave.GetComponent<SpriteRenderer>().bounds.size.x / 2.65)))
         {
             x = -1;
             y = 1;
@@ -144,7 +148,7 @@ public class Ball : MonoBehaviour {
                 tripleActivator = false;
             }
         }
-        else if (l_Distance2 < (m_Nave.transform.localScale.x / 3))
+        else if (l_Distance2 < (m_Nave.GetComponent<SpriteRenderer>().bounds.size.x / 2.65))
         {
             x = 1;
             y = 1;
