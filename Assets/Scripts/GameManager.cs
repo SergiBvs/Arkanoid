@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
     GameObject m_NextLevelPanel;
     GameObject m_GameOverPanel;
     GameObject m_PausePanel;
+    public Ball m_Ball;
+    public Ship m_Ship;
     [HideInInspector] static public int m_score;
     [HideInInspector] static public int m_lifes = 3;
     public int m_CurrentScore = 0;
@@ -28,6 +30,10 @@ public class GameManager : MonoBehaviour {
     {
         m_textScore = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         m_textLifes = GameObject.FindGameObjectWithTag("Lifes").GetComponent<Text>();
+        m_Ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Ball>();
+        m_Ship = GameObject.FindGameObjectWithTag("Player").GetComponent<Ship>();
+
+
 
         m_textScore.text = "Score:" + (m_CurrentScore + m_score);
         
@@ -83,6 +89,8 @@ public class GameManager : MonoBehaviour {
         {
             m_NextLevelPanel.SetActive(true);
             NextLevelPanel = true;
+            m_Ball.speed = 0;
+            m_Ship.ShipSpeed = 0;
         }
     }
 
@@ -94,6 +102,8 @@ public class GameManager : MonoBehaviour {
 
         if (m_lifes <= 0)
         {
+            m_Ball.speed = 0;
+            m_Ship.ShipSpeed = 0;
             GameObject.FindGameObjectWithTag("Telon").GetComponent<Animator>().SetTrigger("Transition");
             StartCoroutine(TelonWaitGameOver());
         }

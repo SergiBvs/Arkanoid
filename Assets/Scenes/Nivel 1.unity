@@ -2933,6 +2933,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce5c4d5324c8ac4d9b093880b548b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Ball: {fileID: 0}
+  m_Ship: {fileID: 0}
   m_CurrentScore: 0
   BrickNumber: 2
   isOut: 1
@@ -5582,6 +5584,26 @@ Prefab:
     - target: {fileID: 1659222425052424, guid: 71260ea8314908e4eb080c25985b38f4, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224038251193208002, guid: 71260ea8314908e4eb080c25985b38f4,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000061035156
+      objectReference: {fileID: 0}
+    - target: {fileID: 224038251193208002, guid: 71260ea8314908e4eb080c25985b38f4,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 88
+      objectReference: {fileID: 0}
+    - target: {fileID: 224785356332431942, guid: 71260ea8314908e4eb080c25985b38f4,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224785356332431942, guid: 71260ea8314908e4eb080c25985b38f4,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -51
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71260ea8314908e4eb080c25985b38f4, type: 2}
