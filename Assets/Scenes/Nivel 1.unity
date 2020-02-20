@@ -2936,7 +2936,7 @@ MonoBehaviour:
   m_Ball: {fileID: 0}
   m_Ship: {fileID: 0}
   m_CurrentScore: 0
-  BrickNumber: 2
+  BrickNumber: 62
   isOut: 1
 --- !u!4 &1215317661
 Transform:
