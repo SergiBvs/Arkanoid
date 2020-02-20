@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1644149181994324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.479, y: 0.59, z: 0}
+  m_LocalPosition: {x: -1.48, y: 0.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4786519989155100}
@@ -103,7 +103,8 @@ MonoBehaviour:
   m_BrokenBrick: {fileID: 0}
   m_CorruptionObject: {fileID: 1190754162097980}
   m_NearbyBricks: []
-  ChestPowerUps: {fileID: 0}
+  ChestPowerUps: {fileID: 1376049332703324, guid: ab8e2df7385078646a144dba3d8199ec,
+    type: 2}
   MimicPowerUps: {fileID: 0}
   sandSpeed: 0
   m_connectedPortal: {fileID: 0}

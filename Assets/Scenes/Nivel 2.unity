@@ -505,7 +505,7 @@ Transform:
   - {fileID: 1848610955}
   - {fileID: 394145688}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &241265393
 Prefab:
@@ -908,6 +908,10 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1659222425052424, guid: 71260ea8314908e4eb080c25985b38f4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71260ea8314908e4eb080c25985b38f4, type: 2}
   m_IsPrefabAsset: 0
@@ -1046,6 +1050,10 @@ Prefab:
     - target: {fileID: 114640944787180708, guid: 373a1319d36b4154fae8de59ae357dc3,
         type: 2}
       propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879293023028282, guid: 373a1319d36b4154fae8de59ae357dc3, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2883,6 +2891,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114718215528750742, guid: 6988d97d98982e04fb8fec7f439bc208,
+        type: 2}
+      propertyPath: ChestPowerUps
+      value: 
+      objectReference: {fileID: 1376049332703324, guid: ab8e2df7385078646a144dba3d8199ec,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6988d97d98982e04fb8fec7f439bc208, type: 2}
   m_IsPrefabAsset: 0
@@ -4570,7 +4584,7 @@ Transform:
   - {fileID: 1012742384}
   - {fileID: 410689893}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1704053477
 Prefab:
