@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
     GameObject m_GameOverPanel;
     [HideInInspector] static public int m_score;
     [HideInInspector] static public int m_lifes = 3;
-    public int m_CurrentScore;
+    public int m_CurrentScore = 0;
 
     public int BrickNumber;
     int CurrentBrickNumber = 0;
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
         m_textScore = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         m_textLifes = GameObject.FindGameObjectWithTag("Lifes").GetComponent<Text>();
 
-        m_textScore.text = "Score:" + m_score;
+        m_textScore.text = "Score:" + (m_CurrentScore + m_score);
         
         m_textLifes.text = "Lifes:" + m_lifes;
         m_NextLevelPanel = GameObject.FindGameObjectWithTag("NextLevelPanel");
@@ -42,8 +42,9 @@ public class GameManager : MonoBehaviour {
 
     public void SumarPuntos(int punts)
     {
-        m_score += punts;
-        m_textScore.text = "Score:" + m_score;
+
+        m_CurrentScore += punts;
+        m_textScore.text = "Score:" + (m_CurrentScore + m_score);
         CurrentBrickNumber++;
 
         if(CurrentBrickNumber >= BrickNumber)
@@ -62,7 +63,6 @@ public class GameManager : MonoBehaviour {
         {
             GameObject.FindGameObjectWithTag("Telon").GetComponent<Animator>().SetTrigger("Transition");
             StartCoroutine(TelonWaitGameOver());
-            
         }
 
     }
@@ -80,9 +80,9 @@ public class GameManager : MonoBehaviour {
 
     public void RestartGame()
     {
+        m_CurrentScore = 0;
         m_lifes = 3;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
     }
 
     public IEnumerator TelonWaitGameOver()
@@ -93,9 +93,9 @@ public class GameManager : MonoBehaviour {
 
     public void NextLevel()
     {
+        m_score = m_CurrentScore;    
         GameObject.FindGameObjectWithTag("Telon").GetComponent<Animator>().SetTrigger("Transition");
         StartCoroutine(TelonWait());
-
     }
 
     public IEnumerator TelonWait()

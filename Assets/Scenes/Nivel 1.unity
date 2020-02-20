@@ -2863,7 +2863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CurrentScore: 0
-  BrickNumber: 62
+  BrickNumber: 2
   isOut: 1
 --- !u!4 &1215317661
 Transform:
