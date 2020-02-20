@@ -96,7 +96,6 @@ public class GameManager : MonoBehaviour {
         {
             GameObject.FindGameObjectWithTag("Telon").GetComponent<Animator>().SetTrigger("Transition");
             StartCoroutine(TelonWaitGameOver());
-            
         }
 
     }
@@ -114,7 +113,6 @@ public class GameManager : MonoBehaviour {
 
     public void RestartGame()
     {
-        Time.timeScale = 1f;
         m_CurrentScore = 0;
         m_lifes = 3;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -125,7 +123,6 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(1.6f);
         m_GameOverPanel.SetActive(true);
         RestartGamePanel = true;
-        Time.timeScale = 0f;
     }
 
     public void NextLevel()
