@@ -33,8 +33,6 @@ public class GameManager : MonoBehaviour {
         m_Ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Ball>();
         m_Ship = GameObject.FindGameObjectWithTag("Player").GetComponent<Ship>();
 
-
-
         m_textScore.text = "Score:" + (m_CurrentScore + m_score);
         
         m_textLifes.text = "Lifes:" + m_lifes;
