@@ -46,7 +46,7 @@ public class Ball : MonoBehaviour {
         m_NaveRenderer = m_Nave.GetComponent<SpriteRenderer>();
 
 
-       // this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_Nave.transform.localScale.y / 2.5f, 0);
+        this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_NaveRenderer.bounds.size.y / 1.5f, 0);
     }
 	
 	// Update is called once per frame

@@ -16,6 +16,7 @@ TagManager:
   - GameOverPanel
   - PausePanel
   - MainMenuPanel
+  - BallClone
   layers:
   - Default
   - TransparentFX
