@@ -15,6 +15,7 @@ TagManager:
   - NextLevelPanel
   - GameOverPanel
   - PausePanel
+  - MainMenuPanel
   layers:
   - Default
   - TransparentFX

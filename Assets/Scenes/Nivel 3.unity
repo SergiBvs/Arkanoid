@@ -2851,6 +2851,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce5c4d5324c8ac4d9b093880b548b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Ball: {fileID: 0}
+  m_Ship: {fileID: 0}
   m_CurrentScore: 0
   BrickNumber: 61
   isOut: 1
@@ -3568,6 +3570,16 @@ Prefab:
     - target: {fileID: 1659222425052424, guid: 71260ea8314908e4eb080c25985b38f4, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114573394580764508, guid: 71260ea8314908e4eb080c25985b38f4,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1215317660}
+    - target: {fileID: 114573394580764508, guid: 71260ea8314908e4eb080c25985b38f4,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71260ea8314908e4eb080c25985b38f4, type: 2}
