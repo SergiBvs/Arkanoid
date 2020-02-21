@@ -28,20 +28,23 @@ public class GameManager : MonoBehaviour {
 
     void Start ()
     {
-        m_textScore = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
-        m_textLifes = GameObject.FindGameObjectWithTag("Lifes").GetComponent<Text>();
-        m_Ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Ball>();
-        m_Ship = GameObject.FindGameObjectWithTag("Player").GetComponent<Ship>();
+        if(SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            m_textScore = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
+            m_textLifes = GameObject.FindGameObjectWithTag("Lifes").GetComponent<Text>();
+            m_Ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Ball>();
+            m_Ship = GameObject.FindGameObjectWithTag("Player").GetComponent<Ship>();
 
-        m_textScore.text = "Score:" + (m_CurrentScore + m_score);
+            m_textScore.text = "Score:" + (m_CurrentScore + m_score);
         
-        m_textLifes.text = "Lifes:" + m_lifes;
-        m_NextLevelPanel = GameObject.FindGameObjectWithTag("NextLevelPanel");
-        m_GameOverPanel = GameObject.FindGameObjectWithTag("GameOverPanel");
-        m_PausePanel = GameObject.FindGameObjectWithTag("PausePanel");
-        m_PausePanel.SetActive(false);
-        m_GameOverPanel.SetActive(false);
-        m_NextLevelPanel.SetActive(false);
+            m_textLifes.text = "Lifes:" + m_lifes;
+            m_NextLevelPanel = GameObject.FindGameObjectWithTag("NextLevelPanel");
+            m_GameOverPanel = GameObject.FindGameObjectWithTag("GameOverPanel");
+            m_PausePanel = GameObject.FindGameObjectWithTag("PausePanel");
+            m_PausePanel.SetActive(false);
+            m_GameOverPanel.SetActive(false);
+            m_NextLevelPanel.SetActive(false);
+        }
 	}
 	
 	
@@ -160,6 +163,20 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 0f;
         GameIsPaused = true;
 
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
+        m_lifes = 3;
+        m_score = 0;
+        m_CurrentScore = 0;
     }
 
 
