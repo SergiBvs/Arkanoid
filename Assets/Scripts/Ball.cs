@@ -17,6 +17,10 @@ public class Ball : MonoBehaviour {
     private SpriteRenderer m_RightWall;
     private SpriteRenderer m_sr;
 
+    public SpriteRenderer m_BallCloneLeft;
+    public SpriteRenderer m_BallCloneRight;
+    public SpriteRenderer m_BallCloneUp;
+
     private GameManager m_GameManager;
 
     public bool movementStarted = false;
@@ -25,7 +29,7 @@ public class Ball : MonoBehaviour {
     private bool glueBall = false;
     private bool steelActivator = false;
     public bool steelBall = false;
-    public GameObject[] ballClones; //Up Right Left
+    
     private bool tripleActivator=false;
     public bool tripleBall = false;
     public bool isThisAClone;
@@ -45,8 +49,11 @@ public class Ball : MonoBehaviour {
         m_Nave = GameObject.FindGameObjectWithTag("Player");
         m_NaveRenderer = m_Nave.GetComponent<SpriteRenderer>();
 
+        m_BallCloneLeft = GameObject.FindGameObjectWithTag("BallCloneLeft").GetComponent<SpriteRenderer>();
+        m_BallCloneRight = GameObject.FindGameObjectWithTag("BallCloneRight").GetComponent<SpriteRenderer>();
+        m_BallCloneUp = GameObject.FindGameObjectWithTag("BallCloneUp").GetComponent<SpriteRenderer>();
 
-        this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_NaveRenderer.bounds.size.y / 1.5f, 0);
+        if(!isThisAClone) this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_NaveRenderer.bounds.size.y / 1.5f, 0);
     }
 	
 	// Update is called once per frame
@@ -143,8 +150,11 @@ public class Ball : MonoBehaviour {
             y = 1;
             if (tripleActivator)
             {
-                Instantiate(ballClones[0], new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0), Quaternion.identity);
-                Instantiate(ballClones[1], new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0), Quaternion.identity);
+                m_BallCloneUp.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0);
+                m_BallCloneRight.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0);
+                m_BallCloneUp.GetComponent<Ball>().speed = 5;
+                m_BallCloneRight.GetComponent<Ball>().speed = 5;
+
                 tripleActivator = false;
             }
         }
@@ -154,8 +164,11 @@ public class Ball : MonoBehaviour {
             y = 1;
             if (tripleActivator)
             {
-                Instantiate(ballClones[1], new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0), Quaternion.identity);
-                Instantiate(ballClones[0], new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0), Quaternion.identity);
+                m_BallCloneUp.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0);
+                m_BallCloneLeft.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0);
+                m_BallCloneLeft.GetComponent<Ball>().speed = 5;
+                m_BallCloneUp.GetComponent<Ball>().speed = 5;
+
                 tripleActivator = false;
             }
         }
@@ -165,8 +178,11 @@ public class Ball : MonoBehaviour {
             y = 1;
             if (tripleActivator)
             {
-                Instantiate(ballClones[1], new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0), Quaternion.identity);
-                Instantiate(ballClones[2], new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0), Quaternion.identity);
+                m_BallCloneLeft.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0);
+                m_BallCloneRight.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0);
+                m_BallCloneRight.GetComponent<Ball>().speed = 5;
+                m_BallCloneLeft.GetComponent<Ball>().speed = 5;
+
                 tripleActivator = false;
             }
         }
