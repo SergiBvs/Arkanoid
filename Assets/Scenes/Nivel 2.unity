@@ -1090,6 +1090,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114633587465666006, guid: 373a1319d36b4154fae8de59ae357dc3,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1215317660}
+    - target: {fileID: 114633587465666006, guid: 373a1319d36b4154fae8de59ae357dc3,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 373a1319d36b4154fae8de59ae357dc3, type: 2}
   m_IsPrefabAsset: 0
