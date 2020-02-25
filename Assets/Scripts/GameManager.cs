@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour {
         {
             m_NextLevelPanel.SetActive(true);
             NextLevelPanel = true;
+            m_Ball.movementStarted = false;
             m_Ball.speed = 0;
             m_Ship.ShipSpeed = 0;
         }
@@ -103,6 +104,7 @@ public class GameManager : MonoBehaviour {
 
         if (m_lifes <= 0)
         {
+            m_Ball.movementStarted = false;
             m_Ball.speed = 0;
             m_Ship.ShipSpeed = 0;
             GameObject.FindGameObjectWithTag("Telon").GetComponent<Animator>().SetTrigger("Transition");
