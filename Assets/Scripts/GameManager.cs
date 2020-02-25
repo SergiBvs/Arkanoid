@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
     public Ball m_Ball;
     public Ship m_Ship;
     [HideInInspector] static public int m_score;
-    [HideInInspector] static public int m_lifes = 3;
+    [HideInInspector] static public int m_lifes = 5;
     public int m_CurrentScore = 0;
 
     public int BrickNumber;
