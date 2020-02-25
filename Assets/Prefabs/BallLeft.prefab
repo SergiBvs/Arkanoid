@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114765929347977402}
   m_Layer: 0
   m_Name: BallLeft
-  m_TagString: Ball
+  m_TagString: BallCloneLeft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1928178652806702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.71, y: -1.25, z: 0}
+  m_LocalPosition: {x: -11.668406, y: -1.0035148, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,9 +55,11 @@ MonoBehaviour:
   x: -1
   y: 1
   speed: 5
+  m_BallCloneLeft: {fileID: 0}
+  m_BallCloneRight: {fileID: 0}
+  m_BallCloneUp: {fileID: 0}
   movementStarted: 1
   steelBall: 0
-  ballClones: []
   tripleBall: 0
   isThisAClone: 1
   HasClones: 0
