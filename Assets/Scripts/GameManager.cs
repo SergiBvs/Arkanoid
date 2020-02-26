@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour {
     public void RestartGame()
     {
         m_CurrentScore = 0;
-        m_lifes = 3;
+        m_lifes = 5;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -141,7 +141,7 @@ public class GameManager : MonoBehaviour {
     public void NextLevel()
     {
         m_lifes++;
-        m_score = m_CurrentScore;
+        m_score +=m_CurrentScore;
         GameObject.FindGameObjectWithTag("Telon").GetComponent<Animator>().SetTrigger("Transition");
         StartCoroutine(TelonWait());
     }
