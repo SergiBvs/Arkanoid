@@ -73,7 +73,7 @@ public class BrickScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallRenderer))
+		if(IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallRenderer)) //cooldown
         {
             if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
             {
@@ -108,7 +108,7 @@ public class BrickScript : MonoBehaviour {
 
             }
         }
-        else if (IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneUp))
+        else if (IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneUp)) //cooldown
         {
             if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
             {
@@ -143,7 +143,7 @@ public class BrickScript : MonoBehaviour {
 
             }
         }
-        else if (IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneLeft))
+        else if (IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneLeft)) //cooldown
         {
             if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
             {
@@ -178,7 +178,7 @@ public class BrickScript : MonoBehaviour {
 
             }
         }
-        else if (IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneRight))
+        else if (IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneRight)) // cooldown 
         {
             if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
             {

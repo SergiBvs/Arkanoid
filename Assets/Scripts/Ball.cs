@@ -62,14 +62,13 @@ public class Ball : MonoBehaviour {
         if (movementStarted)
         {
             speed += 0.0001f;
-            if (IntersectBounds(m_sr, m_NaveRenderer))
+            if (IntersectBounds(m_sr, m_NaveRenderer)) //cooldown
             {
                 if (!(m_sr.bounds.max.y < m_NaveRenderer.bounds.max.y - 0.1f))
                 {
                     if (!glueBall) BounceFromShip();
                     else if (glueBall)
                     {
-                        glueBall = false;
                         movementStarted = false;
                     }
                 }
@@ -205,6 +204,12 @@ public class Ball : MonoBehaviour {
     public void GlueBall()
     {
         glueBall = true;
+    }
+
+    public IEnumerator GlueBallTime()
+    {
+        yield return new WaitForSeconds(7);
+        glueBall = false;
     }
 
     //POWERUP
