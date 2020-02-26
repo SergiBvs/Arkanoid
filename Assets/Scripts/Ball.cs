@@ -105,10 +105,22 @@ public class Ball : MonoBehaviour {
                     this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_NaveRenderer.bounds.size.y / 1.5f, 0);
                     movementStarted = false;
                     m_GameManager.RestarVidas();
+
+                    m_BallCloneLeft.transform.position = new Vector3(100, 100);
+                    m_BallCloneRight.transform.position = new Vector3(100, 100);
+                    m_BallCloneUp.transform.position = new Vector3(100, 100);
+
+                    if(isThisAClone)
+                    {
+                        speed = 0;
+                    }
+
+
                 }
                 else
                 {
-                    Destroy(this.gameObject);
+                    this.transform.position = new Vector3(100, 100);
+                    speed = 0;
                 }
             }
 
@@ -218,6 +230,7 @@ public class Ball : MonoBehaviour {
         if(!isThisAClone) tripleActivator = true;
     }
 
+   
     public IEnumerator SteelBallTime()
     {
         yield return new WaitForSeconds(2);

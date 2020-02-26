@@ -2780,7 +2780,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000859259450050, guid: f8875791db1c90743a924c2b68cde5f5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -11.601565
+      value: 10.02
       objectReference: {fileID: 0}
     - target: {fileID: 4000859259450050, guid: f8875791db1c90743a924c2b68cde5f5, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2808,7 +2808,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000859259450050, guid: f8875791db1c90743a924c2b68cde5f5, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8875791db1c90743a924c2b68cde5f5, type: 2}
@@ -2938,7 +2938,7 @@ MonoBehaviour:
   m_Ball: {fileID: 0}
   m_Ship: {fileID: 0}
   m_CurrentScore: 0
-  BrickNumber: 61
+  BrickNumber: 63
   isOut: 1
 --- !u!4 &1215317661
 Transform:
@@ -3579,7 +3579,7 @@ Prefab:
     - target: {fileID: 224255644056290556, guid: 71260ea8314908e4eb080c25985b38f4,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224255644056290556, guid: 71260ea8314908e4eb080c25985b38f4,
         type: 2}

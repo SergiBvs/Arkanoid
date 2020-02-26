@@ -25,6 +25,7 @@ public class PowerUpScript : MonoBehaviour {
 
         int rand = Random.Range(0, 7);
         this.powerupType = (PowerUpType)rand;
+        //this.powerupType = PowerUpType.MultiplyBall; // for testing purposes only
         this.GetComponent<SpriteRenderer>().sprite = sprites[rand];
     }
 	

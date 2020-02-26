@@ -2538,7 +2538,7 @@ MonoBehaviour:
   m_Ball: {fileID: 0}
   m_Ship: {fileID: 0}
   m_CurrentScore: 0
-  BrickNumber: 35
+  BrickNumber: 50
   isOut: 1
 --- !u!4 &1215317661
 Transform:
@@ -2608,7 +2608,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000859259450050, guid: f8875791db1c90743a924c2b68cde5f5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -11.849308
+      value: 9.54
       objectReference: {fileID: 0}
     - target: {fileID: 4000859259450050, guid: f8875791db1c90743a924c2b68cde5f5, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2731,6 +2731,11 @@ Prefab:
     - target: {fileID: 4159920516589074, guid: 6363e6a5af8b6c342a6dfd5c7600ecff, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114731313970948360, guid: 6363e6a5af8b6c342a6dfd5c7600ecff,
+        type: 2}
+      propertyPath: m_brickHealth
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6363e6a5af8b6c342a6dfd5c7600ecff, type: 2}
@@ -3299,6 +3304,11 @@ Prefab:
     - target: {fileID: 4159920516589074, guid: 6363e6a5af8b6c342a6dfd5c7600ecff, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114731313970948360, guid: 6363e6a5af8b6c342a6dfd5c7600ecff,
+        type: 2}
+      propertyPath: m_brickHealth
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6363e6a5af8b6c342a6dfd5c7600ecff, type: 2}

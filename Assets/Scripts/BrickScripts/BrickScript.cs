@@ -72,6 +72,7 @@ public class BrickScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		if(IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallRenderer))
         {
             if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
@@ -454,6 +455,7 @@ public class BrickScript : MonoBehaviour {
     {
         Bounce(m_BallRenderer, m_Brick, m_BallCloneLeft, m_BallCloneRight, m_BallCloneUp);
         Instantiate(ChestPowerUps, this.transform.position, Quaternion.identity);
+        m_GameManager.SumarPuntos(10);
         Destroy(this.gameObject);
     }
 

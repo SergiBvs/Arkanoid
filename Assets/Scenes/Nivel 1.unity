@@ -3123,11 +3123,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000859259450050, guid: f8875791db1c90743a924c2b68cde5f5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.728409
+      value: 12.18
       objectReference: {fileID: 0}
     - target: {fileID: 4000859259450050, guid: f8875791db1c90743a924c2b68cde5f5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.1123961
+      value: -2.14
       objectReference: {fileID: 0}
     - target: {fileID: 4000859259450050, guid: f8875791db1c90743a924c2b68cde5f5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3152,10 +3152,6 @@ Prefab:
     - target: {fileID: 4000859259450050, guid: f8875791db1c90743a924c2b68cde5f5, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1928178652806702, guid: f8875791db1c90743a924c2b68cde5f5, type: 2}
-      propertyPath: m_TagString
-      value: BallCloneRight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8875791db1c90743a924c2b68cde5f5, type: 2}
@@ -3408,7 +3404,7 @@ MonoBehaviour:
   m_Ball: {fileID: 0}
   m_Ship: {fileID: 0}
   m_CurrentScore: 0
-  BrickNumber: 62
+  BrickNumber: 63
   isOut: 1
 --- !u!4 &1215317661
 Transform:
@@ -5104,6 +5100,16 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114596656809645858, guid: 373a1319d36b4154fae8de59ae357dc3,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114596656809645858, guid: 373a1319d36b4154fae8de59ae357dc3,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114892766815757414, guid: 373a1319d36b4154fae8de59ae357dc3,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -5120,16 +5126,6 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114490006110790952, guid: 373a1319d36b4154fae8de59ae357dc3,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114596656809645858, guid: 373a1319d36b4154fae8de59ae357dc3,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114596656809645858, guid: 373a1319d36b4154fae8de59ae357dc3,
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -6219,6 +6215,10 @@ Prefab:
     - target: {fileID: 114242840155854944, guid: 71260ea8314908e4eb080c25985b38f4,
         type: 2}
       propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659222425052424, guid: 71260ea8314908e4eb080c25985b38f4, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
