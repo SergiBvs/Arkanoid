@@ -36,9 +36,11 @@ public class Ball : MonoBehaviour {
 
     public bool HasClones = false;
 
-    // Use this for initialization
+    public bool CollisionCooldown = false;
+
     void Start () {
 
+        CollisionCooldown = true;
         m_GameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         m_sr = this.GetComponent<SpriteRenderer>();
 
@@ -61,14 +63,20 @@ public class Ball : MonoBehaviour {
 
         if (movementStarted)
         {
+
             speed += 0.0001f;
-            if (IntersectBounds(m_sr, m_NaveRenderer)) //cooldown
+            if ((IntersectBounds(m_sr, m_NaveRenderer)) && (CollisionCooldown)) //cooldown
             {
+                print(CollisionCooldown);
+               
                 if (!(m_sr.bounds.max.y < m_NaveRenderer.bounds.max.y - 0.1f))
                 {
                     if (!glueBall) BounceFromShip();
                     else if (glueBall)
                     {
+                        CollisionCooldown = false;
+                        StartCoroutine(collisionCooldown());
+                        StartCoroutine(GlueBallTime());
                         movementStarted = false;
                     }
                 }
@@ -128,7 +136,7 @@ public class Ball : MonoBehaviour {
         else
         {
             this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_NaveRenderer.bounds.size.y / 1.5f, 0);
-            if (Input.GetKeyDown(KeyCode.Space))
+            if ((Input.GetKeyDown(KeyCode.Space)) && (!movementStarted))
             {
                 movementStarted = true;
             }
@@ -197,6 +205,12 @@ public class Ball : MonoBehaviour {
                 tripleActivator = false;
             }
         }
+    }
+
+    public IEnumerator collisionCooldown()
+    {
+        yield return new WaitForSeconds(0.001f);
+        CollisionCooldown = true;
     }
 
 

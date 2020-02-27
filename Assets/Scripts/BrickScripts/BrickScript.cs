@@ -41,8 +41,8 @@ public class BrickScript : MonoBehaviour {
     private GameManager m_GameManager;
     public bool m_IsCorrupted = false;
 
+    public bool BrickColisionCD = true;
     
-
 
     private Ball ballScript;
 
@@ -53,6 +53,9 @@ public class BrickScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+
+        BrickColisionCD = true;
         m_Ball = GameObject.FindGameObjectWithTag("Ball");
         m_BallRenderer = m_Ball.GetComponent<SpriteRenderer>();
         m_Brick = this.GetComponent<SpriteRenderer>();
@@ -70,10 +73,52 @@ public class BrickScript : MonoBehaviour {
         }
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	
+   
 
-		if(IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallRenderer)) //cooldown
+	void Update ()
+    {
+
+
+		if((IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallRenderer)) && (BrickColisionCD == true)) //cooldown
+        {
+            BrickColisionCD = false;
+            StartCoroutine(brickCollisionCD());
+
+            if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
+            {
+                isHitting = true;
+                switch (brickType)
+                {
+                    case Brick_Type.normal:
+                        NormalBehaviour();
+                        break;
+                    case Brick_Type.steel:
+                        SteelBehaviour();
+                        break;
+                    case Brick_Type.desert:
+                        DesertBehaviour();
+                        break;
+                    case Brick_Type.future:
+                        FutureBehaviour();
+                        break;
+                    case Brick_Type.corrupted:
+                        CorruptedBehaviour();
+                        break;
+                    case Brick_Type.dimensional:
+                        DimBehaviour();
+                        break;
+                    case Brick_Type.chest:
+                        ChestBehaviour();
+                        break;
+                    case Brick_Type.obsidian:
+                        ObsidianBehaviour();
+                        break;
+                }
+
+            }
+        }
+        else if ((IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneUp)) && (BrickColisionCD == true)) //cooldown
         {
             if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
             {
@@ -108,7 +153,7 @@ public class BrickScript : MonoBehaviour {
 
             }
         }
-        else if (IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneUp)) //cooldown
+        else if ((IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneLeft)) && (BrickColisionCD == true)) //cooldown
         {
             if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
             {
@@ -143,42 +188,7 @@ public class BrickScript : MonoBehaviour {
 
             }
         }
-        else if (IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneLeft)) //cooldown
-        {
-            if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
-            {
-                isHitting = true;
-                switch (brickType)
-                {
-                    case Brick_Type.normal:
-                        NormalBehaviour();
-                        break;
-                    case Brick_Type.steel:
-                        SteelBehaviour();
-                        break;
-                    case Brick_Type.desert:
-                        DesertBehaviour();
-                        break;
-                    case Brick_Type.future:
-                        FutureBehaviour();
-                        break;
-                    case Brick_Type.corrupted:
-                        CorruptedBehaviour();
-                        break;
-                    case Brick_Type.dimensional:
-                        DimBehaviour();
-                        break;
-                    case Brick_Type.chest:
-                        ChestBehaviour();
-                        break;
-                    case Brick_Type.obsidian:
-                        ObsidianBehaviour();
-                        break;
-                }
-
-            }
-        }
-        else if (IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneRight)) // cooldown 
+        else if ((IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneRight)) && (BrickColisionCD == true)) // cooldown 
         {
             if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
             {
@@ -223,6 +233,7 @@ public class BrickScript : MonoBehaviour {
         {
             this.transform.position += Vector3.down * Time.deltaTime * sandSpeed;
         }
+
 	}
 
     public void Bounce(SpriteRenderer b, SpriteRenderer k, SpriteRenderer bCloneLeft, SpriteRenderer bCloneRight, SpriteRenderer bCloneUp)
@@ -468,6 +479,12 @@ public class BrickScript : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.3f);
         m_GameManager.isOut = true;
+    }
+
+    public IEnumerator brickCollisionCD()
+    {
+        yield return new WaitForSeconds(7f);
+        BrickColisionCD = true;
     }
 
 }
