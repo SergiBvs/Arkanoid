@@ -43,7 +43,6 @@ public class BrickScript : MonoBehaviour {
 
     public bool BrickColisionCD = true;
     
-
     private Ball ballScript;
 
 
@@ -483,7 +482,7 @@ public class BrickScript : MonoBehaviour {
 
     public IEnumerator brickCollisionCD()
     {
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(0.05f);
         BrickColisionCD = true;
     }
 
