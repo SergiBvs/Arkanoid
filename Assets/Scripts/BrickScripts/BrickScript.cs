@@ -247,7 +247,6 @@ public class BrickScript : MonoBehaviour {
             this.transform.position += Vector3.down * Time.deltaTime * sandSpeed;
             if (transform.position.y <= -5.51f)
             {
-                print("something");
                 Destroy(this.gameObject);
             }
         }

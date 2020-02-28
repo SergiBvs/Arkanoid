@@ -14,8 +14,6 @@ public class CorruptionRandomColor : MonoBehaviour {
 		Colors.y = Random.Range(0, 1f);
 		Colors.z = Random.Range(0, 1f);
 
-		print(Colors);
-
 		if (needsColor)
 		{
 			Color color = new Color(Colors.x, Colors.y, Colors.z);
