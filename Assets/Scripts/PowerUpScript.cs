@@ -11,13 +11,10 @@ public class PowerUpScript : MonoBehaviour {
     private GameObject m_ship;
     private GameObject m_Ball;
     private GameObject m_GameManager;
-    public float m_speed = 2f;
-
-    public Sprite[] sprites;
+    private float m_speed = 2f;
 
     private SoundManager m_PowerUpSound;
 
-   
 
 	// Use this for initialization
 	void Start () {
@@ -25,11 +22,6 @@ public class PowerUpScript : MonoBehaviour {
         m_Ball = GameObject.FindGameObjectWithTag("Ball");
         m_GameManager = GameObject.FindGameObjectWithTag("GameController");
         m_PowerUpSound = GameObject.FindGameObjectWithTag("PowerUpSound").GetComponent<SoundManager>();
-
-        int rand = Random.Range(0, 7);
-        this.powerupType = (PowerUpType)rand;
-        //this.powerupType = PowerUpType.GlueShip; // for testing purposes only
-        this.GetComponent<SpriteRenderer>().sprite = sprites[rand];
     }
 	
 	// Update is called once per frame

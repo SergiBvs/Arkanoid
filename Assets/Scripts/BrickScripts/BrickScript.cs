@@ -17,7 +17,7 @@ public class BrickScript : MonoBehaviour {
     public GameObject[] m_NearbyBricks;
 
     //----For Chest Brick----//
-    public GameObject ChestPowerUps;
+    public GameObject[] ChestPowerUps;
 
     //----For Mimic Brick----//
     public GameObject MimicPowerUps;
@@ -532,7 +532,7 @@ public class BrickScript : MonoBehaviour {
 
             ballScript.BrickColisionCD = false;
 
-            Instantiate(ChestPowerUps, this.transform.position, Quaternion.identity);
+            Instantiate(ChestPowerUps[Random.Range(0,8)], this.transform.position, Quaternion.identity);
             m_GameManager.SumarPuntos(10);
             Destroy(this.gameObject);
         }
