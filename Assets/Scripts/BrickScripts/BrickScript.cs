@@ -266,7 +266,7 @@ public class BrickScript : MonoBehaviour {
             {
                 ballScript.y = -1;
             }
-            else if (b.transform.position.y > k.transform.position.x + k.bounds.size.x / 2)
+            else if (b.transform.position.y > k.transform.position.y + k.bounds.size.y / 2)
             {
                 ballScript.y = 1;
             }
@@ -288,7 +288,7 @@ public class BrickScript : MonoBehaviour {
         {
             bCloneLeft.GetComponent<Ball>().y = -1;
         }
-        else if (bCloneLeft.transform.position.y > k.transform.position.x + k.bounds.size.x / 2)
+        else if (bCloneLeft.transform.position.y > k.transform.position.y + k.bounds.size.y / 2)
         {
             bCloneLeft.GetComponent<Ball>().y = 1;
         }
@@ -310,7 +310,7 @@ public class BrickScript : MonoBehaviour {
         {
             bCloneRight.GetComponent<Ball>().y = -1;
         }
-        else if (bCloneRight.transform.position.y > k.transform.position.x + k.bounds.size.x / 2)
+        else if (bCloneRight.transform.position.y > k.transform.position.y + k.bounds.size.y / 2)
         {
             bCloneRight.GetComponent<Ball>().y = 1;
         }
@@ -331,7 +331,7 @@ public class BrickScript : MonoBehaviour {
         {
             bCloneUp.GetComponent<Ball>().y = -1;
         }
-        else if (bCloneUp.transform.position.y > k.transform.position.x + k.bounds.size.x / 2)
+        else if (bCloneUp.transform.position.y > k.transform.position.y + k.bounds.size.y / 2)
         {
             bCloneUp.GetComponent<Ball>().y = 1;
         }
