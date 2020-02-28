@@ -36,7 +36,7 @@ Transform:
   m_GameObject: {fileID: 1376049332703324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.318, y: 0.318, z: 0.318}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,13 +55,13 @@ MonoBehaviour:
   powerupType: 5
   m_speed: 3
   sprites:
-  - {fileID: 21300000, guid: 1aa641edcc536d14f81a109dfda371ed, type: 3}
   - {fileID: 21300000, guid: 2e53ee9fd31e45446aee479dec1365ab, type: 3}
-  - {fileID: 21300000, guid: a166a2cfd6d9b584183a40f7e1e9e8ae, type: 3}
-  - {fileID: 21300000, guid: 90175e85a454b2642b8d8496a13753cc, type: 3}
-  - {fileID: 21300020, guid: 3131537117ccec8458ab64b4bf163f3c, type: 3}
+  - {fileID: 21300000, guid: 4d1a77b4a19889643bdc7c7c4ce100a8, type: 3}
+  - {fileID: 21300000, guid: b48cb735220c56c4fa7738733bfac5ab, type: 3}
+  - {fileID: 21300000, guid: 98f2a99e3f5286749aa6f673a1708842, type: 3}
+  - {fileID: 21300000, guid: bc1575abeca2f4c4aa1689c8161fceee, type: 3}
   - {fileID: 21300012, guid: 3131537117ccec8458ab64b4bf163f3c, type: 3}
-  - {fileID: 21300000, guid: 838de51ce2286be42b810c73c8d94aa5, type: 3}
+  - {fileID: 21300000, guid: e982725d7e4135946865916e0c3039f4, type: 3}
 --- !u!212 &212810525717630576
 SpriteRenderer:
   m_ObjectHideFlags: 1

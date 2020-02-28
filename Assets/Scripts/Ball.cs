@@ -73,7 +73,7 @@ public class Ball : MonoBehaviour {
         {
 
             speed += 0.0001f;
-            if ((IntersectBounds(m_sr, m_NaveRenderer)) && (CollisionCooldown)) //cooldown
+            if ((IntersectBounds(m_sr, m_NaveRenderer)) /*&& (CollisionCooldown)*/) //cooldown
             {
                 m_ShipBounce.m_AS.clip = m_ShipBounce.m_ShipBounce;
                 m_ShipBounce.m_AS.Play();
@@ -83,9 +83,10 @@ public class Ball : MonoBehaviour {
                     if (!glueBall) BounceFromShip();
                     else if (glueBall)
                     {
-                        CollisionCooldown = false;
-                        StartCoroutine(collisionCooldown());
-                        StartCoroutine(GlueBallTime());
+                        //CollisionCooldown = false;
+                        //StartCoroutine(collisionCooldown());
+                        //StartCoroutine(GlueBallTime());
+                        glueBall = false;
                         movementStarted = false;
                     }
                 }
