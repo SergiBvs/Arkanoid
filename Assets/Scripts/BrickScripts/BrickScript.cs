@@ -245,9 +245,14 @@ public class BrickScript : MonoBehaviour {
         if(sandFalling == true)
         {
             this.transform.position += Vector3.down * Time.deltaTime * sandSpeed;
+            if (transform.position.y <= -5.51f)
+            {
+                print("something");
+                Destroy(this.gameObject);
+            }
         }
-
-	}
+        
+    }
 
     public void Bounce(SpriteRenderer b, SpriteRenderer k, SpriteRenderer bCloneLeft, SpriteRenderer bCloneRight, SpriteRenderer bCloneUp)
     {
@@ -424,12 +429,6 @@ public class BrickScript : MonoBehaviour {
             {
                 sandFalling = true;
                 m_GameManager.SumarPuntos(10);
-            }
-
-            if(transform.position.y == -5.51f) //esto no funciona 
-            {
-                print("something");
-                Destroy(this.gameObject);
             }
         }
     }
