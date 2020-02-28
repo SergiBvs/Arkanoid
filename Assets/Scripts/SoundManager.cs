@@ -9,6 +9,10 @@ public class SoundManager : MonoBehaviour {
     public AudioClip m_WallBounce;
     public AudioClip m_DeathSound;
     public AudioClip m_PowerUpSound;
+    public AudioClip m_GameOverSound;
+    public AudioClip m_PortalSound;
+    public AudioClip m_ShipBounce;
+
 	
 	void Start ()
     {

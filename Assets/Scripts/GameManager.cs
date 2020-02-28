@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour {
     bool GameIsPaused = false;
 
     private SoundManager m_DeathSound;
+    private SoundManager m_GameOverSound;
 
     void Start ()
     {
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour {
             m_NextLevelPanel.SetActive(false);
 
             m_DeathSound = GameObject.FindGameObjectWithTag("DeathSound").GetComponent<SoundManager>();
+            m_GameOverSound = GameObject.FindGameObjectWithTag("GameOverSound").GetComponent<SoundManager>();
         }
 	}
 	
@@ -111,6 +113,8 @@ public class GameManager : MonoBehaviour {
         
         if (m_lifes <= 0)
         {
+            m_GameOverSound.m_AS.clip = m_GameOverSound.m_GameOverSound;
+            m_GameOverSound.m_AS.Play();
             m_Ball.movementStarted = false;
             m_Ball.speed = 0;
             m_Ship.ShipSpeed = 0;

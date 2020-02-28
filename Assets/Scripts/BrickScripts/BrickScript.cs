@@ -48,6 +48,7 @@ public class BrickScript : MonoBehaviour {
     // sound stuff
 
     private SoundManager m_BrickBounce;
+    private SoundManager m_PortalSound;
 
 
     public int m_brickHealth;
@@ -58,6 +59,8 @@ public class BrickScript : MonoBehaviour {
 	void Start ()
     {
         m_BrickBounce = GameObject.FindGameObjectWithTag("BrickBounce").GetComponent<SoundManager>();
+        m_PortalSound = GameObject.FindGameObjectWithTag("PortalSound").GetComponent<SoundManager>();
+
         m_Ball = GameObject.FindGameObjectWithTag("Ball");
         m_BallRenderer = m_Ball.GetComponent<SpriteRenderer>();
         m_Brick = this.GetComponent<SpriteRenderer>();
@@ -500,6 +503,8 @@ public class BrickScript : MonoBehaviour {
         //Bounce(m_BallRenderer, m_Brick);
         if (m_GameManager.isOut)
         {
+            m_PortalSound.m_AS.clip = m_PortalSound.m_PortalSound;
+            m_PortalSound.m_AS.Play();
             m_GameManager.isOut = false;
            
             m_Ball.transform.position = m_connectedPortal.transform.position;

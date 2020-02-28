@@ -41,6 +41,7 @@ public class Ball : MonoBehaviour {
     public bool BrickColisionCD = true;
 
     private SoundManager m_WallBounce;
+    private SoundManager m_ShipBounce;
 
     void Start () {
 
@@ -60,6 +61,7 @@ public class Ball : MonoBehaviour {
         m_BallCloneUp = GameObject.FindGameObjectWithTag("BallCloneUp").GetComponent<SpriteRenderer>();
 
         m_WallBounce = GameObject.FindGameObjectWithTag("WallBounce").GetComponent<SoundManager>();
+        m_ShipBounce = GameObject.FindGameObjectWithTag("ShipBounce").GetComponent<SoundManager>();
 
         if(!isThisAClone) this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_NaveRenderer.bounds.size.y / 1.5f, 0);
     }
@@ -73,7 +75,8 @@ public class Ball : MonoBehaviour {
             speed += 0.0001f;
             if ((IntersectBounds(m_sr, m_NaveRenderer)) && (CollisionCooldown)) //cooldown
             {
-                //print(CollisionCooldown);
+                m_ShipBounce.m_AS.clip = m_ShipBounce.m_ShipBounce;
+                m_ShipBounce.m_AS.Play();
                
                 if (!(m_sr.bounds.max.y < m_NaveRenderer.bounds.max.y - 0.1f))
                 {

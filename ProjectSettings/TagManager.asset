@@ -24,6 +24,9 @@ TagManager:
   - WallBounce
   - DeathSound
   - PowerUpSound
+  - GameOverSound
+  - PortalSound
+  - ShipBounce
   layers:
   - Default
   - TransparentFX

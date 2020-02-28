@@ -9,50 +9,50 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1078268748585690}
+  m_RootGameObject: {fileID: 1514373170693162}
   m_IsPrefabAsset: 1
---- !u!1 &1078268748585690
+--- !u!1 &1514373170693162
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4513584588799368}
-  - component: {fileID: 82270817005137240}
-  - component: {fileID: 114684643040252334}
+  - component: {fileID: 4883926329142874}
+  - component: {fileID: 82478401532190598}
+  - component: {fileID: 114345738878480366}
   m_Layer: 0
-  m_Name: WallBounce
-  m_TagString: WallBounce
+  m_Name: ShipBounce
+  m_TagString: ShipBounce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4513584588799368
+--- !u!4 &4883926329142874
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1078268748585690}
+  m_GameObject: {fileID: 1514373170693162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0134025, y: -1.7480278, z: 0.028320312}
+  m_LocalPosition: {x: -0.87665826, y: -2.6864572, z: 0.057088256}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &82270817005137240
+--- !u!82 &82478401532190598
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1078268748585690}
+  m_GameObject: {fileID: 1514373170693162}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -136,12 +136,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114684643040252334
+--- !u!114 &114345738878480366
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1078268748585690}
+  m_GameObject: {fileID: 1514373170693162}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97194ac1488b0fa49a4c2a662f6f7a56, type: 3}
@@ -149,9 +149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AS: {fileID: 0}
   m_BrickBounce: {fileID: 0}
-  m_WallBounce: {fileID: 8300000, guid: d027c8ca19f9a254c9e86c09f2ab5fde, type: 3}
+  m_WallBounce: {fileID: 0}
   m_DeathSound: {fileID: 0}
   m_PowerUpSound: {fileID: 0}
   m_GameOverSound: {fileID: 0}
   m_PortalSound: {fileID: 0}
-  m_ShipBounce: {fileID: 0}
+  m_ShipBounce: {fileID: 8300000, guid: 571c6dd438507694aa6c935192ee7f68, type: 3}
