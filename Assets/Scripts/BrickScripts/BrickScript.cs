@@ -420,7 +420,7 @@ public class BrickScript : MonoBehaviour {
             ballScript.BrickColisionCD = false;
 
             HealthCheck();       
-            if(m_brickHealth <= 0)
+            if(m_brickHealth <= 0 && !sandFalling)
             {
                 sandFalling = true;
                 m_GameManager.SumarPuntos(10);

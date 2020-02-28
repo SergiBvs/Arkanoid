@@ -11,16 +11,16 @@ public class GameManager : MonoBehaviour {
     GameObject m_NextLevelPanel;
     GameObject m_GameOverPanel;
     GameObject m_PausePanel;
-    public Ball m_Ball;
-    public Ship m_Ship;
+    private Ball m_Ball;
+    private Ship m_Ship;
     [HideInInspector] static public int m_score;
     [HideInInspector] static public int m_lifes = 5;
-    public int m_CurrentScore = 0;
+    [HideInInspector]public int m_CurrentScore = 0;
 
     public int BrickNumber;
     int CurrentBrickNumber = 0;
 
-    public bool isOut = true;
+    [HideInInspector]public bool isOut = true;
 
     bool RestartGamePanel = false;
     bool NextLevelPanel = false;

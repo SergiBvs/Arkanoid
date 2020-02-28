@@ -2565,22 +2565,27 @@ Prefab:
     - target: {fileID: 212127552512827376, guid: 6363e6a5af8b6c342a6dfd5c7600ecff,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.33962262
+      value: 0.14150941
       objectReference: {fileID: 0}
     - target: {fileID: 212127552512827376, guid: 6363e6a5af8b6c342a6dfd5c7600ecff,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.25778076
+      value: 0.14150941
       objectReference: {fileID: 0}
     - target: {fileID: 212127552512827376, guid: 6363e6a5af8b6c342a6dfd5c7600ecff,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.24190101
+      value: 0.14150941
       objectReference: {fileID: 0}
     - target: {fileID: 114731313970948360, guid: 6363e6a5af8b6c342a6dfd5c7600ecff,
         type: 2}
       propertyPath: m_brickHealth
       value: 99999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 212127552512827376, guid: 6363e6a5af8b6c342a6dfd5c7600ecff,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6363e6a5af8b6c342a6dfd5c7600ecff, type: 2}
@@ -4683,17 +4688,17 @@ Prefab:
     - target: {fileID: 212127552512827376, guid: 6363e6a5af8b6c342a6dfd5c7600ecff,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.33962262
+      value: 0.14150941
       objectReference: {fileID: 0}
     - target: {fileID: 212127552512827376, guid: 6363e6a5af8b6c342a6dfd5c7600ecff,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.25778076
+      value: 0.14150941
       objectReference: {fileID: 0}
     - target: {fileID: 212127552512827376, guid: 6363e6a5af8b6c342a6dfd5c7600ecff,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.24190101
+      value: 0.14150941
       objectReference: {fileID: 0}
     - target: {fileID: 114731313970948360, guid: 6363e6a5af8b6c342a6dfd5c7600ecff,
         type: 2}
