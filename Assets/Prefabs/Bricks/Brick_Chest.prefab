@@ -100,8 +100,15 @@ MonoBehaviour:
   m_BrokenBrick: {fileID: 0}
   m_CorruptionObject: {fileID: 1190754162097980}
   m_NearbyBricks: []
-  ChestPowerUps: {fileID: 1376049332703324, guid: ab8e2df7385078646a144dba3d8199ec,
-    type: 2}
+  ChestPowerUps:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1276542652338160, guid: 0da405437d5b6e7498ca2896bb939b0f, type: 2}
+  - {fileID: 1536073999066804, guid: 2e44b66d3f195b14d82a6abb479b2c03, type: 2}
+  - {fileID: 1715756935317804, guid: 08b2bf7fbfad27f4e86f0f5af2f42a6f, type: 2}
+  - {fileID: 1151790326620066, guid: 432ad1de8ef40b647af967d23b19ed8e, type: 2}
+  - {fileID: 1534524566290652, guid: 5912d4a4106d76b41af81607a7aa2e37, type: 2}
   MimicPowerUps: {fileID: 0}
   sandSpeed: 0
   m_connectedPortal: {fileID: 0}

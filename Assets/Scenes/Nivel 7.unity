@@ -2572,8 +2572,7 @@ Prefab:
         type: 2}
       propertyPath: ChestPowerUps
       value: 
-      objectReference: {fileID: 1376049332703324, guid: ab8e2df7385078646a144dba3d8199ec,
-        type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6988d97d98982e04fb8fec7f439bc208, type: 2}
   m_IsPrefabAsset: 0
@@ -3874,8 +3873,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce5c4d5324c8ac4d9b093880b548b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Ball: {fileID: 0}
-  m_Ship: {fileID: 0}
   m_CurrentScore: 0
   BrickNumber: 63
   isOut: 1
@@ -4296,8 +4293,7 @@ Prefab:
         type: 2}
       propertyPath: ChestPowerUps
       value: 
-      objectReference: {fileID: 1376049332703324, guid: ab8e2df7385078646a144dba3d8199ec,
-        type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6988d97d98982e04fb8fec7f439bc208, type: 2}
   m_IsPrefabAsset: 0
@@ -5093,12 +5089,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1879293023028282, guid: 373a1319d36b4154fae8de59ae357dc3, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114516315531548232, guid: 373a1319d36b4154fae8de59ae357dc3,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114633587465666006, guid: 373a1319d36b4154fae8de59ae357dc3,
         type: 2}
@@ -5794,7 +5790,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1659222425052424, guid: 71260ea8314908e4eb080c25985b38f4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114659782289287108, guid: 71260ea8314908e4eb080c25985b38f4,
         type: 2}
