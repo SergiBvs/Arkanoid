@@ -8,21 +8,25 @@ using UnityEditor;
 
 public class Brick_Editor : Editor {
 
-    public SerializedProperty
-        brickType_Prop,
-        steelBroken_Prop,
-        chestPwrUp_Prop,
-        mimicPwrUp_Prop,
-        corruption_Prop,
-        brickHealth_Prop,
-        nearbyBricks_Prop,
-        connectedPortal_Prop,
+	public SerializedProperty
+		brickType_Prop,
+		steelBroken_Prop,
+		chestPwrUp_Prop,
+		mimicPwrUp_Prop,
+		corruption_Prop,
+		brickHealth_Prop,
+		nearbyBricks_Prop,
+		connectedPortal_Prop,
 		sprites_Prop,
-        ballCloneUp_Prop,
-        ballCloneRight_Prop,
-        ballCloneLeft_Prop,
+		ballCloneUp_Prop,
+		ballCloneRight_Prop,
+		ballCloneLeft_Prop,
+		newDirection_Prop,
+		needsNewDirectionX_Prop,
+		needsNewDirectionY_Prop,
 		sandSpeed_Prop;
 
+	
 	void OnEnable()
 	{
 		brickType_Prop = serializedObject.FindProperty("brickType");
@@ -38,6 +42,9 @@ public class Brick_Editor : Editor {
 		ballCloneUp_Prop = serializedObject.FindProperty("m_BallCloneUp");
 		ballCloneRight_Prop = serializedObject.FindProperty("m_BallCloneRight");
 		ballCloneLeft_Prop = serializedObject.FindProperty("m_BallCloneLeft");
+		newDirection_Prop = serializedObject.FindProperty("newDirection");
+		needsNewDirectionX_Prop = serializedObject.FindProperty("needsNewDirectionX");
+		needsNewDirectionY_Prop = serializedObject.FindProperty("needsNewDirectionY");
 	}
 
 	public override void OnInspectorGUI()
@@ -85,7 +92,10 @@ public class Brick_Editor : Editor {
                 break;
 
             case BrickScript.Brick_Type.dimensional:
-                EditorGUILayout.PropertyField(connectedPortal_Prop);
+                EditorGUILayout.PropertyField(connectedPortal_Prop, new GUIContent("MyLabel"), true);
+                EditorGUILayout.PropertyField(newDirection_Prop);
+                EditorGUILayout.PropertyField(needsNewDirectionX_Prop);
+                EditorGUILayout.PropertyField(needsNewDirectionY_Prop);
                 break;
 
 

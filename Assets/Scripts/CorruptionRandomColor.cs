@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class CorruptionRandomColor : MonoBehaviour {
 
-    public Vector3[] Colors;
+    public Vector3 Colors;
+	public bool needsColor = true;
 
 	// Use this for initialization
 	void Start () {
 
-        int rand = Random.Range(0, Colors.Length);
-        print(rand);
-        Vector3 selectedColor = Colors[rand];
-        Color color = new Color(selectedColor.x, selectedColor.y, selectedColor.z);
-        this.GetComponent<SpriteRenderer>().color = color;
+		Colors.x = Random.Range(0, 1f);
+		Colors.y = Random.Range(0, 1f);
+		Colors.z = Random.Range(0, 1f);
+
+		print(Colors);
+
+		if (needsColor)
+		{
+			Color color = new Color(Colors.x, Colors.y, Colors.z);
+			this.GetComponent<SpriteRenderer>().color = color;
+		}
 	}
 	
 	// Update is called once per frame

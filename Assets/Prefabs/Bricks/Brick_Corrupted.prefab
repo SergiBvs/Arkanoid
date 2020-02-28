@@ -91,6 +91,9 @@ MonoBehaviour:
   MimicPowerUps: {fileID: 0}
   sandSpeed: 0
   m_connectedPortal: {fileID: 0}
+  newDirection: {x: 0, y: 0}
+  needsNewDirectionX: 0
+  needsNewDirectionY: 0
   sprites: []
   m_BallCloneLeft: {fileID: 1928178652806702, guid: 3dcd8389f04f39348a6cf5d6d4e0e3ca,
     type: 2}
@@ -111,11 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b016ff5a05cbabc4796cc620a670e884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Colors:
-  - {x: 255, y: 0, z: 0}
-  - {x: 0, y: 255, z: 0}
-  - {x: 0, y: 0, z: 255}
-  - {x: 155, y: 155, z: 55}
+  Colors: {x: 0, y: 0, z: 0}
+  needsColor: 1
 --- !u!212 &212129276881246962
 SpriteRenderer:
   m_ObjectHideFlags: 1

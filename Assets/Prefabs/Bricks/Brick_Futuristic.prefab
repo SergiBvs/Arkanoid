@@ -171,6 +171,9 @@ MonoBehaviour:
   MimicPowerUps: {fileID: 0}
   sandSpeed: 2
   m_connectedPortal: {fileID: 0}
+  newDirection: {x: 0, y: 0}
+  needsNewDirectionX: 0
+  needsNewDirectionY: 0
   sprites:
   - {fileID: 21300000, guid: 3131537117ccec8458ab64b4bf163f3c, type: 3}
   - {fileID: 21300006, guid: 3131537117ccec8458ab64b4bf163f3c, type: 3}
@@ -196,11 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b016ff5a05cbabc4796cc620a670e884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Colors:
-  - {x: 255, y: 0, z: 0}
-  - {x: 0, y: 255, z: 0}
-  - {x: 0, y: 0, z: 255}
-  - {x: 155, y: 155, z: 55}
+  Colors: {x: 0, y: 0, z: 0}
+  needsColor: 1
 --- !u!212 &212096848460049828
 SpriteRenderer:
   m_ObjectHideFlags: 1

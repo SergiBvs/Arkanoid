@@ -28,9 +28,12 @@ public class BrickScript : MonoBehaviour {
 
     //----For Dimensional Brick----//
     public GameObject m_connectedPortal;
+    public Vector2 newDirection;
+    public bool needsNewDirectionX = false;
+    public bool needsNewDirectionY = false;
 
     //----For Future Brick----/
-    public Sprite[] sprites; // IMPORTANTE SEGUIR ORDEN: NORMAL, HIERRO, ARENA, COFRE, MIMICO.
+    public Sprite[] sprites; // IMPORTANTE SEGUIR ORDEN: NORMAL, HIERRO, ARENA, COFRE.
    
 
     //----For All Bricks----//
@@ -506,8 +509,17 @@ public class BrickScript : MonoBehaviour {
             m_PortalSound.m_AS.clip = m_PortalSound.m_PortalSound;
             m_PortalSound.m_AS.Play();
             m_GameManager.isOut = false;
-           
+
             m_Ball.transform.position = m_connectedPortal.transform.position;
+            if (needsNewDirectionX)
+            {
+                m_Ball.GetComponent<Ball>().x = (int)newDirection.x;
+            }
+            if (needsNewDirectionY)
+            {
+                m_Ball.GetComponent<Ball>().y = (int)newDirection.y;
+            }
+            
             StartCoroutine(DimensionalCooldown());
         }
     }
