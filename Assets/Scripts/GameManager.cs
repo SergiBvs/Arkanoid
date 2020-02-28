@@ -26,10 +26,13 @@ public class GameManager : MonoBehaviour {
     bool NextLevelPanel = false;
     bool GameIsPaused = false;
 
+    private SoundManager m_DeathSound;
+
     void Start ()
     {
         if(SceneManager.GetActiveScene().buildIndex != 0)
         {
+            
             m_textScore = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
             m_textLifes = GameObject.FindGameObjectWithTag("Lifes").GetComponent<Text>();
             m_Ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Ball>();
@@ -44,6 +47,8 @@ public class GameManager : MonoBehaviour {
             m_PausePanel.SetActive(false);
             m_GameOverPanel.SetActive(false);
             m_NextLevelPanel.SetActive(false);
+
+            m_DeathSound = GameObject.FindGameObjectWithTag("DeathSound").GetComponent<SoundManager>();
         }
 	}
 	
@@ -100,8 +105,10 @@ public class GameManager : MonoBehaviour {
     {
         m_lifes--;
         m_textLifes.text = "Lifes:" + m_lifes;
-        
 
+        m_DeathSound.m_AS.clip = m_DeathSound.m_DeathSound;
+        m_DeathSound.m_AS.Play();
+        
         if (m_lifes <= 0)
         {
             m_Ball.movementStarted = false;
@@ -117,7 +124,7 @@ public class GameManager : MonoBehaviour {
 
     public void HealthUp()
     {
-        if(m_lifes<3)
+        if(m_lifes<5)
         {
             m_lifes += 1;
             m_textLifes.text = "Lifes:" + m_lifes;

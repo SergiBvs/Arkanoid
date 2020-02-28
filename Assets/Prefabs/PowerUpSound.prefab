@@ -9,55 +9,56 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1030574078782030}
+  m_RootGameObject: {fileID: 1965827969972644}
   m_IsPrefabAsset: 1
---- !u!1 &1030574078782030
+--- !u!1 &1965827969972644
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4169247206086868}
-  - component: {fileID: 82187613754327900}
+  - component: {fileID: 4235190830117948}
+  - component: {fileID: 82438730203089958}
+  - component: {fileID: 114688362525337108}
   m_Layer: 0
-  m_Name: BackgroundMusicNormal
-  m_TagString: Untagged
+  m_Name: PowerUpSound
+  m_TagString: PowerUpSound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4169247206086868
+--- !u!4 &4235190830117948
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1030574078782030}
+  m_GameObject: {fileID: 1965827969972644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.23145804, y: 0.08161208, z: 0.000491939}
+  m_LocalPosition: {x: -2.0134025, y: -1.7480278, z: 0.028320312}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &82187613754327900
+--- !u!82 &82438730203089958
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1030574078782030}
+  m_GameObject: {fileID: 1965827969972644}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 64b89406a38a85c438f7476446a3dd29, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 90
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -135,3 +136,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114688362525337108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965827969972644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97194ac1488b0fa49a4c2a662f6f7a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AS: {fileID: 0}
+  m_BrickBounce: {fileID: 0}
+  m_WallBounce: {fileID: 0}
+  m_DeathSound: {fileID: 0}
+  m_PowerUpSound: {fileID: 8300000, guid: be899f8040297d64ebb42322e0c69355, type: 3}

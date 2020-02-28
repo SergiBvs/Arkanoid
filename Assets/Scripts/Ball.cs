@@ -30,6 +30,7 @@ public class Ball : MonoBehaviour {
     private bool steelActivator = false;
     public bool steelBall = false;
     
+
     private bool tripleActivator=false;
     public bool tripleBall = false;
     public bool isThisAClone;
@@ -37,6 +38,9 @@ public class Ball : MonoBehaviour {
     public bool HasClones = false;
 
     public bool CollisionCooldown = false;
+    public bool BrickColisionCD = true;
+
+    private SoundManager m_WallBounce;
 
     void Start () {
 
@@ -55,6 +59,8 @@ public class Ball : MonoBehaviour {
         m_BallCloneRight = GameObject.FindGameObjectWithTag("BallCloneRight").GetComponent<SpriteRenderer>();
         m_BallCloneUp = GameObject.FindGameObjectWithTag("BallCloneUp").GetComponent<SpriteRenderer>();
 
+        m_WallBounce = GameObject.FindGameObjectWithTag("WallBounce").GetComponent<SoundManager>();
+
         if(!isThisAClone) this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_NaveRenderer.bounds.size.y / 1.5f, 0);
     }
 	
@@ -67,7 +73,7 @@ public class Ball : MonoBehaviour {
             speed += 0.0001f;
             if ((IntersectBounds(m_sr, m_NaveRenderer)) && (CollisionCooldown)) //cooldown
             {
-                print(CollisionCooldown);
+                //print(CollisionCooldown);
                
                 if (!(m_sr.bounds.max.y < m_NaveRenderer.bounds.max.y - 0.1f))
                 {
@@ -91,16 +97,25 @@ public class Ball : MonoBehaviour {
             }
             else if (IntersectBounds(m_sr, m_TopWall))
             {
+                m_WallBounce.m_AS.clip = m_WallBounce.m_WallBounce;
+                m_WallBounce.m_AS.Play();
+   
                 if (steelBall) steelBall = false;
                 y = -1;
             }
             else if (IntersectBounds(m_sr, m_LeftWall))
             {
+                m_WallBounce.m_AS.clip = m_WallBounce.m_WallBounce;
+                m_WallBounce.m_AS.Play();
+
                 if (steelBall) steelBall = false;
                 x = 1;
             }
             else if (IntersectBounds(m_sr, m_RightWall))
             {
+                m_WallBounce.m_AS.clip = m_WallBounce.m_WallBounce;
+                m_WallBounce.m_AS.Play();
+
                 if (steelBall) steelBall = false;
                 x = -1;
             }
@@ -254,5 +269,11 @@ public class Ball : MonoBehaviour {
     {
         yield return new WaitForSeconds(2);
         steelBall = false;
+    }
+
+    public IEnumerator brickCollisionCD()
+    {
+        yield return new WaitForSeconds(0.005f);
+        BrickColisionCD = true;
     }
 }

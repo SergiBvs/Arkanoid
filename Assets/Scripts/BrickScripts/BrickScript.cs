@@ -7,6 +7,8 @@ public class BrickScript : MonoBehaviour {
     public enum Brick_Type { normal, steel, desert,   chest, future, dimensional, corrupted, obsidian }
     public Brick_Type brickType;
 
+    
+
     //----For Steel Brick----//
     public Sprite m_BrokenBrick;
 
@@ -40,10 +42,12 @@ public class BrickScript : MonoBehaviour {
     private SpriteRenderer m_Brick;
     private GameManager m_GameManager;
     public bool m_IsCorrupted = false;
-
-    public bool BrickColisionCD = true;
     
     private Ball ballScript;
+
+    // sound stuff
+
+    private SoundManager m_BrickBounce;
 
 
     public int m_brickHealth;
@@ -51,19 +55,19 @@ public class BrickScript : MonoBehaviour {
     private bool isHitting = false;
 
 	// Use this for initialization
-	void Start () {
-
-
-        BrickColisionCD = true;
+	void Start ()
+    {
+        m_BrickBounce = GameObject.FindGameObjectWithTag("BrickBounce").GetComponent<SoundManager>();
         m_Ball = GameObject.FindGameObjectWithTag("Ball");
         m_BallRenderer = m_Ball.GetComponent<SpriteRenderer>();
         m_Brick = this.GetComponent<SpriteRenderer>();
-
+       
         m_BallCloneLeft = GameObject.FindGameObjectWithTag("BallCloneLeft").GetComponent<SpriteRenderer>();
         m_BallCloneRight = GameObject.FindGameObjectWithTag("BallCloneRight").GetComponent<SpriteRenderer>();
         m_BallCloneUp = GameObject.FindGameObjectWithTag("BallCloneUp").GetComponent<SpriteRenderer>();
 
         ballScript = m_Ball.GetComponent<Ball>();
+        ballScript.BrickColisionCD = true;
         m_GameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         
         if(this.brickType == Brick_Type.future)
@@ -77,12 +81,10 @@ public class BrickScript : MonoBehaviour {
 
 	void Update ()
     {
-
-
-		if((IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallRenderer)) && (BrickColisionCD == true)) //cooldown
+		if(IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallRenderer))//cooldown
         {
-            BrickColisionCD = false;
-            StartCoroutine(brickCollisionCD());
+
+            ballScript.StartCoroutine(ballScript.brickCollisionCD());
 
             if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
             {
@@ -117,8 +119,10 @@ public class BrickScript : MonoBehaviour {
 
             }
         }
-        else if ((IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneUp)) && (BrickColisionCD == true)) //cooldown
+        else if ((IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneUp)) && (ballScript.BrickColisionCD == true)) //cooldown
         {
+            ballScript.StartCoroutine(ballScript.brickCollisionCD());
+
             if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
             {
                 isHitting = true;
@@ -152,8 +156,10 @@ public class BrickScript : MonoBehaviour {
 
             }
         }
-        else if ((IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneLeft)) && (BrickColisionCD == true)) //cooldown
+        else if ((IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneLeft)) && (ballScript.BrickColisionCD == true)) //cooldown
         {
+            ballScript.StartCoroutine(ballScript.brickCollisionCD());
+
             if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
             {
                 isHitting = true;
@@ -187,10 +193,12 @@ public class BrickScript : MonoBehaviour {
 
             }
         }
-        else if ((IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneRight)) && (BrickColisionCD == true)) // cooldown 
+        else if ((IntersectBounds(this.GetComponent<SpriteRenderer>(), m_BallCloneRight)) && (ballScript.BrickColisionCD == true)) // cooldown 
         {
             if (!isHitting) //para controlar que no pase mas de una vez en el golpe.
             {
+                ballScript.StartCoroutine(ballScript.brickCollisionCD());
+
                 isHitting = true;
                 switch (brickType)
                 {
@@ -354,12 +362,19 @@ public class BrickScript : MonoBehaviour {
     {
         Bounce(m_BallRenderer, m_Brick, m_BallCloneLeft, m_BallCloneRight, m_BallCloneUp);
 
-
-        HealthCheck();
-        if (m_brickHealth <= 0)
+        if(ballScript.BrickColisionCD)
         {
-            m_GameManager.SumarPuntos(10);
-            Destroy(this.gameObject);
+            m_BrickBounce.m_AS.clip = m_BrickBounce.m_BrickBounce;
+            m_BrickBounce.m_AS.Play();
+
+            ballScript.BrickColisionCD = false;
+            
+            HealthCheck();
+            if (m_brickHealth <= 0)
+            {
+                m_GameManager.SumarPuntos(10);
+                Destroy(this.gameObject);
+            }
         }
     }
 
@@ -367,15 +382,23 @@ public class BrickScript : MonoBehaviour {
     {
         Bounce(m_BallRenderer, m_Brick, m_BallCloneLeft, m_BallCloneRight, m_BallCloneUp);
 
-        HealthCheck();
-        if(m_brickHealth == 1)
+        if (ballScript.BrickColisionCD)
         {
-            m_Brick.sprite = m_BrokenBrick;
-        }
-        else if (m_brickHealth <= 0)
-        {
-            m_GameManager.SumarPuntos(10);
-            Destroy(this.gameObject);
+            m_BrickBounce.m_AS.clip = m_BrickBounce.m_BrickBounce;
+            m_BrickBounce.m_AS.Play();
+
+            ballScript.BrickColisionCD = false;
+
+            HealthCheck();
+            if(m_brickHealth == 1)
+            {
+                m_Brick.sprite = m_BrokenBrick;
+            }
+            else if (m_brickHealth <= 0)
+            {
+                m_GameManager.SumarPuntos(10);
+                Destroy(this.gameObject);
+            }
         }
     }
 
@@ -383,29 +406,44 @@ public class BrickScript : MonoBehaviour {
     {
         Bounce(m_BallRenderer, m_Brick, m_BallCloneLeft, m_BallCloneRight, m_BallCloneUp);
 
-        HealthCheck();       
-        if(m_brickHealth <= 0)
+        if (ballScript.BrickColisionCD)
         {
-            sandFalling = true;
-        }
+            m_BrickBounce.m_AS.clip = m_BrickBounce.m_BrickBounce;
+            m_BrickBounce.m_AS.Play();
 
-        if(this.transform.position.y <= -5.51f)
-        {
-            m_GameManager.SumarPuntos(10);
-            Destroy(this.gameObject);
-        }
+            ballScript.BrickColisionCD = false;
 
+            HealthCheck();       
+            if(m_brickHealth <= 0)
+            {
+                sandFalling = true;
+                m_GameManager.SumarPuntos(10);
+            }
+
+            if(transform.position.y == -5.51f) //esto no funciona 
+            {
+                print("something");
+                Destroy(this.gameObject);
+            }
+        }
     }
 
     public void FutureBehaviour()
     {
         Bounce(m_BallRenderer, m_Brick, m_BallCloneLeft, m_BallCloneRight, m_BallCloneUp);
-        HealthCheck();
-        
-        if (m_brickHealth <= 0)
+        if (ballScript.BrickColisionCD)
         {
-            m_GameManager.SumarPuntos(10);
-            Destroy(this.gameObject);
+            m_BrickBounce.m_AS.clip = m_BrickBounce.m_BrickBounce;
+            m_BrickBounce.m_AS.Play();
+
+            ballScript.BrickColisionCD = false;
+
+            HealthCheck();
+            if (m_brickHealth <= 0)
+            {
+                m_GameManager.SumarPuntos(10);
+                Destroy(this.gameObject);
+            }
         }
     }
 
@@ -426,26 +464,34 @@ public class BrickScript : MonoBehaviour {
     {
         Bounce(m_BallRenderer, m_Brick, m_BallCloneLeft, m_BallCloneRight, m_BallCloneUp);
 
-        m_brickHealth--;
-        if (m_brickHealth == 1)
+        if (ballScript.BrickColisionCD)
         {
-            m_CorruptionObject.SetActive(false);
+            m_BrickBounce.m_AS.clip = m_BrickBounce.m_BrickBounce;
+            m_BrickBounce.m_AS.Play();
 
-            int rand = Random.Range(0, m_NearbyBricks.Length);
-            for (int i = 0; i <= rand; i++)
+            ballScript.BrickColisionCD = false;
+
+            m_brickHealth--;
+            if (m_brickHealth == 1)
             {
-                int rand2 = Random.Range(0, m_NearbyBricks.Length);
-                if (m_NearbyBricks[rand2] != null)
+                m_CorruptionObject.SetActive(false);
+
+                int rand = Random.Range(0, m_NearbyBricks.Length);
+                for (int i = 0; i <= rand; i++)
                 {
-                    m_NearbyBricks[rand2].GetComponent<BrickScript>().m_CorruptionObject.SetActive(true);
-                    m_NearbyBricks[rand2].GetComponent<BrickScript>().m_IsCorrupted = true;
+                    int rand2 = Random.Range(0, m_NearbyBricks.Length);
+                    if (m_NearbyBricks[rand2] != null)
+                    {
+                        m_NearbyBricks[rand2].GetComponent<BrickScript>().m_CorruptionObject.SetActive(true);
+                        m_NearbyBricks[rand2].GetComponent<BrickScript>().m_IsCorrupted = true;
+                    }
                 }
             }
-        }
-        else if (m_brickHealth <= 0)
-        {
-            m_GameManager.SumarPuntos(10);
-            Destroy(this.gameObject);
+            else if (m_brickHealth <= 0)
+            {
+                m_GameManager.SumarPuntos(10);
+                Destroy(this.gameObject);
+            }
         }
     }
 
@@ -464,9 +510,17 @@ public class BrickScript : MonoBehaviour {
     public void ChestBehaviour()
     {
         Bounce(m_BallRenderer, m_Brick, m_BallCloneLeft, m_BallCloneRight, m_BallCloneUp);
-        Instantiate(ChestPowerUps, this.transform.position, Quaternion.identity);
-        m_GameManager.SumarPuntos(10);
-        Destroy(this.gameObject);
+        if (ballScript.BrickColisionCD)
+        {
+            m_BrickBounce.m_AS.clip = m_BrickBounce.m_BrickBounce;
+            m_BrickBounce.m_AS.Play();
+
+            ballScript.BrickColisionCD = false;
+
+            Instantiate(ChestPowerUps, this.transform.position, Quaternion.identity);
+            m_GameManager.SumarPuntos(10);
+            Destroy(this.gameObject);
+        }
     }
 
     public void ObsidianBehaviour()
@@ -479,11 +533,4 @@ public class BrickScript : MonoBehaviour {
         yield return new WaitForSeconds(0.3f);
         m_GameManager.isOut = true;
     }
-
-    public IEnumerator brickCollisionCD()
-    {
-        yield return new WaitForSeconds(0.05f);
-        BrickColisionCD = true;
-    }
-
 }

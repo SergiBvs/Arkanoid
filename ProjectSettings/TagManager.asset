@@ -19,6 +19,11 @@ TagManager:
   - BallCloneUp
   - BallCloneLeft
   - BallCloneRight
+  - DesertBrick
+  - BrickBounce
+  - WallBounce
+  - DeathSound
+  - PowerUpSound
   layers:
   - Default
   - TransparentFX

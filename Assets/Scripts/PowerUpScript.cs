@@ -15,6 +15,8 @@ public class PowerUpScript : MonoBehaviour {
 
     public Sprite[] sprites;
 
+    private SoundManager m_PowerUpSound;
+
    
 
 	// Use this for initialization
@@ -22,6 +24,7 @@ public class PowerUpScript : MonoBehaviour {
         m_ship = GameObject.FindGameObjectWithTag("Player");
         m_Ball = GameObject.FindGameObjectWithTag("Ball");
         m_GameManager = GameObject.FindGameObjectWithTag("GameController");
+        m_PowerUpSound = GameObject.FindGameObjectWithTag("PowerUpSound").GetComponent<SoundManager>();
 
         int rand = Random.Range(0, 7);
         //this.powerupType = (PowerUpType)rand;
@@ -35,6 +38,9 @@ public class PowerUpScript : MonoBehaviour {
 
         if(IntersectBounds(this.GetComponent<SpriteRenderer>(), m_ship.GetComponent<SpriteRenderer>()))
         {
+            m_PowerUpSound.m_AS.clip = m_PowerUpSound.m_PowerUpSound;
+            m_PowerUpSound.m_AS.Play();
+
             switch (powerupType)
             {
                 case PowerUpType.DoubleSize:

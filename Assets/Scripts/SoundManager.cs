@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public AudioSource m_AS;
+    public AudioClip m_BrickBounce;
+    public AudioClip m_WallBounce;
+    public AudioClip m_DeathSound;
+    public AudioClip m_PowerUpSound;
 	
-	// Update is called once per frame
-	void Update () {
+	void Start ()
+    {
+        m_AS = GetComponent<AudioSource>();
+    }
+	
+	
+	void Update ()
+    {
 		
 	}
 }
