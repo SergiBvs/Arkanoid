@@ -383,7 +383,7 @@ public class BrickScript : MonoBehaviour {
             if (m_brickHealth <= 0)
             {
                 m_GameManager.SumarPuntos(10);
-                Destroy(this.gameObject);
+                DestroyBrick();
             }
         }
     }
@@ -407,7 +407,7 @@ public class BrickScript : MonoBehaviour {
             else if (m_brickHealth <= 0)
             {
                 m_GameManager.SumarPuntos(10);
-                Destroy(this.gameObject);
+                DestroyBrick();
             }
         }
     }
@@ -446,7 +446,7 @@ public class BrickScript : MonoBehaviour {
             if (m_brickHealth <= 0)
             {
                 m_GameManager.SumarPuntos(10);
-                Destroy(this.gameObject);
+                DestroyBrick();
             }
         }
     }
@@ -494,7 +494,7 @@ public class BrickScript : MonoBehaviour {
             else if (m_brickHealth <= 0)
             {
                 m_GameManager.SumarPuntos(10);
-                Destroy(this.gameObject);
+                DestroyBrick();
             }
         }
     }
@@ -534,7 +534,7 @@ public class BrickScript : MonoBehaviour {
 
             Instantiate(ChestPowerUps[Random.Range(0,8)], this.transform.position, Quaternion.identity);
             m_GameManager.SumarPuntos(10);
-            Destroy(this.gameObject);
+            DestroyBrick();
         }
     }
 
@@ -547,5 +547,15 @@ public class BrickScript : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.3f);
         m_GameManager.isOut = true;
+    }
+
+    void DestroyBrick()
+    {
+        GameObject brickParticles = (GameObject)Resources.Load("BrickParticles");
+        ParticleSystem ps = brickParticles.GetComponent<ParticleSystem>();
+        ParticleSystem.MainModule main = ps.main;
+        main.startColor = new Color (this.GetComponent<SpriteRenderer>().color.r, this.GetComponent<SpriteRenderer>().color.g, this.GetComponent<SpriteRenderer>().color.b);
+        Instantiate(brickParticles, this.transform.position, Quaternion.Euler(-90,0,0));
+        Destroy(this.gameObject);
     }
 }
