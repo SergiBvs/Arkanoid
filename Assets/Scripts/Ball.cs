@@ -63,7 +63,8 @@ public class Ball : MonoBehaviour {
         m_WallBounce = GameObject.FindGameObjectWithTag("WallBounce").GetComponent<SoundManager>();
         m_ShipBounce = GameObject.FindGameObjectWithTag("ShipBounce").GetComponent<SoundManager>();
 
-        if(!isThisAClone) this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_NaveRenderer.bounds.size.y / 1.5f, 0);
+        if (!isThisAClone) this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_NaveRenderer.bounds.size.y / 1.5f, 0);
+        else speed = 0;
     }
 	
 	// Update is called once per frame
@@ -71,8 +72,8 @@ public class Ball : MonoBehaviour {
 
         if (movementStarted)
         {
+            if(!isThisAClone) speed += 0.0002f;
 
-            speed += 0.0001f;
             if ((IntersectBounds(m_sr, m_NaveRenderer)) /*&& (CollisionCooldown)*/) //cooldown
             {
                 m_ShipBounce.m_AS.clip = m_ShipBounce.m_ShipBounce;
@@ -131,17 +132,6 @@ public class Ball : MonoBehaviour {
                     this.transform.position = new Vector3(m_Nave.transform.position.x, m_Nave.transform.position.y + m_NaveRenderer.bounds.size.y / 1.5f, 0);
                     movementStarted = false;
                     m_GameManager.RestarVidas();
-
-                    m_BallCloneLeft.transform.position = new Vector3(100, 100);
-                    m_BallCloneRight.transform.position = new Vector3(100, 100);
-                    m_BallCloneUp.transform.position = new Vector3(100, 100);
-
-                    if(isThisAClone)
-                    {
-                        speed = 0;
-                    }
-
-
                 }
                 else
                 {

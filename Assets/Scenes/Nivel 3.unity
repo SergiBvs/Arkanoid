@@ -3103,8 +3103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce5c4d5324c8ac4d9b093880b548b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Ball: {fileID: 0}
-  m_Ship: {fileID: 0}
   m_CurrentScore: 0
   BrickNumber: 63
   isOut: 1
@@ -5858,6 +5856,11 @@ Prefab:
     - target: {fileID: 4000859259450050, guid: 9b810be0be60b144f8216ce191c6f9e9, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114765929347977402, guid: 9b810be0be60b144f8216ce191c6f9e9,
+        type: 2}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b810be0be60b144f8216ce191c6f9e9, type: 2}

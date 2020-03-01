@@ -37,36 +37,36 @@ public class PowerUpScript : MonoBehaviour {
             {
                 case PowerUpType.DoubleSize:
                     m_ship.GetComponent<Ship>().DoubleSize();
-                    Destroy(this.gameObject);
+                    DestroyPwrup();
                     print("Double Size");
                     break;
                 case PowerUpType.GlueShip:
                     m_Ball.GetComponent<Ball>().GlueBall();
-                    Destroy(this.gameObject);
+                    DestroyPwrup();
                     print("GlueShip");
                     break;
                 case PowerUpType.MultiplyBall:
                     m_Ball.GetComponent<Ball>().TripleBall();
-                    Destroy(this.gameObject);
+                    DestroyPwrup();
                     break;
                 case PowerUpType.SlowBall:
                     m_Ball.GetComponent<Ball>().SlowBall();
-                    Destroy(this.gameObject);
+                    DestroyPwrup();
                     print("SlowBall");
                     break;
                 case PowerUpType.SteelBall:
                     m_Ball.GetComponent<Ball>().SteelBall();
-                    Destroy(this.gameObject);
+                    DestroyPwrup();
                     print("SteelBall");
                     break;
                 case PowerUpType.InvertControls:
                     m_ship.GetComponent<Ship>().InvertControls();
-                    Destroy(this.gameObject);
+                    DestroyPwrup();
                     print("InvertControls");
                     break;
                 case PowerUpType.HealthUp:
                     m_GameManager.GetComponent<GameManager>().HealthUp();
-                    Destroy(this.gameObject);
+                    DestroyPwrup();
                     print("HealthUp");
                     break;
 
@@ -83,5 +83,17 @@ public class PowerUpScript : MonoBehaviour {
             && l_Ball.bounds.max.x > l_Nave.bounds.min.x
             && l_Ball.bounds.min.x < l_Nave.bounds.max.x;
 
+    }
+
+    void DestroyPwrup()
+    {
+        GameObject particles = (GameObject)Resources.Load("BrickParticles");
+        ParticleSystem.MainModule pamain = particles.GetComponent<ParticleSystem>().main;
+        pamain.startColor = new Color(14/255f, 236/255f, 231/255f);
+
+        Instantiate(particles, this.transform.position, Quaternion.Euler(-90,0,0));
+
+        Destroy(this.gameObject);
+        
     }
 }

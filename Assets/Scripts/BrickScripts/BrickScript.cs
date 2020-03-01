@@ -45,7 +45,11 @@ public class BrickScript : MonoBehaviour {
     private SpriteRenderer m_Brick;
     private GameManager m_GameManager;
     public bool m_IsCorrupted = false;
-    
+
+    private float r;
+    private float g;
+    private float b;
+
     private Ball ballScript;
 
     // sound stuff
@@ -67,6 +71,10 @@ public class BrickScript : MonoBehaviour {
         m_Ball = GameObject.FindGameObjectWithTag("Ball");
         m_BallRenderer = m_Ball.GetComponent<SpriteRenderer>();
         m_Brick = this.GetComponent<SpriteRenderer>();
+
+        r = m_Brick.color.r;
+        g = m_Brick.color.g;
+        b = m_Brick.color.b;
        
         m_BallCloneLeft = GameObject.FindGameObjectWithTag("BallCloneLeft").GetComponent<SpriteRenderer>();
         m_BallCloneRight = GameObject.FindGameObjectWithTag("BallCloneRight").GetComponent<SpriteRenderer>();
@@ -554,7 +562,8 @@ public class BrickScript : MonoBehaviour {
         GameObject brickParticles = (GameObject)Resources.Load("BrickParticles");
         ParticleSystem ps = brickParticles.GetComponent<ParticleSystem>();
         ParticleSystem.MainModule main = ps.main;
-        main.startColor = new Color (this.GetComponent<SpriteRenderer>().color.r, this.GetComponent<SpriteRenderer>().color.g, this.GetComponent<SpriteRenderer>().color.b);
+        float rand = Random.Range(0, 0.5f);
+        main.startColor = new ParticleSystem.MinMaxGradient(new Color (r-rand,g-rand,b-rand), new Color(r+rand,g+rand,b+rand));
         Instantiate(brickParticles, this.transform.position, Quaternion.Euler(-90,0,0));
         Destroy(this.gameObject);
     }
