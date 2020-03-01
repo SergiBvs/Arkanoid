@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ship : MonoBehaviour {
@@ -27,7 +26,7 @@ public class Ship : MonoBehaviour {
             {
                 this.transform.position += Vector3.right * Time.deltaTime * ShipSpeed;
             }
-            if((Input.GetAxisRaw("Horizontal")<0) && (IntersectBoundsLeft(GetComponent<SpriteRenderer>(), LeftWall.GetComponent<SpriteRenderer>()) == false))// move left
+            else if((Input.GetAxisRaw("Horizontal")<0) && (IntersectBoundsLeft(GetComponent<SpriteRenderer>(), LeftWall.GetComponent<SpriteRenderer>()) == false))// move left
             {
                 this.transform.position += Vector3.left * Time.deltaTime * ShipSpeed;
             }
@@ -38,7 +37,7 @@ public class Ship : MonoBehaviour {
             {
                 this.transform.position += Vector3.right * Time.deltaTime * ShipSpeed;
             }
-            if ((Input.GetAxisRaw("Horizontal") > 0) && (IntersectBoundsLeft(GetComponent<SpriteRenderer>(), LeftWall.GetComponent<SpriteRenderer>()) == false))// move left
+            else if ((Input.GetAxisRaw("Horizontal") > 0) && (IntersectBoundsLeft(GetComponent<SpriteRenderer>(), LeftWall.GetComponent<SpriteRenderer>()) == false))// move left
             {
                 this.transform.position += Vector3.left * Time.deltaTime * ShipSpeed;
             }

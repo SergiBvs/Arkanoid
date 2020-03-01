@@ -1,12 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(BrickScript))]
 [CanEditMultipleObjects]
 
 public class Brick_Editor : Editor {
+
+	/* La verdad es que la idea de hacer un custom inspector
+	 * parecia bastante guay y útil pero al final ha acabado
+	 * dando mas problemas de los que ha solucionado. */
 
 	public SerializedProperty
 		brickType_Prop,

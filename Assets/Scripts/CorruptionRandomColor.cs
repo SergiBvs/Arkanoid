@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CorruptionRandomColor : MonoBehaviour {
 
@@ -19,10 +17,5 @@ public class CorruptionRandomColor : MonoBehaviour {
 			Color color = new Color(Colors.x, Colors.y, Colors.z);
 			this.GetComponent<SpriteRenderer>().color = color;
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }
