@@ -109,6 +109,8 @@ MonoBehaviour:
   - {fileID: 1715756935317804, guid: 08b2bf7fbfad27f4e86f0f5af2f42a6f, type: 2}
   - {fileID: 1151790326620066, guid: 432ad1de8ef40b647af967d23b19ed8e, type: 2}
   - {fileID: 1534524566290652, guid: 5912d4a4106d76b41af81607a7aa2e37, type: 2}
+  - {fileID: 1715756935317804, guid: a73beb8114a54d14f9386d80be41de99, type: 2}
+  - {fileID: 1715756935317804, guid: f24f97497defd07428f0bba816475c7c, type: 2}
   MimicPowerUps: {fileID: 0}
   sandSpeed: 0
   m_connectedPortal: {fileID: 0}

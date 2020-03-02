@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 95558179614313600}
   - component: {fileID: 114594793272726090}
   m_Layer: 0
-  m_Name: pwrup_steel 1
+  m_Name: pwrup_inverted
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a9a599906ce93488299f7101db27cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupType: 2
+  powerupType: 5
 --- !u!198 &198342996175511984
 ParticleSystem:
   m_ObjectHideFlags: 1
